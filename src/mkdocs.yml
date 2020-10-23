@@ -1,4 +1,8 @@
-site_name: OverTheWire Bandit Tutorial
+site_name: Campbell's Page
 nav:
   - Home: index.md
-
+  - Bandit: otwbandit.md
+theme:
+  name: material
+markdown_extensions:
+  - admonition
