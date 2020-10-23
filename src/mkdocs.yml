@@ -1,0 +1,4 @@
+site_name: OverTheWire Bandit Tutorial
+nav:
+  - Home: index.md
+
