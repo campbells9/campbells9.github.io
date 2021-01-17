@@ -198,7 +198,7 @@ I said "we identify files by their pathnames in the file system's namespace"
 because filenames are just links to files. One file can have many filenames and
 many absolute pathnames.
 
-!!! tip "Special Directory Entries"
+!!! note "Special Directory Entries"
 	Another important note on relative pathnames: every directory has two special
 	entries for files in it, called ```.``` and ```..```.
 
@@ -284,3 +284,57 @@ between arguments.
 
 	```sshpass -f pass2.txt ssh -p 2220 bandit2@bandit.labs.overthewire.org cat
 	\"spaces in this filename\" > pass3.txt```
+
+## Level 4
+---
+
+Once again, we are looking for a file with ```bandit4```'s password. This time,
+it should be in a directory called ```inhere```, which we can see in the home
+directory:
+
+```
+bandit3@bandit:~$ ls
+inhere
+bandit3@bandit:~$ file inhere
+inhere: directory
+```
+
+For convenience, we can set our working directory to ```inhere``` with the
+```cd``` command. Let's look inside:
+
+```
+bandit3@bandit:~$ cd inhere
+bandit3@bandit:~/inhere$ ls
+```
+
+Nothing showed up! Is this directory empty? We were told that the password is
+stored in a "hidden file" in ```inhere```. A file is hidden if its name starts
+with a period ```.```. Typically, filenames starting with ```.``` do not appear
+when you type an ```ls``` command. This is why we don't see entries for ```.```
+and ```..``` every time; they are hidden entries. To find the password, we need
+to tell ```ls``` to show us every entry in ```inhere```, hidden or otherwise.
+Look into the manual page for ```ls``` and look at options ```--all``` and
+```--almost-all```.
+
+!!! tip "Hidden Files"
+	Hiding files by putting a ```.``` in their names is not a form of security.
+	It doesn't prevent anyone from reading or messing with the files. It just
+	keeps them from appearing every time you look through a directory's
+	contents. Your home directory might have many configuration files for your
+	shell and other programs, as well as personal files like documents and
+	pictures. Those configuration files are important, but they're not
+	personally meaningful to you, so unless you are specifically looking for
+	them, they don't need to clutter your home directory. File managers like the
+	File Explorer on Windows or the Finder on Mac usually have an option to
+	show/hide hidden files.
+
+??? success "Level 4 Solution"
+	```cat inhere/.hidden```
+
+	```sshpass -f pass3.txt ssh -p 2220 bandit3@bandit.labs.overthewire.org cat
+	inhere/.hidden > pass4.txt```
+
+## Level 5
+---
+
+
