@@ -8,18 +8,20 @@ good idea to Google any concepts or commands that you don't understand. You can
 also use Google to resolve any strange errors or problems you encounter.
 
 To play Bandit, you need access to a terminal. Macs and Linux systems should
-already have a Terminal program for you to use, but what Windows provides is a bit different.
-It's probably possible to complete Bandit on Windows using ```putty```, but this
-guide assumes you are using SSH in an ```sh``` shell like ```bash``` or
-```zsh```. To access an environment like this on Windows, I recommend either
-installing [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+already have a Terminal program for you to use, but what Windows provides is a 
+bit different. It's probably possible to complete Bandit on Windows using
+```putty```, but this guide assumes you are using SSH in an ```sh``` shell like
+```bash``` or ```zsh```. To access an environment like this on Windows, I
+recommend either installing [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 or setting up a Linux virtual machine. For the virtual machine, there are many
 options, such as [Hyper-V](https://www.windowscentral.com/how-run-linux-distros-windows-10-using-hyper-v),
 [VMware](https://www.makeuseof.com/tag/install-linux-windows-vmware-virtual-machine/),
 and [VirtualBox](https://www.instructables.com/How-to-install-Linux-on-your-Windows/).
 Any Linux distribution you choose should be fine.
 
-Bandit can be found [here](https://overthewire.org/wargames/bandit/).
+The Bandit levels have many possible solutions and correct approaches, and the
+solutions I describe are just ones that I came up with myself. Bandit can be
+found [here](https://overthewire.org/wargames/bandit/).
 
 ## Level 0
 ---
@@ -220,3 +222,65 @@ to it by another pathname.
 
 	```sshpass -f pass1.txt ssh -p 2220 bandit1@bandit.labs.overthewire.org cat
 	./- > pass2.txt```
+
+## Level 3
+---
+
+Now, ```bandit3```'s password is stored in a file called "```spaces in this
+filename```", so let's try to read it:
+
+```
+bandit2@bandit:~$ ls
+spaces in this filename
+bandit2@bandit:~$ cat spaces in this filename
+cat: spaces: No such file or directory
+cat: in: No such file or directory
+cat: this: No such file or directory
+cat: filename: No such file or directory
+```
+
+Why did that happen? Let's look at the ```cat``` manual page again:
+
+> cat [OPTION]... [FILE]...
+
+> Concatenate FILE(s) to standard output.
+
+The ```cat``` command doesn't only work on a single file; it can take a list of
+files and print them all out in a row (concatenate them to standard output).
+When we type ```cat spaces in this filename```, ```cat``` thinks we want to
+print four different files: ```spaces```, ```in```, ```this```, and
+```filename```. There are no files in the current working directory with any of
+those names, so ```cat``` reports that it failed to find each one. Trying to use
+a different pathname like we did in the previous level doesn't solve this
+problem.
+
+The culprit is actually our shell. When we type in a command and hit Enter, the
+shell interprets our command to figure out which program to run and which
+*arguments* it should run with. Normally, the shell can figure out what each
+argument should be because we separate them with spaces when we type them. If we
+type ```cat``` and four words with spaces between them, the shell assumes that
+each of those words is a separate argument to ```cat```, and ```cat``` assumes
+that each of its arguments is the name of a file to print out. We want to type
+"```spaces in this filename```" as a single argument/filename to ```cat```, not
+four separate ones.
+
+In ```bash```, there are a couple ways to achieve this. One way is to surround
+the filename in single ```'``` or double ```"``` quotes. Another is to *escape*
+each individual space character in the filename with a backslash ```\```. Many
+characters have special meanings to your shell, like spaces or quotation marks,
+but sometimes you want the shell to ignore those special meanings and use the
+character literally. If you type a backslash before a space, the shell will
+correctly assume that the space is part of the argument and not a *delimiter*
+between arguments.
+
+??? success "Level 3 Solution"
+	```cat "spaces in this filename"```
+
+	Something interesting happens with this one-liner: you need to escape the
+	quotation marks around the filename. If you don't, your shell passes the
+	incorrect ```cat spaces in this filename``` command to ```ssh```. If we
+	escape the quotation marks on *our* shell, then the filename will be quoted
+	correctly in the command sent to ```bandit.labs.overthewire.org```.
+
+	```sshpass -f pass2.txt ssh -p 2220 bandit2@bandit.labs.overthewire.org cat
+	\"spaces in this filename\" > pass3.txt```

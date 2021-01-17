@@ -233,6 +233,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#level-3" class="md-nav__link">
+    Level 3
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -285,6 +292,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#level-3" class="md-nav__link">
+    Level 3
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -306,17 +320,19 @@ the next level. This guide will assume little prior knowledge, but it's always a
 good idea to Google any concepts or commands that you don't understand. You can
 also use Google to resolve any strange errors or problems you encounter.</p>
 <p>To play Bandit, you need access to a terminal. Macs and Linux systems should
-already have a Terminal program for you to use, but what Windows provides is a bit different.
-It's probably possible to complete Bandit on Windows using <code>putty</code>, but this
-guide assumes you are using SSH in an <code>sh</code> shell like <code>bash</code> or
-<code>zsh</code>. To access an environment like this on Windows, I recommend either
-installing <a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">Windows Subsystem for Linux</a>
+already have a Terminal program for you to use, but what Windows provides is a 
+bit different. It's probably possible to complete Bandit on Windows using
+<code>putty</code>, but this guide assumes you are using SSH in an <code>sh</code> shell like
+<code>bash</code> or <code>zsh</code>. To access an environment like this on Windows, I
+recommend either installing <a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">Windows Subsystem for Linux</a>
 or setting up a Linux virtual machine. For the virtual machine, there are many
 options, such as <a href="https://www.windowscentral.com/how-run-linux-distros-windows-10-using-hyper-v">Hyper-V</a>,
 <a href="https://www.makeuseof.com/tag/install-linux-windows-vmware-virtual-machine/">VMware</a>,
 and <a href="https://www.instructables.com/How-to-install-Linux-on-your-Windows/">VirtualBox</a>.
 Any Linux distribution you choose should be fine.</p>
-<p>Bandit can be found <a href="https://overthewire.org/wargames/bandit/">here</a>.</p>
+<p>The Bandit levels have many possible solutions and correct approaches, and the
+solutions I describe are just ones that I came up with myself. Bandit can be
+found <a href="https://overthewire.org/wargames/bandit/">here</a>.</p>
 <h2 id="level-0">Level 0</h2>
 <hr />
 <p>Each level of Bandit is completed by logging in to the game server with the
@@ -472,6 +488,57 @@ to it by another pathname.</p>
 the Level 2 password in <code>pass2.txt</code>:</p>
 <p><code>sshpass -f pass1.txt ssh -p 2220 bandit1@bandit.labs.overthewire.org cat
 ./- &gt; pass2.txt</code></p>
+</details>
+<h2 id="level-3">Level 3</h2>
+<hr />
+<p>Now, <code>bandit3</code>'s password is stored in a file called "<code>spaces in this
+filename</code>", so let's try to read it:</p>
+<pre><code>bandit2@bandit:~$ ls
+spaces in this filename
+bandit2@bandit:~$ cat spaces in this filename
+cat: spaces: No such file or directory
+cat: in: No such file or directory
+cat: this: No such file or directory
+cat: filename: No such file or directory
+</code></pre>
+<p>Why did that happen? Let's look at the <code>cat</code> manual page again:</p>
+<blockquote>
+<p>cat [OPTION]... [FILE]...</p>
+<p>Concatenate FILE(s) to standard output.</p>
+</blockquote>
+<p>The <code>cat</code> command doesn't only work on a single file; it can take a list of
+files and print them all out in a row (concatenate them to standard output).
+When we type <code>cat spaces in this filename</code>, <code>cat</code> thinks we want to
+print four different files: <code>spaces</code>, <code>in</code>, <code>this</code>, and
+<code>filename</code>. There are no files in the current working directory with any of
+those names, so <code>cat</code> reports that it failed to find each one. Trying to use
+a different pathname like we did in the previous level doesn't solve this
+problem.</p>
+<p>The culprit is actually our shell. When we type in a command and hit Enter, the
+shell interprets our command to figure out which program to run and which
+<em>arguments</em> it should run with. Normally, the shell can figure out what each
+argument should be because we separate them with spaces when we type them. If we
+type <code>cat</code> and four words with spaces between them, the shell assumes that
+each of those words is a separate argument to <code>cat</code>, and <code>cat</code> assumes
+that each of its arguments is the name of a file to print out. We want to type
+"<code>spaces in this filename</code>" as a single argument/filename to <code>cat</code>, not
+four separate ones.</p>
+<p>In <code>bash</code>, there are a couple ways to achieve this. One way is to surround
+the filename in single <code>'</code> or double <code>"</code> quotes. Another is to <em>escape</em>
+each individual space character in the filename with a backslash <code>\</code>. Many
+characters have special meanings to your shell, like spaces or quotation marks,
+but sometimes you want the shell to ignore those special meanings and use the
+character literally. If you type a backslash before a space, the shell will
+correctly assume that the space is part of the argument and not a <em>delimiter</em>
+between arguments.</p>
+<details class="success"><summary>Level 3 Solution</summary><p><code>cat "spaces in this filename"</code></p>
+<p>Something interesting happens with this one-liner: you need to escape the
+quotation marks around the filename. If you don't, your shell passes the
+incorrect <code>cat spaces in this filename</code> command to <code>ssh</code>. If we
+escape the quotation marks on <em>our</em> shell, then the filename will be quoted
+correctly in the command sent to <code>bandit.labs.overthewire.org</code>.</p>
+<p><code>sshpass -f pass2.txt ssh -p 2220 bandit2@bandit.labs.overthewire.org cat
+\"spaces in this filename\" &gt; pass3.txt</code></p>
 </details>
                 
               
