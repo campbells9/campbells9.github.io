@@ -329,12 +329,125 @@ Look into the manual page for ```ls``` and look at options ```--all``` and
 	show/hide hidden files.
 
 ??? success "Level 4 Solution"
+	```ls --almost-all inhere``` to see the name of the file.
+
 	```cat inhere/.hidden```
 
 	```sshpass -f pass3.txt ssh -p 2220 bandit3@bandit.labs.overthewire.org cat
 	inhere/.hidden > pass4.txt```
 
+	One line without prior knowledge:
+
+	```cat inhere/$(ls -A inhere)```
+
+	```sshpass -f pass3.txt ssh -p 2220 bandit3@bandit.labs.overthewire.org cat
+	inhere/\$\(ls -A inhere\) > pass4.txt```
+
 ## Level 5
 ---
 
+We have another ```inhere``` directory, so let's look inside:
 
+```
+bandit4@bandit:~$ ls
+inhere
+bandit4@bandit:~$ cd inhere
+bandit4@bandit:~/inhere$ ls
+-file00  -file02  -file04  -file06  -file08
+-file01  -file03  -file05  -file07  -file09
+```
+
+The "only human-readable file" here is the one with the password. If you start
+```cat```-ing files, you will realize that 1) you need to be careful with
+filenames that start with dashes (see [Level 2](#level-2)) and 2) most of them
+are full of unreadable characters. If your command line gets too corrupted, you
+can use ```clear``` or ```reset``` to restore it back to normal. You could just
+```cat``` every file and see which one's contents look like the next password,
+but there's a better way to quickly identify which file is a text file with the
+```file``` command.
+
+```file``` can take multiple filenames as arguments, but to avoid typing all ten
+filenames, you can use a wildcard. The wildcard ```*``` matches any set of zero
+or more characters in a filename: this means that ```cat *``` will print out the
+contents of every file in the current working directory. It would be equivalent
+to ```cat -file00 -file01 ...``` because a single ```*``` matches with the names
+of all of the files.
+
+??? success "Level 5 Solution"
+	```file inhere/*``` to see which file is a text file.
+
+	```cat inhere/-file07```
+
+	```sshpass -f pass4.txt ssh -p 2220 bandit4@bandit.labs.overthewire.org cat
+	inhere/-file07 > pass5.txt```
+
+	One line without prior knowledge:
+
+	```readable=$(file inhere/* | grep ": ASCII text$"); cat ${readable%: ASCII
+	text}```
+
+	The one-liner uses ```grep``` to find the files that ```file``` reports have
+	"ASCII text". Then, it removes the "ASCII text" substring from the output
+	and passes the resulting filename to ```cat```.
+
+	```sshpass -f pass4.txt ssh -p 2220 bandit4@bandit.labs.overthewire.org
+	x\=\$\(file\ inhere/*\|grep\ \":\ ASCII\ text\$\"\)\;cat\ \${x%:\ ASCII\
+	text} > pass5.txt```
+
+## Level 6
+---
+
+This time, we are told that the password file is in ```inhere```, and it should
+have some specific properties: it is human-readable, non-executable, and exactly
+1033 bytes long. The ```inhere``` directory has 20 subdirectories:
+
+```
+bandit5@bandit:~$ ls
+inhere
+bandit5@bandit:~$ cd inhere
+bandit5@bandit:~/inhere$ ls
+maybehere00  maybehere04  maybehere08  maybehere12  maybehere16
+maybehere01  maybehere05  maybehere09  maybehere13  maybehere17
+maybehere02  maybehere06  maybehere10  maybehere14  maybehere18
+maybehere03  maybehere07  maybehere11  maybehere15  maybehere19
+```
+
+Each one has several files, so it would take too long to check every single one.
+We could certainly use ```file */*``` to see which files have readable text, but
+there are still too many! Surely, we could narrow it down even further if we had
+a way to search for files that are exactly 1033 bytes long. The ```find```
+command can be used to search for files by name, type, size, or many other
+properties. Look through the manual page for ```find``` to see which options
+could be used to find files that match the hint's description.
+
+!!! tip "Searching by Permissions"
+	Don't be confused by the ```-readable``` option in ```find```; it doesn't
+	check whether the file is "human-readable." It actually checks whether you 
+	(the user ```bandit5```) have *permission* to read the file. The
+	```-executable``` option works the same way; it checks for permission to
+	execute the file, not whether the file is actually an executable program.
+	However, we could interpret the hint "non-executable" to mean "a file you 
+	don't have permission to execute."
+
+??? success "Level 6 Solution"
+	```find inhere -size 1033c``` is sufficient to find the file, because there
+	is only one 1033-byte file in the directory structure. ```find inhere -size
+	1033c ! -executable``` would filter out any executable files.
+
+	```cat inhere/maybehere07/.file2```
+
+	The file is 1033 bytes long, but every password so far has only been 32
+	characters long (each character is 1 byte). The ```.file2``` contains the 32
+	byte password, a newline character, and 1000 spaces. This one-liner uses
+	```echo $(cat ...)``` instead of ```cat``` to save the file without all of
+	the trailing spaces (the shell will not pass those spaces to ```echo```).
+
+	```sshpass -f pass5.txt ssh -p 2220 bandit5@bandit.labs.overthewire.org echo
+	\$\(cat inhere/maybehere07/.file2\) > pass6.txt```
+
+	One line without prior knowledge:
+
+	```echo $(cat $(find inhere -size 1033c ! -executable))```
+
+	```sshpass -f pass5.txt ssh -p 2220 bandit5@bandit.labs.overthewire.org echo
+	\$\(cat \$\(find inhere -size 1033c ! -executable\)\) > pass6.txt```

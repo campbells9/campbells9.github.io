@@ -254,6 +254,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#level-6" class="md-nav__link">
+    Level 6
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -323,6 +330,13 @@
         <li class="md-nav__item">
   <a href="#level-5" class="md-nav__link">
     Level 5
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#level-6" class="md-nav__link">
+    Level 6
   </a>
   
 </li>
@@ -604,12 +618,100 @@ them, they don't need to clutter your home directory. File managers like the
 File Explorer on Windows or the Finder on Mac usually have an option to
 show/hide hidden files.</p>
 </div>
-<details class="success"><summary>Level 4 Solution</summary><p><code>cat inhere/.hidden</code></p>
+<details class="success"><summary>Level 4 Solution</summary><p><code>ls --almost-all inhere</code> to see the name of the file.</p>
+<p><code>cat inhere/.hidden</code></p>
 <p><code>sshpass -f pass3.txt ssh -p 2220 bandit3@bandit.labs.overthewire.org cat
 inhere/.hidden &gt; pass4.txt</code></p>
+<p>One line without prior knowledge:</p>
+<p><code>cat inhere/$(ls -A inhere)</code></p>
+<p><code>sshpass -f pass3.txt ssh -p 2220 bandit3@bandit.labs.overthewire.org cat
+inhere/\$\(ls -A inhere\) &gt; pass4.txt</code></p>
 </details>
 <h2 id="level-5">Level 5</h2>
 <hr />
+<p>We have another <code>inhere</code> directory, so let's look inside:</p>
+<pre><code>bandit4@bandit:~$ ls
+inhere
+bandit4@bandit:~$ cd inhere
+bandit4@bandit:~/inhere$ ls
+-file00  -file02  -file04  -file06  -file08
+-file01  -file03  -file05  -file07  -file09
+</code></pre>
+<p>The "only human-readable file" here is the one with the password. If you start
+<code>cat</code>-ing files, you will realize that 1) you need to be careful with
+filenames that start with dashes (see <a href="#level-2">Level 2</a>) and 2) most of them
+are full of unreadable characters. If your command line gets too corrupted, you
+can use <code>clear</code> or <code>reset</code> to restore it back to normal. You could just
+<code>cat</code> every file and see which one's contents look like the next password,
+but there's a better way to quickly identify which file is a text file with the
+<code>file</code> command.</p>
+<p><code>file</code> can take multiple filenames as arguments, but to avoid typing all ten
+filenames, you can use a wildcard. The wildcard <code>*</code> matches any set of zero
+or more characters in a filename: this means that <code>cat *</code> will print out the
+contents of every file in the current working directory. It would be equivalent
+to <code>cat -file00 -file01 ...</code> because a single <code>*</code> matches with the names
+of all of the files.</p>
+<details class="success"><summary>Level 5 Solution</summary><p><code>file inhere/*</code> to see which file is a text file.</p>
+<p><code>cat inhere/-file07</code></p>
+<p><code>sshpass -f pass4.txt ssh -p 2220 bandit4@bandit.labs.overthewire.org cat
+inhere/-file07 &gt; pass5.txt</code></p>
+<p>One line without prior knowledge:</p>
+<p><code>readable=$(file inhere/* | grep ": ASCII text$"); cat ${readable%: ASCII
+text}</code></p>
+<p>The one-liner uses <code>grep</code> to find the files that <code>file</code> reports have
+"ASCII text". Then, it removes the "ASCII text" substring from the output
+and passes the resulting filename to <code>cat</code>.</p>
+<p><code>sshpass -f pass4.txt ssh -p 2220 bandit4@bandit.labs.overthewire.org
+x\=\$\(file\ inhere/*\|grep\ \":\ ASCII\ text\$\"\)\;cat\ \${x%:\ ASCII\
+text} &gt; pass5.txt</code></p>
+</details>
+<h2 id="level-6">Level 6</h2>
+<hr />
+<p>This time, we are told that the password file is in <code>inhere</code>, and it should
+have some specific properties: it is human-readable, non-executable, and exactly
+1033 bytes long. The <code>inhere</code> directory has 20 subdirectories:</p>
+<pre><code>bandit5@bandit:~$ ls
+inhere
+bandit5@bandit:~$ cd inhere
+bandit5@bandit:~/inhere$ ls
+maybehere00  maybehere04  maybehere08  maybehere12  maybehere16
+maybehere01  maybehere05  maybehere09  maybehere13  maybehere17
+maybehere02  maybehere06  maybehere10  maybehere14  maybehere18
+maybehere03  maybehere07  maybehere11  maybehere15  maybehere19
+</code></pre>
+<p>Each one has several files, so it would take too long to check every single one.
+We could certainly use <code>file */*</code> to see which files have readable text, but
+there are still too many! Surely, we could narrow it down even further if we had
+a way to search for files that are exactly 1033 bytes long. The <code>find</code>
+command can be used to search for files by name, type, size, or many other
+properties. Look through the manual page for <code>find</code> to see which options
+could be used to find files that match the hint's description.</p>
+<div class="admonition tip">
+<p class="admonition-title">Searching by Permissions</p>
+<p>Don't be confused by the <code>-readable</code> option in <code>find</code>; it doesn't
+check whether the file is "human-readable." It actually checks whether you 
+(the user <code>bandit5</code>) have <em>permission</em> to read the file. The
+<code>-executable</code> option works the same way; it checks for permission to
+execute the file, not whether the file is actually an executable program.
+However, we could interpret the hint "non-executable" to mean "a file you 
+don't have permission to execute."</p>
+</div>
+<details class="success"><summary>Level 6 Solution</summary><p><code>find inhere -size 1033c</code> is sufficient to find the file, because there
+is only one 1033-byte file in the directory structure. <code>find inhere -size
+1033c ! -executable</code> would filter out any executable files.</p>
+<p><code>cat inhere/maybehere07/.file2</code></p>
+<p>The file is 1033 bytes long, but every password so far has only been 32
+characters long (each character is 1 byte). The <code>.file2</code> contains the 32
+byte password, a newline character, and 1000 spaces. This one-liner uses
+<code>echo $(cat ...)</code> instead of <code>cat</code> to save the file without all of
+the trailing spaces (the shell will not pass those spaces to <code>echo</code>).</p>
+<p><code>sshpass -f pass5.txt ssh -p 2220 bandit5@bandit.labs.overthewire.org echo
+\$\(cat inhere/maybehere07/.file2\) &gt; pass6.txt</code></p>
+<p>One line without prior knowledge:</p>
+<p><code>echo $(cat $(find inhere -size 1033c ! -executable))</code></p>
+<p><code>sshpass -f pass5.txt ssh -p 2220 bandit5@bandit.labs.overthewire.org echo
+\$\(cat \$\(find inhere -size 1033c ! -executable\)\) &gt; pass6.txt</code></p>
+</details>
                 
               
               
