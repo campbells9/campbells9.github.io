@@ -282,8 +282,16 @@ between arguments.
 	escape the quotation marks on *our* shell, then the filename will be quoted
 	correctly in the command sent to ```bandit.labs.overthewire.org```.
 
-	```sshpass -f pass2.txt ssh -p 2220 bandit2@bandit.labs.overthewire.org cat
-	\"spaces in this filename\" > pass3.txt```
+	```
+	sshpass -f pass2.txt ssh -p 2220 bandit2@bandit.labs.overthewire.org \
+	cat \"spaces in this filename\" > pass3.txt
+	```
+
+	Also, if you want to press Enter to start a new line in your command
+	(instead of submitting it), you just need to type a backslash ```\``` before
+	you hit Enter. You can think of it like you are using a backslash to escape
+	the Enter key, so instead of issuing your command, you actually get a new
+	line within it.
 
 ## Level 4
 ---
@@ -340,8 +348,10 @@ Look into the manual page for ```ls``` and look at options ```--all``` and
 
 	```cat inhere/$(ls -A inhere)```
 
-	```sshpass -f pass3.txt ssh -p 2220 bandit3@bandit.labs.overthewire.org cat
-	inhere/\$\(ls -A inhere\) > pass4.txt```
+	```
+	sshpass -f pass3.txt ssh -p 2220 bandit3@bandit.labs.overthewire.org \
+	cat inhere/\$\(ls -A inhere\) > pass4.txt
+	```
 
 ## Level 5
 ---
@@ -390,9 +400,11 @@ of all of the files.
 	"ASCII text". Then, it removes the "ASCII text" substring from the output
 	and passes the resulting filename to ```cat```.
 
-	```sshpass -f pass4.txt ssh -p 2220 bandit4@bandit.labs.overthewire.org
-	x\=\$\(file\ inhere/*\|grep\ \":\ ASCII\ text\$\"\)\;cat\ \${x%:\ ASCII\
-	text} > pass5.txt```
+	```
+	sshpass -f pass4.txt ssh -p 2220 bandit4@bandit.labs.overthewire.org \
+	x\=\$\(file\ inhere/*\|grep\ \":\ ASCII\ text\$\"\)\;\
+	cat\ \${x%:\ ASCII\ text} > pass5.txt
+	```
 
 ## Level 6
 ---
@@ -449,5 +461,116 @@ could be used to find files that match the hint's description.
 
 	```echo $(cat $(find inhere -size 1033c ! -executable))```
 
-	```sshpass -f pass5.txt ssh -p 2220 bandit5@bandit.labs.overthewire.org echo
-	\$\(cat \$\(find inhere -size 1033c ! -executable\)\) > pass6.txt```
+	```
+	sshpass -f pass5.txt ssh -p 2220 bandit5@bandit.labs.overthewire.org \
+	echo \$\(cat \$\(find inhere -size 1033c ! -executable\)\) > pass6.txt
+	```
+
+## Level 7
+---
+
+This level is very similar to the last one, and we will probably need to use
+```find``` again to locate the next password file. However, there a couple new
+things to keep in mind:
+
+* The file is stored "somewhere on the server," so it could be *anywhere* in the
+file system, not just in ```bandit6```'s home directory.
+* It is owned by a user named ```bandit7``` and a group called ```bandit6```.
+
+We already know how to search for a file by its size. Look for ```find```
+options that allow you to search for files owned by a specific user/group. Also,
+make sure that ```find``` is searching the entire file system! By default,
+```find``` searches within ```.```, your current working directory. Instead, you
+will want the "```[starting-point]```" of your ```file``` command to be the root
+directory.
+
+!!! tip "Users and Groups"
+	When a user creates a file, the file is owned by that user. It is also owned
+	by a group (by default, that user's "primary group"). Groups allow you to
+	give file permissions to some users but not others. For example, you might
+	be part of a ```teacher``` group, and you might want to make a file that
+	only other teachers can write, but anyone (like students) can read. If the
+	file is owned by the ```teacher``` group, you could enable the file's read
+	permissions for everyone, but its write permissions for only yourself and
+	members of the ```teacher``` group. User and group permissions are useful
+	security mechanisms for establishing which users can perform each operation
+	on a file.
+
+??? tip "Optional Advice: Hide Error Messages"
+	While searching the entire file system as the ```bandit6``` user, ```find```
+	will probably encounter many files that it does not have permission to
+	access. You will see many ```Permission denied``` errors printed to the
+	console. These messages are not actually being printed to standard output;
+	they are printed to *standard error* instead, which is a separate output
+	stream that your console displays like standard output. If you tried to
+	write the output of your ```find``` command to a file with the redirect
+	operator ```>```, you would notice that the error messages still appear on
+	the console, and they are not written to the file. To understand why, we
+	need to learn about file descriptors.
+
+	During execution, every process has a set of **file descriptors**, which are
+	numbers that correspond to input/output sources. By default, 0 is standard
+	input (what you type in to the console), 1 is standard output (what gets
+	printed to the console intentionally), and 2 is standard error (error
+	messages, which also get printed to the console). When your shell starts a
+	process for a command that you typed, it sets up these file descriptors for
+	the process. However, you can tell your shell to have these file descriptors
+	represent different streams for the process instead. This is what the
+	redirect operator ```>``` means.
+
+	When you write the output of a command to a file, such as ```echo "Hello,
+	world!" > hello.txt```, instead of setting file descriptor 1 to standard
+	output, the shell opens a file called ```hello.txt``` and sets file
+	descriptor 1 to represent that file. When ```echo``` goes to print
+	"```Hello, world!```", it writes the string to file descriptor 1. Normally,
+	that would show up on the console as standard output, but this time it shows
+	up in the ```hello.txt``` file instead.
+
+	You can use ```>``` to redirect standard error too. Type the number of the
+	file descriptor you want to redirect before the operator; by default,
+	```>``` is actually ```1>``` because it redirects the file descriptor 1 for
+	standard output. If you ran your ```find``` command with
+	```2> errors.txt```, the error messages would not show up on the console,
+	and you would only see the error-free output of the command. The error
+	messages would instead be written to ```errors.txt```.
+
+	Now we can write our error messages to a file, which is great, but if we
+	really don't care what the messages say (in this case, ```find``` is telling
+	us about files we don't have permission to access), we can send them away to
+	where they won't be saved at all. We can accomplish this by writing standard
+	error to a special *device file* called the null device (```/dev/null```).
+	```/dev/null``` is a file that discards any data written to it, and no
+	matter how much you write to it, it always appears to be an empty file:
+
+	```
+	bandit6@bandit:~$ file /dev/null
+	/dev/null: character special (1/3)
+	bandit6@bandit:~$ echo hello > /dev/null
+	bandit6@bandit:~$ cat /dev/null
+	```
+
+	So, if you only want to see a command's standard output or its standard
+	error on the console (instead of both interleaved), a good way to achieve
+	this is to redirect the stream you don't want to see into ```/dev/null```.
+
+??? success "Level 7 Solution"
+	```find / -user bandit7 -group bandit6 -size 33c``` to find the filename.
+	```find / -user bandit7 -group bandit6 -size 33c 2> /dev/null``` is even
+	better!
+
+	```cat /var/lib/dpkg/info/bandit7.password```
+
+	```
+	sshpass -f pass6.txt ssh -p 2220 bandit6@bandit.labs.overthewire.org \
+	cat /var/lib/dpkg/info/bandit7.password > pass7.txt
+	```
+
+	One line without prior knowledge:
+
+	```cat $(find / -user bandit7 -group bandit6 -size 33c 2> /dev/null)```
+
+	```
+	sshpass -f pass6.txt ssh -p 2220 bandit6@bandit.labs.overthewire.org \
+	cat \$\(find / -user bandit7 -group bandit6 -size 33c 2\> /dev/null\) \
+	> pass7.txt
+	```
