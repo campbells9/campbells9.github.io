@@ -1,7 +1,6 @@
-site_name: Campbell's Page
+site_name: Campbell's Homepage
 nav:
   - Home: index.md
-  - Bandit: otwbandit.md
 theme:
   name: material
 markdown_extensions:
