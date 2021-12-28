@@ -1,4 +1,4 @@
 # Campbell's Home
 
-Welcome to my static site!
+Welcome to my page!
 
