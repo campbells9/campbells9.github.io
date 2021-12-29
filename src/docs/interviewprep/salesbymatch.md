@@ -12,8 +12,9 @@ Given a list of socks, determine how many pairs of matching-color socks can be
 made.
 
 Input: a list of socks $ar[n]$, where $ar[i]$ is an integer representing
-the color of sock $i$.
-$1 \leq n \leq 100, 1 \leq ar[i] \leq 100 \; \forall \; i$
+the color of sock $i$. 
+
+$$1 \leq n \leq 100, 1 \leq ar[i] \leq 100 \; \forall \; i$$
 
 Output: the maximum number of pairs that can be achieved by pairing socks that
 have the same color
@@ -40,7 +41,6 @@ of pairs that can be made with that color.
 Java 8:
 ```
 public static int sockMerchant(int n, List<Integer> ar) {
-    // Write your code here
     int count = 0;
     Set<Integer> colors = new HashSet<>();
     for (int sock : ar) {
@@ -75,7 +75,6 @@ int sockMerchant(int n, vector<int> ar) {
 Python 3:
 ```
 def sockMerchant(n, ar):
-    # Write your code here
     colors = set()
     count = 0
     for i in ar:
@@ -91,10 +90,9 @@ def sockMerchant(n, ar):
 Python 3 Alternate Solution:
 ```
 def sockMerchant(n, ar):
-    # Write your code here
     sock_freq = {sock: ar.count(sock) for sock in ar}
     
     return sum(v // 2 for _, v in sock_freq.items())
 ```
 
-
+[Back](../hackerrank.md)
