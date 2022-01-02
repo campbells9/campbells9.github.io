@@ -14,7 +14,7 @@
     
     
       
-        <title>Counting Valleys - Campbell's Homepage</title>
+        <title>Jumping on the Clouds - Campbell's Homepage</title>
       
     
     
@@ -59,7 +59,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#counting-valleys" class="md-skip">
+        <a href="#jumping-on-the-clouds" class="md-skip">
           Skip to content
         </a>
       
@@ -89,7 +89,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Counting Valleys
+              Jumping on the Clouds
             
           </span>
         </div>
@@ -221,77 +221,84 @@
               
                 
                 
-                <h1 id="counting-valleys">Counting Valleys</h1>
-<p><a href="">https://www.hackerrank.com/challenges/counting-valleys/problem</a></p>
-<p>Category: Warm-up Challenges</p>
+                <h1 id="jumping-on-the-clouds">Jumping on the Clouds</h1>
+<p><a href="">https://www.hackerrank.com/challenges/jumping-on-the-clouds/problem</a></p>
+<p>Category: Warm-Up Challenges</p>
 <p>Difficulty: Easy</p>
 <hr />
-<p>Given a path of steps, which are either up or down, starting at sea level,
-determine the number of valleys crossed. A valley is a sequence of steps that
-starts at sea level, descends below sea level, and then returns to sea level.</p>
-<p>Input: a number of steps <span class="arithmatex">\(s\)</span> and a path <span class="arithmatex">\(p \in \{U, D\}^s\)</span>, where <span class="arithmatex">\(U\)</span> represents
-a step up and <span class="arithmatex">\(D\)</span> represents a step down. The path begins and ends at sea level,
-so <span class="arithmatex">\(p\)</span> has an equal number of <span class="arithmatex">\(U\)</span>'s and <span class="arithmatex">\(D\)</span>'s.</p>
-<p><span class="arithmatex">\(2 \leq s \leq 1,000,000\)</span></p>
-<p><span class="arithmatex">\(|\{i : p_i = U\}| = |\{i : p_i = D\}| = \frac{s}{2}\)</span></p>
-<p>Output: the number of valleys (sequences that start at sea level, descend below
-sea level, and then return up to sea level).</p>
-<p>Read through the path and keep track of what elevation each step reaches. For
-example:</p>
-<p><code>"UDDDUDUU"</code> <span class="arithmatex">\(\to\)</span> 0, 1, 0, -1, -2, -1, -2, -1, 0</p>
-<p>We can see that a valley ends whenever we step up from elevation -1 to 0. The
-path is guaranteed to return to sea level (elevation 0) by the end, so every
-valley ends, and the number of times we step up from -1 to 0 is the number of
-valleys.</p>
+<p>Given a pattern of safe and dangerous clouds leading to a goal, determine the
+minimum number of jumps required to reach the end safely.</p>
+<p>Input: a number of clouds <span class="arithmatex">\(n\)</span> and a pattern <span class="arithmatex">\(c_1, \ldots c_n\)</span> where <span class="arithmatex">\(c_1 = 0\)</span>,
+<span class="arithmatex">\(c_n = 0\)</span>, and <span class="arithmatex">\(c_i \in \{0, 1\}\)</span> for <span class="arithmatex">\(1 &lt; i &lt; n\)</span>. <span class="arithmatex">\(c_i = 0\)</span> means cloud <span class="arithmatex">\(i\)</span> is
+safe, and <span class="arithmatex">\(c_i = 1\)</span> means cloud <span class="arithmatex">\(i\)</span> must be avoided.</p>
+<p><span class="arithmatex">\(2 \leq n \leq 100\)</span></p>
+<p>Output: the minimum number of jumps needed to win the game. The player starts on
+cloud 1 and must reach cloud <span class="arithmatex">\(n\)</span>. They can jump forward 1 or 2 clouds at a time.
+It is guaranteed that the player can win, so there will never be two dangerous
+clouds in a row.</p>
+<p>We can be greedy by taking advantage of the fact that there is always a path to
+the end. If the player is at cloud <span class="arithmatex">\(i\)</span> (starting at cloud 0), look at cloud
+<span class="arithmatex">\(i + 2\)</span>:</p>
+<ul>
+<li>If cloud <span class="arithmatex">\(i + 2\)</span> is safe, you should always jump 2 spaces forward to that
+cloud.</li>
+<li>If cloud <span class="arithmatex">\(i + 2\)</span> is dangerous, you can (and should) jump 1 space forward to
+cloud <span class="arithmatex">\(i + 1\)</span> instead.</li>
+</ul>
+<p>The first cloud is safe, and there are no two consecutive dangerous clouds.
+Therefore, for any safe cloud at <span class="arithmatex">\(i\)</span>, if you can't jump to <span class="arithmatex">\(i + 2\)</span>, you can jump
+to <span class="arithmatex">\(i + 1\)</span> and then to <span class="arithmatex">\(i + 3\)</span> and so on.</p>
+<p>For the Java solution, <code>c</code> is given as a List instead of an array, so my
+solution converts it into an array first. You only need to read through the list
+once sequentially to solve the problem, so it is possible to use an iterator
+over the list instead of converting it into an array and indexing into it.</p>
 <p>Java 8:
-<div class="highlight"><pre><span></span><code>public static int countingValleys(int steps, String path) {
-    int count = 0;
-    int level = 0;
-    for (int i = 0; i &lt; steps; i++) {
-        if (path.charAt(i) == &#39;U&#39;) {
-            level++;
-            if (level == 0) {
-                count++;
-            }
+<div class="highlight"><pre><span></span><code>public static int jumpingOnClouds(List&lt;Integer&gt; c) {
+    // Write your code here
+    final int N = c.size();
+    Integer[] clouds = c.toArray(new Integer[N]);
+    int jumps = 0;
+    int position = 0;
+    while (position + 1 &lt; N) {
+        if (position + 2 &lt; N &amp;&amp; clouds[position + 2] == 0) {
+            position += 2;
         } else {
-            level--;
+            position++;
         }
+        jumps++;
     }
 
-    return count;
+    return jumps;
 }
 </code></pre></div></p>
 <p>C++:
-<div class="highlight"><pre><span></span><code>int countingValleys(int steps, string path) {
-    int count = 0;
-    int level = 0;
-    for (int i = 0; i &lt; steps; i++) {
-        if (path[i] == &#39;U&#39;) {
-            level++;
-            count += level == 0;
-        } else {
-            level--;
-        }
+<div class="highlight"><pre><span></span><code>int jumpingOnClouds(vector&lt;int&gt; c) {
+    int n = c.size();
+    int jumps = 0;
+    int position = 0;
+    while (position + 1 &lt; n) {
+        position += 1 + (position + 2 &lt; n &amp;&amp; !c[position + 2]);
+        jumps++;
     }
 
-    return count;
+    return jumps;
 }
 </code></pre></div></p>
 <p>Python 3:
-<div class="highlight"><pre><span></span><code>def countingValleys(steps, path):
-    level = 0
-    count = 0
-    for step in path:
-        if step == &quot;U&quot;:
-            level += 1
-            if level == 0:
-                count += 1
+<div class="highlight"><pre><span></span><code>def jumpingOnClouds(c):
+    # Write your code here
+    n = len(c)
+    position = 0
+    jumps = 0
+    while position + 1 &lt; n:
+        if position + 2 &lt; n and c[position + 2] == 0:
+            position += 2
         else:
-            level -= 1
+            position += 1
+        jumps += 1
 
-    return count
+    return jumps
 </code></pre></div></p>
-<p><a href="../../hackerrank/">Back</a></p>
                 
               
               

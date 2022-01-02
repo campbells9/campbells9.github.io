@@ -12,9 +12,9 @@ Given a list of socks, determine how many pairs of matching-color socks can be
 made.
 
 Input: a list of socks $ar[n]$, where $ar[i]$ is an integer representing
-the color of sock $i$. 
+the color of sock $i$.
 
-$$1 \leq n \leq 100, 1 \leq ar[i] \leq 100 \; \forall \; i$$
+$1 \leq n \leq 100, 1 \leq ar[i] \leq 100 \; \forall \; i$
 
 Output: the maximum number of pairs that can be achieved by pairing socks that
 have the same color
