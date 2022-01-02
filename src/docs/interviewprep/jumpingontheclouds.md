@@ -43,7 +43,6 @@ over the list instead of converting it into an array and indexing into it.
 Java 8:
 ```
 public static int jumpingOnClouds(List<Integer> c) {
-    // Write your code here
     final int N = c.size();
     Integer[] clouds = c.toArray(new Integer[N]);
     int jumps = 0;
@@ -79,7 +78,6 @@ int jumpingOnClouds(vector<int> c) {
 Python 3:
 ```
 def jumpingOnClouds(c):
-    # Write your code here
     n = len(c)
     position = 0
     jumps = 0
