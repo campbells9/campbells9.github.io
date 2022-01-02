@@ -16,7 +16,7 @@ Input: a number of steps $s$ and a path $p \in \{U, D\}^s$, where $U$ represents
 a step up and $D$ represents a step down. The path begins and ends at sea level,
 so $p$ has an equal number of $U$'s and $D$'s.
 
-$2 \leq s \leq 1,000,000$
+$2 \leq s \leq 10^6$
 
 $|\{i : p_i = U\}| = |\{i : p_i = D\}| = \frac{s}{2}$
 
