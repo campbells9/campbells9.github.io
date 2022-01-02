@@ -1,6 +1,6 @@
 # Sales by Match
 
-[https://www.hackerrank.com/challenges/sock-merchant/problem]()
+[Problem](https://www.hackerrank.com/challenges/sock-merchant/problem)
 
 Category: Warm-up Challenges
 

@@ -1,6 +1,6 @@
 # Counting Valleys
 
-[https://www.hackerrank.com/challenges/counting-valleys/problem]()
+[Problem](https://www.hackerrank.com/challenges/counting-valleys/problem)
 
 Category: Warm-up Challenges
 
