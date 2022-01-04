@@ -10,3 +10,4 @@
 | [Jumping on the Clouds](interviewprep/jumpingontheclouds.md) | Warm-up Challenges | Easy       |
 | [Repeated String](interviewprep/repeatedstring.md)           | Warm-up Challenges | Easy       |
 | [2D Array - DS](interviewprep/2darrayds.md)                  | Arrays             | Easy       |
+| [Arrays: Left Rotation](interviewprep/arraysleftrotation.md) | Arrays             | Easy       |

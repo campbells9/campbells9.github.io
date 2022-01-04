@@ -14,7 +14,7 @@
     
     
       
-        <title>Counting Valleys - Campbell's Homepage</title>
+        <title>Arrays: Left Rotation - Campbell's Homepage</title>
       
     
     
@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#counting-valleys" class="md-skip">
+        <a href="#arrays-left-rotation" class="md-skip">
           Skip to content
         </a>
       
@@ -90,7 +90,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Counting Valleys
+              Arrays: Left Rotation
             
           </span>
         </div>
@@ -221,77 +221,73 @@
               
                 
                 
-                <h1 id="counting-valleys">Counting Valleys</h1>
-<p><a href="https://www.hackerrank.com/challenges/counting-valleys/problem">Problem</a></p>
-<p>Category: Warm-up Challenges</p>
+                <h1 id="arrays-left-rotation">Arrays: Left Rotation</h1>
+<p><a href="https://www.hackerrank.com/challenges/ctci-array-left-rotation/problem">Problem</a></p>
+<p>Category: Arrays</p>
 <p>Difficulty: Easy</p>
 <hr />
-<p>Given a path of steps, which are either up or down, starting at sea level,
-determine the number of valleys crossed. A valley is a sequence of steps that
-starts at sea level, descends below sea level, and then returns to sea level.</p>
-<p>Input: a number of steps <span class="arithmatex">\(s\)</span> and a path <span class="arithmatex">\(p \in \{U, D\}^s\)</span>, where <span class="arithmatex">\(U\)</span> represents
-a step up and <span class="arithmatex">\(D\)</span> represents a step down. The path begins and ends at sea level,
-so <span class="arithmatex">\(p\)</span> has an equal number of <span class="arithmatex">\(U\)</span>'s and <span class="arithmatex">\(D\)</span>'s.</p>
-<p><span class="arithmatex">\(2 \leq s \leq 10^6\)</span></p>
-<p><span class="arithmatex">\(|\{i : p_i = U\}| = |\{i : p_i = D\}| = \frac{s}{2}\)</span></p>
-<p>Output: the number of valleys (sequences that start at sea level, descend below
-sea level, and then return up to sea level).</p>
-<p>Read through the path and keep track of what elevation each step reaches. For
-example:</p>
-<p><code>"UDDDUDUU"</code> <span class="arithmatex">\(\to\)</span> 0, 1, 0, -1, -2, -1, -2, -1, 0</p>
-<p>We can see that a valley ends whenever we step up from elevation -1 to 0. The
-path is guaranteed to return to sea level (elevation 0) by the end, so every
-valley ends, and the number of times we step up from -1 to 0 is the number of
-valleys.</p>
+<p>Given an array, rotate it to the left by <span class="arithmatex">\(d\)</span> elements.</p>
+<p>Input: an array <span class="arithmatex">\(a[n]\)</span> and a number of rotations to make, <span class="arithmatex">\(d\)</span>.</p>
+<p><span class="arithmatex">\(1 \leq d \leq n \leq 10^5\)</span></p>
+<p><span class="arithmatex">\(1 \leq a[i] \leq 10^6 \; \forall \; i\)</span></p>
+<p>Output: the array shifted <span class="arithmatex">\(d\)</span> elements to the left. For example, for the
+following array, shifting to the left by 1 element gives:</p>
+<p><code>[1, 2, 3, 4]</code> <span class="arithmatex">\(\to\)</span> <code>[2, 3, 4, 1]</code></p>
+<p>By 3 elements:</p>
+<p><code>[1, 2, 3, 4]</code> <span class="arithmatex">\(\to\)</span> <code>[2, 3, 4, 1]</code> <span class="arithmatex">\(\to\)</span> <code>[3, 4, 1, 2]</code> <span class="arithmatex">\(\to\)</span> <code>[4, 1, 2, 3]</code></p>
+<p>Shifting by 4 elements brings the array back to its original order.</p>
+<p>The array could be modified in place, but for this problem it is okay to use an
+extra array to store the values in their new positions without overriding the
+values in the original array. For the value at position <span class="arithmatex">\(i\)</span>, you can calculate
+its new position <span class="arithmatex">\(i'\)</span> with <span class="arithmatex">\(d\)</span>:</p>
+<p><span class="arithmatex">\(i' \gets (i - d)\)</span> mod <span class="arithmatex">\(n\)</span></p>
+<p>Note that using the modulus operator with negative numbers may not always work
+the way you expect. You might need to add <span class="arithmatex">\(n\)</span>:</p>
+<p><span class="arithmatex">\(i' \gets (i - d + n)\)</span> mod <span class="arithmatex">\(n\)</span></p>
+<p>The new array should have the elements from <span class="arithmatex">\(d\)</span> to the end, followed by the
+elements from 0 to <span class="arithmatex">\(d - 1\)</span>.</p>
+<p>The description suggests that you should modify the array passed to the
+function, but it also works to create and return a new array with the correct
+values.</p>
 <p>Java 8:
-<div class="highlight"><pre><span></span><code>public static int countingValleys(int steps, String path) {
-    int count = 0;
-    int level = 0;
-    for (int i = 0; i &lt; steps; i++) {
-        if (path.charAt(i) == &#39;U&#39;) {
-            level++;
-            if (level == 0) {
-                count++;
-            }
-        } else {
-            level--;
-        }
+<div class="highlight"><pre><span></span><code>public static List&lt;Integer&gt; rotLeft(List&lt;Integer&gt; a, int d) {
+    Iterator&lt;Integer&gt; iter = a.iterator();
+    List&lt;Integer&gt; start = new LinkedList&lt;&gt;();
+    for (int i = 0; i &lt; d; i++) {
+        start.add(iter.next());
     }
 
-    return count;
+    List&lt;Integer&gt; newList = new LinkedList&lt;&gt;();
+    while (iter.hasNext()) {
+        newList.add(iter.next());
+    }
+    a.clear();
+    a.addAll(newList);
+    a.addAll(start);
+
+    return a;
 }
 </code></pre></div></p>
 <p>C++:
-<div class="highlight"><pre><span></span><code>int countingValleys(int steps, string path) {
-    int count = 0;
-    int level = 0;
-    for (int i = 0; i &lt; steps; i++) {
-        if (path[i] == &#39;U&#39;) {
-            level++;
-            count += level == 0;
-        } else {
-            level--;
-        }
+<div class="highlight"><pre><span></span><code>vector&lt;int&gt; rotLeft(vector&lt;int&gt; a, int d) {
+    int n = a.size();
+    vector&lt;int&gt; newVector(n, 0);
+    for (int i = 0; i &lt; n; i++) {
+        newVector[(i - d + n) % n] = a[i];
     }
+    a = newVector;
 
-    return count;
+    return a;
 }
 </code></pre></div></p>
 <p>Python 3:
-<div class="highlight"><pre><span></span><code>def countingValleys(steps, path):
-    level = 0
-    count = 0
-    for step in path:
-        if step == &quot;U&quot;:
-            level += 1
-            if level == 0:
-                count += 1
-        else:
-            level -= 1
+<div class="highlight"><pre><span></span><code>def rotLeft(a, d):
+    new_list = a[d:] + a[:d]
+    a.clear()
+    a.extend(new_list)
 
-    return count
+    return a
 </code></pre></div></p>
-<p><a href="../../hackerrank/">Back</a></p>
                 
               
               
