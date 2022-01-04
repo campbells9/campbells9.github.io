@@ -263,9 +263,9 @@ sums to check. You can loop through the center entries of each block
 </code></pre></div></p>
 <p>C++:
 <div class="highlight"><pre><span></span><code>int hourglassSum(vector&lt;vector&lt;int&gt;&gt; arr) {
-    int minVal = -9;
+    const int minVal = -9;
     int maxSum = minVal * 7;
-    int end = arr.size() - 1;
+    const int end = arr.size() - 1;
     for (int i = 1; i &lt; end; i++) {
         for (int j = 1; j &lt; end; j++) {
             int sum = arr[i - 1][j - 1] + arr[i - 1][j] + arr[i - 1][j + 1];

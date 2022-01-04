@@ -14,7 +14,7 @@
     
     
       
-        <title>Jumping on the Clouds - Campbell's Homepage</title>
+        <title>Hash Tables: Ransom Note - Campbell's Homepage</title>
       
     
     
@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#jumping-on-the-clouds" class="md-skip">
+        <a href="#hash-tables-ransom-note" class="md-skip">
           Skip to content
         </a>
       
@@ -90,7 +90,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Jumping on the Clouds
+              Hash Tables: Ransom Note
             
           </span>
         </div>
@@ -221,81 +221,85 @@
               
                 
                 
-                <h1 id="jumping-on-the-clouds">Jumping on the Clouds</h1>
-<p><a href="https://www.hackerrank.com/challenges/jumping-on-the-clouds/problem">Problem</a></p>
-<p>Category: Warm-Up Challenges</p>
+                <h1 id="hash-tables-ransom-note">Hash Tables: Ransom Note</h1>
+<p><a href="https://www.hackerrank.com/challenges/ctci-ransom-note/problem">Problem</a></p>
+<p>Category: Dictionaries and Hashmaps</p>
 <p>Difficulty: Easy</p>
 <hr />
-<p>Given a pattern of safe and dangerous clouds leading to a goal, determine the
-minimum number of jumps required to reach the end safely.</p>
-<p>Input: a number of clouds <span class="arithmatex">\(n\)</span> and a pattern <span class="arithmatex">\(c_1, \ldots c_n\)</span> where <span class="arithmatex">\(c_1 = 0\)</span>,
-<span class="arithmatex">\(c_n = 0\)</span>, and <span class="arithmatex">\(c_i \in \{0, 1\}\)</span> for <span class="arithmatex">\(1 &lt; i &lt; n\)</span>. <span class="arithmatex">\(c_i = 0\)</span> means cloud <span class="arithmatex">\(i\)</span> is
-safe, and <span class="arithmatex">\(c_i = 1\)</span> means cloud <span class="arithmatex">\(i\)</span> must be avoided.</p>
-<p><span class="arithmatex">\(2 \leq n \leq 100\)</span></p>
-<p>Output: the minimum number of jumps needed to win the game. The player starts on
-cloud 1 and must reach cloud <span class="arithmatex">\(n\)</span>. They can jump forward 1 or 2 clouds at a time.
-It is guaranteed that the player can win, so there will never be two dangerous
-clouds in a row.</p>
-<p>We can be greedy by taking advantage of the fact that there is always a path to
-the end. If the player is at cloud <span class="arithmatex">\(i\)</span> (starting at cloud 0), look at cloud
-<span class="arithmatex">\(i + 2\)</span>:</p>
-<ul>
-<li>If cloud <span class="arithmatex">\(i + 2\)</span> is safe, you should always jump 2 spaces forward to that
-cloud.</li>
-<li>If cloud <span class="arithmatex">\(i + 2\)</span> is dangerous, you can (and should) jump 1 space forward to
-cloud <span class="arithmatex">\(i + 1\)</span> instead.</li>
-</ul>
-<p>The first cloud is safe, and there are no two consecutive dangerous clouds.
-Therefore, for any safe cloud at <span class="arithmatex">\(i\)</span>, if you can't jump to <span class="arithmatex">\(i + 2\)</span>, you can jump
-to <span class="arithmatex">\(i + 1\)</span> and then to <span class="arithmatex">\(i + 3\)</span> and so on.</p>
-<p>For the Java solution, <code>c</code> is given as a List instead of an array, so my
-solution converts it into an array first. You only need to read through the list
-once sequentially to solve the problem, so it is possible to use an iterator
-over the list instead of converting it into an array and indexing into it.</p>
+<p>Given a list of words in a magazine, determine whether it is possible to cut out
+enough words to write a given ransom note.</p>
+<p>Input: arrays <span class="arithmatex">\(magazine[m]\)</span> and <span class="arithmatex">\(note[n]\)</span> of strings, each of which is a word
+made of uppercase and lowercase English letters.</p>
+<p><span class="arithmatex">\(1 \leq m, n \leq 3 \times 10^5\)</span></p>
+<p>Output: print <code>Yes</code> if it is possible to arrange the words of <span class="arithmatex">\(magazine\)</span> to
+write the <span class="arithmatex">\(note\)</span>, otherwise print <code>No</code>. For example, if the <span class="arithmatex">\(note\)</span> is
+<code>["two", "plus", "two", "is", "four"]</code>, then if the <span class="arithmatex">\(magazine\)</span> contains two
+<code>"two"</code>s, a <code>"plus"</code>, an <code>"is"</code>, and a <code>"four"</code>, then the output
+is <code>Yes</code>. If it is missing any of those, or it only has one <code>"two"</code>, or
+there is a <code>"Plus"</code> instead of a <code>"plus"</code>, then the answer is <code>No</code>.
+Note that the words are case-sensitive.</p>
+<p>It is not enough to know that every word in <span class="arithmatex">\(note\)</span> is also in <span class="arithmatex">\(magazine\)</span>; there
+must be as many instances of any word in <span class="arithmatex">\(magazine\)</span> as there are in <span class="arithmatex">\(note\)</span>. You
+can use maps to count the number of occurences in each word of <span class="arithmatex">\(magazine\)</span> and
+<span class="arithmatex">\(note\)</span>. The answer is <code>No</code> if there is a word in your <span class="arithmatex">\(note\)</span> map that either
+doesn't occur in <span class="arithmatex">\(magazine\)</span> or occurs fewer times in <span class="arithmatex">\(magazine\)</span> than in <span class="arithmatex">\(note\)</span>.</p>
 <p>Java 8:
-<div class="highlight"><pre><span></span><code>public static int jumpingOnClouds(List&lt;Integer&gt; c) {
-    final int N = c.size();
-    Integer[] clouds = c.toArray(new Integer[N]);
-    int jumps = 0;
-    int position = 0;
-    while (position + 1 &lt; N) {
-        if (position + 2 &lt; N &amp;&amp; clouds[position + 2] == 0) {
-            position += 2;
-        } else {
-            position++;
+<div class="highlight"><pre><span></span><code>public static void checkMagazine(List&lt;String&gt; magazine, List&lt;String&gt; note) {
+    Map&lt;String, Integer&gt; magazineFreq = new HashMap&lt;&gt;();
+    Map&lt;String, Integer&gt; noteFreq = new HashMap&lt;&gt;();
+    for (String word : magazine) {
+        magazineFreq.put(word, magazineFreq.getOrDefault(word, 0) + 1);
+    }
+    for (String word : note) {
+        noteFreq.put(word, noteFreq.getOrDefault(word, 0) + 1);
+    }
+    for (String word : noteFreq.keySet()) {
+        if (noteFreq.get(word) &gt; magazineFreq.getOrDefault(word, 0)) {
+            System.out.println(&quot;No&quot;);
+
+            return;
         }
-        jumps++;
     }
 
-    return jumps;
+    System.out.println(&quot;Yes&quot;);
 }
 </code></pre></div></p>
 <p>C++:
-<div class="highlight"><pre><span></span><code>int jumpingOnClouds(vector&lt;int&gt; c) {
-    const int n = c.size();
-    int jumps = 0;
-    int position = 0;
-    while (position + 1 &lt; n) {
-        position += 1 + (position + 2 &lt; n &amp;&amp; !c[position + 2]);
-        jumps++;
+<div class="highlight"><pre><span></span><code>void checkMagazine(vector&lt;string&gt; magazine, vector&lt;string&gt; note) {
+    map&lt;string, int&gt; magazineFreq;
+    map&lt;string, int&gt; noteFreq;
+    for (auto word = magazine.begin(); word != magazine.end(); word++) {
+        magazineFreq[*word]++;
+    }
+    for (auto word = note.begin(); word != note.end(); word++) {
+        noteFreq[*word]++;
+    }
+    for (auto entry = noteFreq.begin(); entry != noteFreq.end(); entry++) {
+        if (entry-&gt;second &gt; magazineFreq[entry-&gt;first]) {
+            cout &lt;&lt; &quot;No&quot; &lt;&lt; endl;
+
+            return;
+        }
     }
 
-    return jumps;
+    cout &lt;&lt; &quot;Yes&quot; &lt;&lt; endl;
 }
 </code></pre></div></p>
 <p>Python 3:
-<div class="highlight"><pre><span></span><code>def jumpingOnClouds(c):
-    n = len(c)
-    position = 0
-    jumps = 0
-    while position + 1 &lt; n:
-        if position + 2 &lt; n and c[position + 2] == 0:
-            position += 2
-        else:
-            position += 1
-        jumps += 1
+<div class="highlight"><pre><span></span><code>def checkMagazine(magazine, note):
+    magazine_freq = {word: 0 for word in magazine}
+    note_freq = {word: 0 for word in note}
+    for word in magazine:
+        magazine_freq[word] += 1
+    for word in note:
+        note_freq[word] += 1
+    for word, freq in note_freq.items():
+        if word not in magazine_freq or magazine_freq[word] &lt; freq:
+            print(&quot;No&quot;)
 
-    return jumps
+            return
+
+    print(&quot;Yes&quot;)
 </code></pre></div></p>
                 
               

@@ -55,9 +55,9 @@ public static int hourglassSum(List<List<Integer>> arr) {
 C++:
 ```
 int hourglassSum(vector<vector<int>> arr) {
-    int minVal = -9;
+    const int minVal = -9;
     int maxSum = minVal * 7;
-    int end = arr.size() - 1;
+    const int end = arr.size() - 1;
     for (int i = 1; i < end; i++) {
         for (int j = 1; j < end; j++) {
             int sum = arr[i - 1][j - 1] + arr[i - 1][j] + arr[i - 1][j + 1];

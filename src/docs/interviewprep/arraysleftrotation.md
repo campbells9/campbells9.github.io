@@ -70,7 +70,7 @@ public static List<Integer> rotLeft(List<Integer> a, int d) {
 C++:
 ```
 vector<int> rotLeft(vector<int> a, int d) {
-    int n = a.size();
+    const int n = a.size();
     vector<int> newVector(n, 0);
     for (int i = 0; i < n; i++) {
         newVector[(i - d + n) % n] = a[i];

@@ -270,7 +270,7 @@ values.</p>
 </code></pre></div></p>
 <p>C++:
 <div class="highlight"><pre><span></span><code>vector&lt;int&gt; rotLeft(vector&lt;int&gt; a, int d) {
-    int n = a.size();
+    const int n = a.size();
     vector&lt;int&gt; newVector(n, 0);
     for (int i = 0; i &lt; n; i++) {
         newVector[(i - d + n) % n] = a[i];

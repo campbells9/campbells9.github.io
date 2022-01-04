@@ -50,8 +50,8 @@ public static long repeatedString(String s, long n) {
 C++:
 ```
 long repeatedString(string s, long n) {
-    long fullCount = n / s.size();
-    int part = n % s.size();
+    const long fullCount = n / s.size();
+    const int part = n % s.size();
     int count = 0;
     int partialCount = 0;
     for (int i = 0; i < s.size(); i++) {

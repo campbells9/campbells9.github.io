@@ -63,7 +63,7 @@ public static int jumpingOnClouds(List<Integer> c) {
 C++:
 ```
 int jumpingOnClouds(vector<int> c) {
-    int n = c.size();
+    const int n = c.size();
     int jumps = 0;
     int position = 0;
     while (position + 1 < n) {
