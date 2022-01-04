@@ -95,4 +95,4 @@ def sockMerchant(n, ar):
     return sum(v // 2 for _, v in sock_freq.items())
 ```
 
-[Back](../hackerrank.md)
+[Back](../../hackerrank.md)

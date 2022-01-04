@@ -9,19 +9,19 @@
       
       
       
-      <link rel="icon" href="../../img/tenticon.png">
+      <link rel="icon" href="../../../img/tenticon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.5">
     
     
       
-        <title>Counting Valleys - Campbell's Homepage</title>
+        <title>2D Array - DS - Campbell's Homepage</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.bde7dde4.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.bde7dde4.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ef6f36e2.min.css">
         
       
     
@@ -36,7 +36,7 @@
     
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
     
       
@@ -53,7 +53,7 @@
     <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
   
     
-    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#counting-valleys" class="md-skip">
+        <a href="#2d-array-ds" class="md-skip">
           Skip to content
         </a>
       
@@ -72,9 +72,9 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Campbell&#39;s Homepage" class="md-header__button md-logo" aria-label="Campbell's Homepage" data-md-component="logo">
+    <a href="../../.." title="Campbell&#39;s Homepage" class="md-header__button md-logo" aria-label="Campbell's Homepage" data-md-component="logo">
       
-  <img src="../../img/tenticon.png" alt="logo">
+  <img src="../../../img/tenticon.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -90,7 +90,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Counting Valleys
+              2D Array - DS
             
           </span>
         </div>
@@ -151,9 +151,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Campbell&#39;s Homepage" class="md-nav__button md-logo" aria-label="Campbell's Homepage" data-md-component="logo">
+    <a href="../../.." title="Campbell&#39;s Homepage" class="md-nav__button md-logo" aria-label="Campbell's Homepage" data-md-component="logo">
       
-  <img src="../../img/tenticon.png" alt="logo">
+  <img src="../../../img/tenticon.png" alt="logo">
 
     </a>
     Campbell's Homepage
@@ -169,7 +169,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         Home
       </a>
     </li>
@@ -184,7 +184,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../hackerrank/" class="md-nav__link">
+      <a href="../../../hackerrank/" class="md-nav__link">
         HackerRank
       </a>
     </li>
@@ -221,77 +221,78 @@
               
                 
                 
-                <h1 id="counting-valleys">Counting Valleys</h1>
-<p><a href="https://www.hackerrank.com/challenges/counting-valleys/problem">Problem</a></p>
-<p>Category: Warm-up Challenges</p>
+                <h1 id="2d-array-ds">2D Array - DS</h1>
+<p><a href="https://www.hackerrank.com/challenges/2d-array/problem">Problem</a></p>
+<p>Category: Arrays</p>
 <p>Difficulty: Easy</p>
 <hr />
-<p>Given a path of steps, which are either up or down, starting at sea level,
-determine the number of valleys crossed. A valley is a sequence of steps that
-starts at sea level, descends below sea level, and then returns to sea level.</p>
-<p>Input: a number of steps <span class="arithmatex">\(s\)</span> and a path <span class="arithmatex">\(p \in \{U, D\}^s\)</span>, where <span class="arithmatex">\(U\)</span> represents
-a step up and <span class="arithmatex">\(D\)</span> represents a step down. The path begins and ends at sea level,
-so <span class="arithmatex">\(p\)</span> has an equal number of <span class="arithmatex">\(U\)</span>'s and <span class="arithmatex">\(D\)</span>'s.</p>
-<p><span class="arithmatex">\(2 \leq s \leq 10^6\)</span></p>
-<p><span class="arithmatex">\(|\{i : p_i = U\}| = |\{i : p_i = D\}| = \frac{s}{2}\)</span></p>
-<p>Output: the number of valleys (sequences that start at sea level, descend below
-sea level, and then return up to sea level).</p>
-<p>Read through the path and keep track of what elevation each step reaches. For
-example:</p>
-<p><code>"UDDDUDUU"</code> <span class="arithmatex">\(\to\)</span> 0, 1, 0, -1, -2, -1, -2, -1, 0</p>
-<p>We can see that a valley ends whenever we step up from elevation -1 to 0. The
-path is guaranteed to return to sea level (elevation 0) by the end, so every
-valley ends, and the number of times we step up from -1 to 0 is the number of
-valleys.</p>
+<p>Given a 6x6 array, find the maximum "hourglass sum."</p>
+<p>Input: a 2D array, <span class="arithmatex">\(arr[i][j]\)</span> for <span class="arithmatex">\(1 \leq i, j \leq 6\)</span>.</p>
+<p><span class="arithmatex">\(-9 \leq arr[i][j] \leq 9 \; \forall \; i, j\)</span></p>
+<p>Output: the maximum hourglass sum of the array. For any 3x3 block of <span class="arithmatex">\(arr\)</span>, the
+hourglass sum is the sum of the top 3, bottom 3, and center entries:</p>
+<p><code>[[a, b, c], [d, e, f], [g, h, i]]</code> <span class="arithmatex">\(\; \to \; a + b + c + e + g + h + i\)</span></p>
+<p>Every hourglass sum is at least -63 and at most 63.</p>
+<p>There are only 16 possible 3x3 blocks in <span class="arithmatex">\(arr\)</span>, so there are only 16 hourglass
+sums to check. You can loop through the center entries of each block
+(<span class="arithmatex">\(arr[1][1] \ldots arr[4][4]\)</span>) and calculate an hourglass sum for each.</p>
 <p>Java 8:
-<div class="highlight"><pre><span></span><code>public static int countingValleys(int steps, String path) {
-    int count = 0;
-    int level = 0;
-    for (int i = 0; i &lt; steps; i++) {
-        if (path.charAt(i) == &#39;U&#39;) {
-            level++;
-            if (level == 0) {
-                count++;
-            }
-        } else {
-            level--;
+<div class="highlight"><pre><span></span><code>public static int hourglassSum(List&lt;List&lt;Integer&gt;&gt; arr) {
+    final int SIZE = 6;
+    Integer[][] mat = new Integer[SIZE][SIZE];
+    int i = 0;
+    for (List&lt;Integer&gt; row : arr) {
+        mat[i] = row.toArray(mat[i]);
+        i++;
+    }
+
+    final int END = SIZE - 1;
+    final int MIN_VAL = -9;
+    int max = MIN_VAL * 7;
+    for (i = 1; i &lt; END; i++) {
+        for (int j = 1; j &lt; END; j++) {
+            int sum = mat[i - 1][j - 1] + mat[i - 1][j] + mat[i - 1][j + 1];
+            sum += mat[i][j];
+            sum += mat[i + 1][j - 1] + mat[i + 1][j] + mat[i + 1][j + 1];
+            max = Math.max(max, sum);
         }
     }
 
-    return count;
+    return max;
 }
 </code></pre></div></p>
 <p>C++:
-<div class="highlight"><pre><span></span><code>int countingValleys(int steps, string path) {
-    int count = 0;
-    int level = 0;
-    for (int i = 0; i &lt; steps; i++) {
-        if (path[i] == &#39;U&#39;) {
-            level++;
-            count += level == 0;
-        } else {
-            level--;
+<div class="highlight"><pre><span></span><code>int hourglassSum(vector&lt;vector&lt;int&gt;&gt; arr) {
+    const int minVal = -9;
+    int maxSum = minVal * 7;
+    const int end = arr.size() - 1;
+    for (int i = 1; i &lt; end; i++) {
+        for (int j = 1; j &lt; end; j++) {
+            int sum = arr[i - 1][j - 1] + arr[i - 1][j] + arr[i - 1][j + 1];
+            sum += arr[i][j];
+            sum += arr[i + 1][j - 1] + arr[i + 1][j] + arr[i + 1][j + 1];
+            maxSum = max(maxSum, sum);
         }
     }
 
-    return count;
+    return maxSum;
 }
 </code></pre></div></p>
 <p>Python 3:
-<div class="highlight"><pre><span></span><code>def countingValleys(steps, path):
-    level = 0
-    count = 0
-    for step in path:
-        if step == &quot;U&quot;:
-            level += 1
-            if level == 0:
-                count += 1
-        else:
-            level -= 1
+<div class="highlight"><pre><span></span><code>def hourglassSum(arr):
+    min_val = -9
+    max_sum = min_val * 7
+    end = len(arr) - 1
+    for i in range(1, end):
+        for j in range(1, end):
+            hourglass_sum = sum(arr[i - 1][(j - 1):(j + 2)])
+            hourglass_sum += arr[i][j]
+            hourglass_sum += sum(arr[i + 1][(j - 1):(j + 2)])
+            max_sum = max(max_sum, hourglass_sum)
 
-    return count
+    return max_sum
 </code></pre></div></p>
-<p><a href="../../hackerrank/">Back</a></p>
+<p><a href="../../../hackerrank/">Back</a></p>
                 
               
               
@@ -327,12 +328,12 @@ valleys.</p>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.a1609d9a.min.js"></script>
       
-        <script src="../../javascripts/mathjax.js"></script>
+        <script src="../../../javascripts/mathjax.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       

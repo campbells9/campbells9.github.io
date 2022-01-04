@@ -9,19 +9,19 @@
       
       
       
-      <link rel="icon" href="../../img/tenticon.png">
+      <link rel="icon" href="../../../img/tenticon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.5">
     
     
       
-        <title>2D Array - DS - Campbell's Homepage</title>
+        <title>Hash Tables: Ransom Note - Campbell's Homepage</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.bde7dde4.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.bde7dde4.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ef6f36e2.min.css">
         
       
     
@@ -36,7 +36,7 @@
     
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
     
       
@@ -53,7 +53,7 @@
     <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
   
     
-    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#2d-array-ds" class="md-skip">
+        <a href="#hash-tables-ransom-note" class="md-skip">
           Skip to content
         </a>
       
@@ -72,9 +72,9 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Campbell&#39;s Homepage" class="md-header__button md-logo" aria-label="Campbell's Homepage" data-md-component="logo">
+    <a href="../../.." title="Campbell&#39;s Homepage" class="md-header__button md-logo" aria-label="Campbell's Homepage" data-md-component="logo">
       
-  <img src="../../img/tenticon.png" alt="logo">
+  <img src="../../../img/tenticon.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -90,7 +90,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              2D Array - DS
+              Hash Tables: Ransom Note
             
           </span>
         </div>
@@ -151,9 +151,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Campbell&#39;s Homepage" class="md-nav__button md-logo" aria-label="Campbell's Homepage" data-md-component="logo">
+    <a href="../../.." title="Campbell&#39;s Homepage" class="md-nav__button md-logo" aria-label="Campbell's Homepage" data-md-component="logo">
       
-  <img src="../../img/tenticon.png" alt="logo">
+  <img src="../../../img/tenticon.png" alt="logo">
 
     </a>
     Campbell's Homepage
@@ -169,7 +169,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         Home
       </a>
     </li>
@@ -184,7 +184,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../hackerrank/" class="md-nav__link">
+      <a href="../../../hackerrank/" class="md-nav__link">
         HackerRank
       </a>
     </li>
@@ -221,77 +221,87 @@
               
                 
                 
-                <h1 id="2d-array-ds">2D Array - DS</h1>
-<p><a href="https://www.hackerrank.com/challenges/2d-array/problem">Problem</a></p>
-<p>Category: Arrays</p>
+                <h1 id="hash-tables-ransom-note">Hash Tables: Ransom Note</h1>
+<p><a href="https://www.hackerrank.com/challenges/ctci-ransom-note/problem">Problem</a></p>
+<p>Category: Dictionaries and Hashmaps</p>
 <p>Difficulty: Easy</p>
 <hr />
-<p>Given a 6x6 array, find the maximum "hourglass sum."</p>
-<p>Input: a 2D array, <span class="arithmatex">\(arr[i][j]\)</span> for <span class="arithmatex">\(1 \leq i, j \leq 6\)</span>.</p>
-<p><span class="arithmatex">\(-9 \leq arr[i][j] \leq 9 \; \forall \; i, j\)</span></p>
-<p>Output: the maximum hourglass sum of the array. For any 3x3 block of <span class="arithmatex">\(arr\)</span>, the
-hourglass sum is the sum of the top 3, bottom 3, and center entries:</p>
-<p><code>[[a, b, c], [d, e, f], [g, h, i]]</code> <span class="arithmatex">\(\; \to \; a + b + c + e + g + h + i\)</span></p>
-<p>Every hourglass sum is at least -63 and at most 63.</p>
-<p>There are only 16 possible 3x3 blocks in <span class="arithmatex">\(arr\)</span>, so there are only 16 hourglass
-sums to check. You can loop through the center entries of each block
-(<span class="arithmatex">\(arr[1][1] \ldots arr[4][4]\)</span>) and calculate an hourglass sum for each.</p>
+<p>Given a list of words in a magazine, determine whether it is possible to cut out
+enough words to write a given ransom note.</p>
+<p>Input: arrays <span class="arithmatex">\(magazine[m]\)</span> and <span class="arithmatex">\(note[n]\)</span> of strings, each of which is a word
+made of uppercase and lowercase English letters.</p>
+<p><span class="arithmatex">\(1 \leq m, n \leq 3 \times 10^5\)</span></p>
+<p>Output: print <code>Yes</code> if it is possible to arrange the words of <span class="arithmatex">\(magazine\)</span> to
+write the <span class="arithmatex">\(note\)</span>, otherwise print <code>No</code>. For example, if the <span class="arithmatex">\(note\)</span> is
+<code>["two", "plus", "two", "is", "four"]</code>, then if the <span class="arithmatex">\(magazine\)</span> contains two
+<code>"two"</code>s, a <code>"plus"</code>, an <code>"is"</code>, and a <code>"four"</code>, then the output
+is <code>Yes</code>. If it is missing any of those, or it only has one <code>"two"</code>, or
+there is a <code>"Plus"</code> instead of a <code>"plus"</code>, then the answer is <code>No</code>.
+Note that the words are case-sensitive.</p>
+<p>It is not enough to know that every word in <span class="arithmatex">\(note\)</span> is also in <span class="arithmatex">\(magazine\)</span>; there
+must be as many instances of any word in <span class="arithmatex">\(magazine\)</span> as there are in <span class="arithmatex">\(note\)</span>. You
+can use maps to count the number of occurences in each word of <span class="arithmatex">\(magazine\)</span> and
+<span class="arithmatex">\(note\)</span>. The answer is <code>No</code> if there is a word in your <span class="arithmatex">\(note\)</span> map that either
+doesn't occur in <span class="arithmatex">\(magazine\)</span> or occurs fewer times in <span class="arithmatex">\(magazine\)</span> than in <span class="arithmatex">\(note\)</span>.</p>
 <p>Java 8:
-<div class="highlight"><pre><span></span><code>public static int hourglassSum(List&lt;List&lt;Integer&gt;&gt; arr) {
-    final int SIZE = 6;
-    Integer[][] mat = new Integer[SIZE][SIZE];
-    int i = 0;
-    for (List&lt;Integer&gt; row : arr) {
-        mat[i] = row.toArray(mat[i]);
-        i++;
+<div class="highlight"><pre><span></span><code>public static void checkMagazine(List&lt;String&gt; magazine, List&lt;String&gt; note) {
+    Map&lt;String, Integer&gt; magazineFreq = new HashMap&lt;&gt;();
+    Map&lt;String, Integer&gt; noteFreq = new HashMap&lt;&gt;();
+    for (String word : magazine) {
+        magazineFreq.put(word, magazineFreq.getOrDefault(word, 0) + 1);
     }
+    for (String word : note) {
+        noteFreq.put(word, noteFreq.getOrDefault(word, 0) + 1);
+    }
+    for (String word : noteFreq.keySet()) {
+        if (noteFreq.get(word) &gt; magazineFreq.getOrDefault(word, 0)) {
+            System.out.println(&quot;No&quot;);
 
-    final int END = SIZE - 1;
-    final int MIN_VAL = -9;
-    int max = MIN_VAL * 7;
-    for (i = 1; i &lt; END; i++) {
-        for (int j = 1; j &lt; END; j++) {
-            int sum = mat[i - 1][j - 1] + mat[i - 1][j] + mat[i - 1][j + 1];
-            sum += mat[i][j];
-            sum += mat[i + 1][j - 1] + mat[i + 1][j] + mat[i + 1][j + 1];
-            max = Math.max(max, sum);
+            return;
         }
     }
 
-    return max;
+    System.out.println(&quot;Yes&quot;);
 }
 </code></pre></div></p>
 <p>C++:
-<div class="highlight"><pre><span></span><code>int hourglassSum(vector&lt;vector&lt;int&gt;&gt; arr) {
-    const int minVal = -9;
-    int maxSum = minVal * 7;
-    const int end = arr.size() - 1;
-    for (int i = 1; i &lt; end; i++) {
-        for (int j = 1; j &lt; end; j++) {
-            int sum = arr[i - 1][j - 1] + arr[i - 1][j] + arr[i - 1][j + 1];
-            sum += arr[i][j];
-            sum += arr[i + 1][j - 1] + arr[i + 1][j] + arr[i + 1][j + 1];
-            maxSum = max(maxSum, sum);
+<div class="highlight"><pre><span></span><code>void checkMagazine(vector&lt;string&gt; magazine, vector&lt;string&gt; note) {
+    map&lt;string, int&gt; magazineFreq;
+    map&lt;string, int&gt; noteFreq;
+    for (auto word = magazine.begin(); word != magazine.end(); word++) {
+        magazineFreq[*word]++;
+    }
+    for (auto word = note.begin(); word != note.end(); word++) {
+        noteFreq[*word]++;
+    }
+    for (auto entry = noteFreq.begin(); entry != noteFreq.end(); entry++) {
+        if (entry-&gt;second &gt; magazineFreq[entry-&gt;first]) {
+            cout &lt;&lt; &quot;No&quot; &lt;&lt; endl;
+
+            return;
         }
     }
 
-    return maxSum;
+    cout &lt;&lt; &quot;Yes&quot; &lt;&lt; endl;
 }
 </code></pre></div></p>
 <p>Python 3:
-<div class="highlight"><pre><span></span><code>def hourglassSum(arr):
-    min_val = -9
-    max_sum = min_val * 7
-    end = len(arr) - 1
-    for i in range(1, end):
-        for j in range(1, end):
-            hourglass_sum = sum(arr[i - 1][(j - 1):(j + 2)])
-            hourglass_sum += arr[i][j]
-            hourglass_sum += sum(arr[i + 1][(j - 1):(j + 2)])
-            max_sum = max(max_sum, hourglass_sum)
+<div class="highlight"><pre><span></span><code>def checkMagazine(magazine, note):
+    magazine_freq = {word: 0 for word in magazine}
+    note_freq = {word: 0 for word in note}
+    for word in magazine:
+        magazine_freq[word] += 1
+    for word in note:
+        note_freq[word] += 1
+    for word, freq in note_freq.items():
+        if word not in magazine_freq or magazine_freq[word] &lt; freq:
+            print(&quot;No&quot;)
 
-    return max_sum
+            return
+
+    print(&quot;Yes&quot;)
 </code></pre></div></p>
+<p><a href="../../../hackerrank/">Back</a></p>
                 
               
               
@@ -327,12 +337,12 @@ sums to check. You can loop through the center entries of each block
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.a1609d9a.min.js"></script>
       
-        <script src="../../javascripts/mathjax.js"></script>
+        <script src="../../../javascripts/mathjax.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       

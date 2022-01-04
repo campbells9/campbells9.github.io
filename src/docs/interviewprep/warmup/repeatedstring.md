@@ -76,3 +76,5 @@ def repeatedString(s, n):
     
     return full_count * s.count('a') + partial.count('a')
 ```
+
+[Back](../../hackerrank.md)

@@ -3,12 +3,13 @@
 
 ### Interview Preparation Kit
 
-| Name                                                              | Category                  | Difficulty |
-| :---------------------------------------------------------------- | :------------------------ | :--------- |
-| [Sales by Match](interviewprep/salesbymatch.md)                   | Warm-up Challenges        | Easy       |
-| [Counting Valleys](interviewprep/countingvalleys.md)              | Warm-up Challenges        | Easy       |
-| [Jumping on the Clouds](interviewprep/jumpingontheclouds.md)      | Warm-up Challenges        | Easy       |
-| [Repeated String](interviewprep/repeatedstring.md)                | Warm-up Challenges        | Easy       |
-| [2D Array - DS](interviewprep/2darrayds.md)                       | Arrays                    | Easy       |
-| [Arrays: Left Rotation](interviewprep/arraysleftrotation.md)      | Arrays                    | Easy       |
-| [Hash Tables: Ransom Note](interviewprep/hashtablesransomnote.md) | Dictionaries and Hashmaps | Easy       |
+| Name                                                                | Category                  | Difficulty |
+| :----------------------------------------------------------------   | :------------------------ | :--------- |
+| [Sales by Match](interviewprep/warmup/salesbymatch.md)              | Warm-up Challenges        | Easy       |
+| [Counting Valleys](interviewprep/warmup/countingvalleys.md)         | Warm-up Challenges        | Easy       |
+| [Jumping on the Clouds](interviewprep/warmup/jumpingontheclouds.md) | Warm-up Challenges        | Easy       |
+| [Repeated String](interviewprep/warmup/repeatedstring.md)           | Warm-up Challenges        | Easy       |
+| [2D Array - DS](interviewprep/arrays/ds.md)                         | Arrays                    | Easy       |
+| [Arrays: Left Rotation](interviewprep/arrays/leftrotation.md)       | Arrays                    | Easy       |
+| [Hash Tables: Ransom Note](interviewprep/dicts/ransomnote.md)       | Dictionaries and Hashmaps | Easy       |
+| [Two Strings](interviewprep/dicts/twostrings.md)                    | Dictionaries and Hashmaps | Easy       |

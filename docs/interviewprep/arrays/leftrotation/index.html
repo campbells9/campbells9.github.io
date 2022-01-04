@@ -9,19 +9,19 @@
       
       
       
-      <link rel="icon" href="../../img/tenticon.png">
+      <link rel="icon" href="../../../img/tenticon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.5">
     
     
       
-        <title>Hash Tables: Ransom Note - Campbell's Homepage</title>
+        <title>Arrays: Left Rotation - Campbell's Homepage</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.bde7dde4.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.bde7dde4.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ef6f36e2.min.css">
         
       
     
@@ -36,7 +36,7 @@
     
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
     
       
@@ -53,7 +53,7 @@
     <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
   
     
-    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#hash-tables-ransom-note" class="md-skip">
+        <a href="#arrays-left-rotation" class="md-skip">
           Skip to content
         </a>
       
@@ -72,9 +72,9 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Campbell&#39;s Homepage" class="md-header__button md-logo" aria-label="Campbell's Homepage" data-md-component="logo">
+    <a href="../../.." title="Campbell&#39;s Homepage" class="md-header__button md-logo" aria-label="Campbell's Homepage" data-md-component="logo">
       
-  <img src="../../img/tenticon.png" alt="logo">
+  <img src="../../../img/tenticon.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -90,7 +90,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Hash Tables: Ransom Note
+              Arrays: Left Rotation
             
           </span>
         </div>
@@ -151,9 +151,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Campbell&#39;s Homepage" class="md-nav__button md-logo" aria-label="Campbell's Homepage" data-md-component="logo">
+    <a href="../../.." title="Campbell&#39;s Homepage" class="md-nav__button md-logo" aria-label="Campbell's Homepage" data-md-component="logo">
       
-  <img src="../../img/tenticon.png" alt="logo">
+  <img src="../../../img/tenticon.png" alt="logo">
 
     </a>
     Campbell's Homepage
@@ -169,7 +169,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         Home
       </a>
     </li>
@@ -184,7 +184,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../hackerrank/" class="md-nav__link">
+      <a href="../../../hackerrank/" class="md-nav__link">
         HackerRank
       </a>
     </li>
@@ -221,86 +221,74 @@
               
                 
                 
-                <h1 id="hash-tables-ransom-note">Hash Tables: Ransom Note</h1>
-<p><a href="https://www.hackerrank.com/challenges/ctci-ransom-note/problem">Problem</a></p>
-<p>Category: Dictionaries and Hashmaps</p>
+                <h1 id="arrays-left-rotation">Arrays: Left Rotation</h1>
+<p><a href="https://www.hackerrank.com/challenges/ctci-array-left-rotation/problem">Problem</a></p>
+<p>Category: Arrays</p>
 <p>Difficulty: Easy</p>
 <hr />
-<p>Given a list of words in a magazine, determine whether it is possible to cut out
-enough words to write a given ransom note.</p>
-<p>Input: arrays <span class="arithmatex">\(magazine[m]\)</span> and <span class="arithmatex">\(note[n]\)</span> of strings, each of which is a word
-made of uppercase and lowercase English letters.</p>
-<p><span class="arithmatex">\(1 \leq m, n \leq 3 \times 10^5\)</span></p>
-<p>Output: print <code>Yes</code> if it is possible to arrange the words of <span class="arithmatex">\(magazine\)</span> to
-write the <span class="arithmatex">\(note\)</span>, otherwise print <code>No</code>. For example, if the <span class="arithmatex">\(note\)</span> is
-<code>["two", "plus", "two", "is", "four"]</code>, then if the <span class="arithmatex">\(magazine\)</span> contains two
-<code>"two"</code>s, a <code>"plus"</code>, an <code>"is"</code>, and a <code>"four"</code>, then the output
-is <code>Yes</code>. If it is missing any of those, or it only has one <code>"two"</code>, or
-there is a <code>"Plus"</code> instead of a <code>"plus"</code>, then the answer is <code>No</code>.
-Note that the words are case-sensitive.</p>
-<p>It is not enough to know that every word in <span class="arithmatex">\(note\)</span> is also in <span class="arithmatex">\(magazine\)</span>; there
-must be as many instances of any word in <span class="arithmatex">\(magazine\)</span> as there are in <span class="arithmatex">\(note\)</span>. You
-can use maps to count the number of occurences in each word of <span class="arithmatex">\(magazine\)</span> and
-<span class="arithmatex">\(note\)</span>. The answer is <code>No</code> if there is a word in your <span class="arithmatex">\(note\)</span> map that either
-doesn't occur in <span class="arithmatex">\(magazine\)</span> or occurs fewer times in <span class="arithmatex">\(magazine\)</span> than in <span class="arithmatex">\(note\)</span>.</p>
+<p>Given an array, rotate it to the left by <span class="arithmatex">\(d\)</span> elements.</p>
+<p>Input: an array <span class="arithmatex">\(a[n]\)</span> and a number of rotations to make, <span class="arithmatex">\(d\)</span>.</p>
+<p><span class="arithmatex">\(1 \leq d \leq n \leq 10^5\)</span></p>
+<p><span class="arithmatex">\(1 \leq a[i] \leq 10^6 \; \forall \; i\)</span></p>
+<p>Output: the array shifted <span class="arithmatex">\(d\)</span> elements to the left. For example, for the
+following array, shifting to the left by 1 element gives:</p>
+<p><code>[1, 2, 3, 4]</code> <span class="arithmatex">\(\to\)</span> <code>[2, 3, 4, 1]</code></p>
+<p>By 3 elements:</p>
+<p><code>[1, 2, 3, 4]</code> <span class="arithmatex">\(\to\)</span> <code>[2, 3, 4, 1]</code> <span class="arithmatex">\(\to\)</span> <code>[3, 4, 1, 2]</code> <span class="arithmatex">\(\to\)</span> <code>[4, 1, 2, 3]</code></p>
+<p>Shifting by 4 elements brings the array back to its original order.</p>
+<p>The array could be modified in place, but for this problem it is okay to use an
+extra array to store the values in their new positions without overriding the
+values in the original array. For the value at position <span class="arithmatex">\(i\)</span>, you can calculate
+its new position <span class="arithmatex">\(i'\)</span> with <span class="arithmatex">\(d\)</span>:</p>
+<p><span class="arithmatex">\(i' \gets (i - d)\)</span> mod <span class="arithmatex">\(n\)</span></p>
+<p>Note that using the modulus operator with negative numbers may not always work
+the way you expect. You might need to add <span class="arithmatex">\(n\)</span>:</p>
+<p><span class="arithmatex">\(i' \gets (i - d + n)\)</span> mod <span class="arithmatex">\(n\)</span></p>
+<p>The new array should have the elements from <span class="arithmatex">\(d\)</span> to the end, followed by the
+elements from 0 to <span class="arithmatex">\(d - 1\)</span>.</p>
+<p>The description suggests that you should modify the array passed to the
+function, but it also works to create and return a new array with the correct
+values.</p>
 <p>Java 8:
-<div class="highlight"><pre><span></span><code>public static void checkMagazine(List&lt;String&gt; magazine, List&lt;String&gt; note) {
-    Map&lt;String, Integer&gt; magazineFreq = new HashMap&lt;&gt;();
-    Map&lt;String, Integer&gt; noteFreq = new HashMap&lt;&gt;();
-    for (String word : magazine) {
-        magazineFreq.put(word, magazineFreq.getOrDefault(word, 0) + 1);
-    }
-    for (String word : note) {
-        noteFreq.put(word, noteFreq.getOrDefault(word, 0) + 1);
-    }
-    for (String word : noteFreq.keySet()) {
-        if (noteFreq.get(word) &gt; magazineFreq.getOrDefault(word, 0)) {
-            System.out.println(&quot;No&quot;);
-
-            return;
-        }
+<div class="highlight"><pre><span></span><code>public static List&lt;Integer&gt; rotLeft(List&lt;Integer&gt; a, int d) {
+    Iterator&lt;Integer&gt; iter = a.iterator();
+    List&lt;Integer&gt; start = new LinkedList&lt;&gt;();
+    for (int i = 0; i &lt; d; i++) {
+        start.add(iter.next());
     }
 
-    System.out.println(&quot;Yes&quot;);
+    List&lt;Integer&gt; newList = new LinkedList&lt;&gt;();
+    while (iter.hasNext()) {
+        newList.add(iter.next());
+    }
+    a.clear();
+    a.addAll(newList);
+    a.addAll(start);
+
+    return a;
 }
 </code></pre></div></p>
 <p>C++:
-<div class="highlight"><pre><span></span><code>void checkMagazine(vector&lt;string&gt; magazine, vector&lt;string&gt; note) {
-    map&lt;string, int&gt; magazineFreq;
-    map&lt;string, int&gt; noteFreq;
-    for (auto word = magazine.begin(); word != magazine.end(); word++) {
-        magazineFreq[*word]++;
+<div class="highlight"><pre><span></span><code>vector&lt;int&gt; rotLeft(vector&lt;int&gt; a, int d) {
+    const int n = a.size();
+    vector&lt;int&gt; newVector(n, 0);
+    for (int i = 0; i &lt; n; i++) {
+        newVector[(i - d + n) % n] = a[i];
     }
-    for (auto word = note.begin(); word != note.end(); word++) {
-        noteFreq[*word]++;
-    }
-    for (auto entry = noteFreq.begin(); entry != noteFreq.end(); entry++) {
-        if (entry-&gt;second &gt; magazineFreq[entry-&gt;first]) {
-            cout &lt;&lt; &quot;No&quot; &lt;&lt; endl;
+    a = newVector;
 
-            return;
-        }
-    }
-
-    cout &lt;&lt; &quot;Yes&quot; &lt;&lt; endl;
+    return a;
 }
 </code></pre></div></p>
 <p>Python 3:
-<div class="highlight"><pre><span></span><code>def checkMagazine(magazine, note):
-    magazine_freq = {word: 0 for word in magazine}
-    note_freq = {word: 0 for word in note}
-    for word in magazine:
-        magazine_freq[word] += 1
-    for word in note:
-        note_freq[word] += 1
-    for word, freq in note_freq.items():
-        if word not in magazine_freq or magazine_freq[word] &lt; freq:
-            print(&quot;No&quot;)
+<div class="highlight"><pre><span></span><code>def rotLeft(a, d):
+    new_list = a[d:] + a[:d]
+    a.clear()
+    a.extend(new_list)
 
-            return
-
-    print(&quot;Yes&quot;)
+    return a
 </code></pre></div></p>
+<p><a href="../../../hackerrank/">Back</a></p>
                 
               
               
@@ -336,12 +324,12 @@ doesn't occur in <span class="arithmatex">\(magazine\)</span> or occurs fewer ti
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.a1609d9a.min.js"></script>
       
-        <script src="../../javascripts/mathjax.js"></script>
+        <script src="../../../javascripts/mathjax.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       

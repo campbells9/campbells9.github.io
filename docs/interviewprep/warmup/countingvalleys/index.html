@@ -9,19 +9,19 @@
       
       
       
-      <link rel="icon" href="../../img/tenticon.png">
+      <link rel="icon" href="../../../img/tenticon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.5">
     
     
       
-        <title>Sales by Match - Campbell's Homepage</title>
+        <title>Counting Valleys - Campbell's Homepage</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.bde7dde4.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.bde7dde4.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ef6f36e2.min.css">
         
       
     
@@ -36,7 +36,7 @@
     
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
     
       
@@ -53,7 +53,7 @@
     <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
   
     
-    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#sales-by-match" class="md-skip">
+        <a href="#counting-valleys" class="md-skip">
           Skip to content
         </a>
       
@@ -72,9 +72,9 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Campbell&#39;s Homepage" class="md-header__button md-logo" aria-label="Campbell's Homepage" data-md-component="logo">
+    <a href="../../.." title="Campbell&#39;s Homepage" class="md-header__button md-logo" aria-label="Campbell's Homepage" data-md-component="logo">
       
-  <img src="../../img/tenticon.png" alt="logo">
+  <img src="../../../img/tenticon.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -90,7 +90,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Sales by Match
+              Counting Valleys
             
           </span>
         </div>
@@ -151,9 +151,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Campbell&#39;s Homepage" class="md-nav__button md-logo" aria-label="Campbell's Homepage" data-md-component="logo">
+    <a href="../../.." title="Campbell&#39;s Homepage" class="md-nav__button md-logo" aria-label="Campbell's Homepage" data-md-component="logo">
       
-  <img src="../../img/tenticon.png" alt="logo">
+  <img src="../../../img/tenticon.png" alt="logo">
 
     </a>
     Campbell's Homepage
@@ -169,7 +169,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         Home
       </a>
     </li>
@@ -184,7 +184,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../hackerrank/" class="md-nav__link">
+      <a href="../../../hackerrank/" class="md-nav__link">
         HackerRank
       </a>
     </li>
@@ -221,44 +221,40 @@
               
                 
                 
-                <h1 id="sales-by-match">Sales by Match</h1>
-<p><a href="https://www.hackerrank.com/challenges/sock-merchant/problem">Problem</a></p>
+                <h1 id="counting-valleys">Counting Valleys</h1>
+<p><a href="https://www.hackerrank.com/challenges/counting-valleys/problem">Problem</a></p>
 <p>Category: Warm-up Challenges</p>
 <p>Difficulty: Easy</p>
 <hr />
-<p>Given a list of socks, determine how many pairs of matching-color socks can be
-made.</p>
-<p>Input: a list of socks <span class="arithmatex">\(ar[n]\)</span>, where <span class="arithmatex">\(ar[i]\)</span> is an integer representing
-the color of sock <span class="arithmatex">\(i\)</span>.</p>
-<p><span class="arithmatex">\(1 \leq n \leq 100, 1 \leq ar[i] \leq 100 \; \forall \; i\)</span></p>
-<p>Output: the maximum number of pairs that can be achieved by pairing socks that
-have the same color</p>
-<p>We don't need the number of total possible ways to pair the socks; we just need
-to maximum number of pairs achievable by any pairing where no sock is matched to
-a sock of a different color. For example, <code>[1, 1, 1, 1, 1]</code> has at most 2
-matches: one way to achieve this is by matching sock 0 to sock 1 and sock 2 to
-sock 3, leaving sock 4 unpaired.</p>
-<p>Make a set to store available sock colors and loop through the list of socks.
-Check if each sock's color is in the set so far:</p>
-<ul>
-<li>If sock <span class="arithmatex">\(i\)</span>'s color is not in the set, then you have no sock to pair with <span class="arithmatex">\(i\)</span>.
-<span class="arithmatex">\(i\)</span> is a loose sock available for a future pairing.</li>
-<li>If sock <span class="arithmatex">\(i\)</span>'s color is in the set, then there is a previous sock available to
-pair with <span class="arithmatex">\(i\)</span>. Remove <span class="arithmatex">\(i\)</span>'s color from the set and record that a pair has been
-made.</li>
-</ul>
-<p>Another solution could be to count how many socks there are of each color. If
-a color appears on <span class="arithmatex">\(k\)</span> socks, then <span class="arithmatex">\(\lfloor \frac{k}{2} \rfloor\)</span> is the number
-of pairs that can be made with that color.</p>
+<p>Given a path of steps, which are either up or down, starting at sea level,
+determine the number of valleys crossed. A valley is a sequence of steps that
+starts at sea level, descends below sea level, and then returns to sea level.</p>
+<p>Input: a number of steps <span class="arithmatex">\(s\)</span> and a path <span class="arithmatex">\(p \in \{U, D\}^s\)</span>, where <span class="arithmatex">\(U\)</span> represents
+a step up and <span class="arithmatex">\(D\)</span> represents a step down. The path begins and ends at sea level,
+so <span class="arithmatex">\(p\)</span> has an equal number of <span class="arithmatex">\(U\)</span>'s and <span class="arithmatex">\(D\)</span>'s.</p>
+<p><span class="arithmatex">\(2 \leq s \leq 10^6\)</span></p>
+<p><span class="arithmatex">\(|\{i : p_i = U\}| = |\{i : p_i = D\}| = \frac{s}{2}\)</span></p>
+<p>Output: the number of valleys (sequences that start at sea level, descend below
+sea level, and then return up to sea level).</p>
+<p>Read through the path and keep track of what elevation each step reaches. For
+example:</p>
+<p><code>"UDDDUDUU"</code> <span class="arithmatex">\(\to\)</span> 0, 1, 0, -1, -2, -1, -2, -1, 0</p>
+<p>We can see that a valley ends whenever we step up from elevation -1 to 0. The
+path is guaranteed to return to sea level (elevation 0) by the end, so every
+valley ends, and the number of times we step up from -1 to 0 is the number of
+valleys.</p>
 <p>Java 8:
-<div class="highlight"><pre><span></span><code>public static int sockMerchant(int n, List&lt;Integer&gt; ar) {
+<div class="highlight"><pre><span></span><code>public static int countingValleys(int steps, String path) {
     int count = 0;
-    Set&lt;Integer&gt; colors = new HashSet&lt;&gt;();
-    for (int sock : ar) {
-        if (colors.remove(sock)) {
-            count++;
+    int level = 0;
+    for (int i = 0; i &lt; steps; i++) {
+        if (path.charAt(i) == &#39;U&#39;) {
+            level++;
+            if (level == 0) {
+                count++;
+            }
         } else {
-            colors.add(sock);
+            level--;
         }
     }
 
@@ -266,14 +262,15 @@ of pairs that can be made with that color.</p>
 }
 </code></pre></div></p>
 <p>C++:
-<div class="highlight"><pre><span></span><code>int sockMerchant(int n, vector&lt;int&gt; ar) {
+<div class="highlight"><pre><span></span><code>int countingValleys(int steps, string path) {
     int count = 0;
-    set&lt;int&gt; colors;
-    for (int i = 0; i &lt; n; i++) {
-        if(colors.erase(ar[i])) {
-            count++;
+    int level = 0;
+    for (int i = 0; i &lt; steps; i++) {
+        if (path[i] == &#39;U&#39;) {
+            level++;
+            count += level == 0;
         } else {
-            colors.insert(ar[i]);
+            level--;
         }
     }
 
@@ -281,25 +278,20 @@ of pairs that can be made with that color.</p>
 }
 </code></pre></div></p>
 <p>Python 3:
-<div class="highlight"><pre><span></span><code>def sockMerchant(n, ar):
-    colors = set()
+<div class="highlight"><pre><span></span><code>def countingValleys(steps, path):
+    level = 0
     count = 0
-    for i in ar:
-        if i in colors:
-            count += 1
-            colors.remove(i)
+    for step in path:
+        if step == &quot;U&quot;:
+            level += 1
+            if level == 0:
+                count += 1
         else:
-            colors.add(i)
+            level -= 1
 
     return count
 </code></pre></div></p>
-<p>Python 3 Alternate Solution:
-<div class="highlight"><pre><span></span><code>def sockMerchant(n, ar):
-    sock_freq = {sock: ar.count(sock) for sock in ar}
-
-    return sum(v // 2 for _, v in sock_freq.items())
-</code></pre></div></p>
-<p><a href="../../hackerrank/">Back</a></p>
+<p><a href="../../../hackerrank/">Back</a></p>
                 
               
               
@@ -335,12 +327,12 @@ of pairs that can be made with that color.</p>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.a1609d9a.min.js"></script>
       
-        <script src="../../javascripts/mathjax.js"></script>
+        <script src="../../../javascripts/mathjax.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
