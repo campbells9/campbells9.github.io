@@ -14,3 +14,4 @@
 | [Hash Tables: Ransom Note](interviewprep/dicts/ransomnote.md)       | Dictionaries and Hashmaps | Easy       |
 | [Two Strings](interviewprep/dicts/twostrings.md)                    | Dictionaries and Hashmaps | Easy       |
 | [Sorting: Bubble Sort](interviewprep/sorting/bubblesort.md)         | Sorting                   | Easy       |
+| [Mark and Toys](interviewprep/sorting/markandtoys.md)               | Sorting                   | Easy       |
