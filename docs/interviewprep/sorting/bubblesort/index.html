@@ -1,0 +1,442 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../../img/tenticon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.5">
+    
+    
+      
+        <title>Sorting: Bubble Sort - Campbell's Homepage</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.bde7dde4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ef6f36e2.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sorting-bubble-sort" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Campbell&#39;s Homepage" class="md-header__button md-logo" aria-label="Campbell's Homepage" data-md-component="logo">
+      
+  <img src="../../../img/tenticon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Campbell's Homepage
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Sorting: Bubble Sort
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Campbell&#39;s Homepage" class="md-nav__button md-logo" aria-label="Campbell's Homepage" data-md-component="logo">
+      
+  <img src="../../../img/tenticon.png" alt="logo">
+
+    </a>
+    Campbell's Homepage
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../hackerrank/" class="md-nav__link">
+        HackerRank
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="sorting-bubble-sort">Sorting: Bubble Sort</h1>
+<p><a href="https://www.hackerrank.com/challenges/ctci-bubble-sort/problem">Problem</a></p>
+<p>Category: Sorting</p>
+<p>Difficulty: Easy</p>
+<hr />
+<p>Given an array, return how many swaps are needed to sort the array with Bubble
+Sort.</p>
+<p>Input: an array <span class="arithmatex">\(a[n]\)</span> of integers.</p>
+<p><span class="arithmatex">\(2 \leq n \leq 600\)</span></p>
+<p><span class="arithmatex">\(1 \leq a[i] \leq 2 \times 10^6 \; \forall \; i\)</span></p>
+<p>Output: a message containing the number of swaps needed to sort <span class="arithmatex">\(a\)</span>, as well as
+elements <span class="arithmatex">\(a[0]\)</span> and <span class="arithmatex">\(a[n - 1]\)</span> after <span class="arithmatex">\(a\)</span> is sorted.</p>
+<p>The problem gives you an example implementation of bubble sort, so it would be
+easy enough to use bubble sort on <span class="arithmatex">\(a\)</span> and count the number of times you swapped
+two elements. The number of times bubble sort swaps two elements is the same as
+the number of <em>inversions</em> in the array: an inversion occurs whenever any two
+elements in the array are out of order and the larger one comes first. You can
+use a merge sort instead of a bubble sort and count the inversions to get the
+correct number of swaps.</p>
+<p>Consider merging two sorted arrays <span class="arithmatex">\(l\)</span> and <span class="arithmatex">\(r\)</span>:</p>
+<ul>
+<li>Start with the first elements of <span class="arithmatex">\(l\)</span> and <span class="arithmatex">\(r\)</span>: <span class="arithmatex">\(i \gets 0, j \gets 0\)</span>.</li>
+<li>If <span class="arithmatex">\(l[i] \leq r[j]\)</span>, then add <span class="arithmatex">\(l[i]\)</span> to the merged array and increment <span class="arithmatex">\(i\)</span>.</li>
+<li>If <span class="arithmatex">\(l[i] &gt; r[j]\)</span>, then add <span class="arithmatex">\(r[j]\)</span> to the merged array and increment <span class="arithmatex">\(j\)</span>.</li>
+<li>If <span class="arithmatex">\(i\)</span> reaches the end of <span class="arithmatex">\(l\)</span>, add the remaining elements of <span class="arithmatex">\(r\)</span> to the
+merged array.</li>
+<li>If <span class="arithmatex">\(j\)</span> reaches the end of <span class="arithmatex">\(r\)</span>, add the remaining elements of <span class="arithmatex">\(l\)</span> to the merged
+array.</li>
+</ul>
+<p>Note that every value in <span class="arithmatex">\(l\)</span> occurs before every value in <span class="arithmatex">\(r\)</span> in the original
+array. When <span class="arithmatex">\(r[j]\)</span> is placed before <span class="arithmatex">\(l[i]\)</span> in the merged array, there is an
+inversion. But if <span class="arithmatex">\(r[j]\)</span> is in front of <span class="arithmatex">\(l[i]\)</span>, it will also go in front of
+the remaining elements in <span class="arithmatex">\(l\)</span> after <span class="arithmatex">\(i\)</span>. So when <span class="arithmatex">\(r[j]\)</span> is added to the merged
+array, that represents <span class="arithmatex">\(l.\text{length} - i\)</span> inversions.</p>
+<p>A good way to count the total swaps needed to sort the array is to write a
+recursive merge sort function that returns the number of swaps made. This way,
+you can split the array into left and right halves, sum up the swaps incurred
+by each recursive call, and then add the the number of swaps counted when
+merging the two sorted arrays.</p>
+<p>Java 8:
+<div class="highlight"><pre><span></span><code>public static void countSwaps(List&lt;Integer&gt; a) {
+    final int N = a.size();
+    Integer[] arr = a.toArray(new Integer[N]);
+    int swaps = mergeSort(arr, 0, N);
+    System.out.println(&quot;Array is sorted in &quot; + swaps + &quot; swaps.&quot;);
+    System.out.println(&quot;First Element: &quot; + arr[0]);
+    System.out.println(&quot;Last Element: &quot; + arr[N - 1]);
+}
+
+private static int mergeSort(Integer[] arr, int start, int end) {
+    if (start &gt;= end - 1) {
+        return 0;
+    }
+
+    int mid = (start + end) / 2;
+    int swaps = mergeSort(arr, start, mid);
+    swaps += mergeSort(arr, mid, end);
+
+    int[] temp = new int[end - start];
+    int i = start;
+    int j = mid;
+    int pos = 0;
+    while (i &lt; mid &amp;&amp; j &lt; end) {
+        if (arr[i] &lt;= arr[j]) {
+            temp[pos] = arr[i];
+            i++;
+        } else {
+            swaps += mid - i;
+            temp[pos] = arr[j];
+            j++;
+        }
+        pos++;
+    }
+    while (i &lt; mid) {
+        temp[pos] = arr[i];
+        i++;
+        pos++;
+    }
+    while (j &lt; end) {
+        temp[pos] = arr[j];
+        j++;
+        pos++;
+    }
+    for (int k = 0; k &lt; temp.length; k++) {
+        arr[start + k] = temp[k];
+    }
+
+    return swaps;
+}
+</code></pre></div></p>
+<p>C++:
+<div class="highlight"><pre><span></span><code>int mergeSort(vector&lt;int&gt;&amp;, int, int);
+
+void countSwaps(vector&lt;int&gt; a) {
+    const int n = a.size();
+    int swaps = mergeSort(a, 0, n);
+    cout &lt;&lt; &quot;Array is sorted in &quot; &lt;&lt; swaps &lt;&lt; &quot; swaps.&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;First Element: &quot; &lt;&lt; a[0] &lt;&lt; endl;
+    cout &lt;&lt; &quot;Last Element: &quot; &lt;&lt; a[n - 1] &lt;&lt; endl;
+}
+
+int mergeSort(vector&lt;int&gt;&amp; a, int start, int end) {
+    if (start &gt;= end - 1) {
+        return 0;
+    }
+
+    const int mid = (start + end) / 2;
+    int swaps = mergeSort(a, start, mid);
+    swaps += mergeSort(a, mid, end);
+
+    vector&lt;int&gt; temp;
+    int i = start;
+    int j = mid;
+    while (i &lt; mid &amp;&amp; j &lt; end) {
+        if (a[i] &lt;= a[j]) {
+            temp.push_back(a[i]);
+            i++;
+        } else {
+            swaps += mid - i;
+            temp.push_back(a[j]);
+            j++;
+        }
+    }
+    while (i &lt; mid) {
+        temp.push_back(a[i]);
+        i++;
+    }
+    while (j &lt; end) {
+        temp.push_back(a[j]);
+        j++;
+    }
+    for (int k = 0; k &lt; temp.size(); k++) {
+        a[start + k] = temp[k];
+    }
+
+    return swaps;
+}
+</code></pre></div></p>
+<p>Python 3:
+<div class="highlight"><pre><span></span><code>def countSwaps(a):
+    swaps = mergeSort(a)
+    print(&quot;Array is sorted in&quot;, swaps, &quot;swaps.&quot;)
+    print(&quot;First Element:&quot;, a[0])
+    print(&quot;Last Element:&quot;, a[-1])
+
+def mergeSort(a):
+    if len(a) &lt;= 1:
+        return 0
+
+    mid = len(a) // 2
+    left = a[:mid]
+    right = a[mid:]
+    swaps = mergeSort(left) + mergeSort(right)
+    i = 0
+    j = 0
+    a.clear()
+    while i &lt; len(left) and j &lt; len(right):
+        if left[i] &lt;= right[j]:
+            a.append(left[i])
+            i += 1
+        else:
+            swaps += len(left) - i
+            a.append(right[j])
+            j += 1
+    a.extend(left[i:])
+    a.extend(right[j:])
+
+    return swaps
+</code></pre></div></p>
+<p><a href="../../../hackerrank/">Back</a></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

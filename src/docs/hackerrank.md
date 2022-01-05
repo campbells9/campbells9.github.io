@@ -13,3 +13,4 @@
 | [Arrays: Left Rotation](interviewprep/arrays/leftrotation.md)       | Arrays                    | Easy       |
 | [Hash Tables: Ransom Note](interviewprep/dicts/ransomnote.md)       | Dictionaries and Hashmaps | Easy       |
 | [Two Strings](interviewprep/dicts/twostrings.md)                    | Dictionaries and Hashmaps | Easy       |
+| [Sorting: Bubble Sort](interviewprep/sorting/bubblesort.md)         | Sorting                   | Easy       |
