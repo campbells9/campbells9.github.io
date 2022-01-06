@@ -34,7 +34,7 @@ valley ends, and the number of times we step up from -1 to 0 is the number of
 valleys.
 
 Java 8:
-```
+```java
 public static int countingValleys(int steps, String path) {
     int count = 0;
     int level = 0;
@@ -54,7 +54,7 @@ public static int countingValleys(int steps, String path) {
 ```
 
 C++:
-```
+```cpp
 int countingValleys(int steps, string path) {
     int count = 0;
     int level = 0;
@@ -72,7 +72,7 @@ int countingValleys(int steps, string path) {
 ```
 
 Python 3:
-```
+```python
 def countingValleys(steps, path):
     level = 0
     count = 0

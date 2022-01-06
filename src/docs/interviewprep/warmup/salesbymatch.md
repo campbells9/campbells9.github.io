@@ -39,7 +39,7 @@ a color appears on $k$ socks, then $\lfloor \frac{k}{2} \rfloor$ is the number
 of pairs that can be made with that color.
 
 Java 8:
-```
+```java
 public static int sockMerchant(int n, List<Integer> ar) {
     int count = 0;
     Set<Integer> colors = new HashSet<>();
@@ -56,7 +56,7 @@ public static int sockMerchant(int n, List<Integer> ar) {
 ```
 
 C++:
-```
+```cpp
 int sockMerchant(int n, vector<int> ar) {
     int count = 0;
     set<int> colors;
@@ -73,7 +73,7 @@ int sockMerchant(int n, vector<int> ar) {
 ```
 
 Python 3:
-```
+```python
 def sockMerchant(n, ar):
     colors = set()
     count = 0
@@ -88,7 +88,7 @@ def sockMerchant(n, ar):
 ```
 
 Python 3 Alternate Solution:
-```
+```python
 def sockMerchant(n, ar):
     sock_freq = {sock: ar.count(sock) for sock in ar}
     

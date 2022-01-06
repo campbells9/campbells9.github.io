@@ -25,7 +25,7 @@ to use bubble sort on $a$ and count the number of times you swapped two
 elements. 
 
 Java 8:
-```
+```java
 public static void countSwaps(List<Integer> a) {
     final int N = a.size();
     Integer[] arr = a.toArray(new Integer[N]);
@@ -51,7 +51,7 @@ public static void countSwaps(List<Integer> a) {
 ```
 
 C++:
-```
+```cpp
 void countSwaps(vector<int> a) {
     const int n = a.size();
     int swaps = 0;
@@ -72,7 +72,7 @@ void countSwaps(vector<int> a) {
 ```
 
 Python 3:
-```
+```python
 def countSwaps(a):
     swaps = 0
     for _ in list(a):

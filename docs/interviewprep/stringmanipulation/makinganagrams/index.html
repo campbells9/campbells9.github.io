@@ -249,60 +249,60 @@ in <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</spa
 integers because the characters are limited to lowercase letters. With maps, it
 would be easier to extend your solution to allow more characters.</p>
 <p>Java 8:
-<div class="highlight"><pre><span></span><code>public static int makeAnagram(String a, String b) {
-    Map&lt;Character, Integer&gt; aFreqMap = new HashMap&lt;&gt;();
-    Map&lt;Character, Integer&gt; bFreqMap = new HashMap&lt;&gt;();
-    for (int i = 0; i &lt; a.length(); i++) {
-        char ch = a.charAt(i);
-        aFreqMap.put(ch, aFreqMap.getOrDefault(ch, 0) + 1);
-    }
-    for (int i = 0; i &lt; b.length(); i++) {
-        char ch = b.charAt(i);
-        bFreqMap.put(ch, bFreqMap.getOrDefault(ch, 0) + 1);
-    }
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">makeAnagram</span><span class="p">(</span><span class="n">String</span> <span class="n">a</span><span class="p">,</span> <span class="n">String</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Map</span><span class="o">&lt;</span><span class="n">Character</span><span class="p">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">aFreqMap</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+    <span class="n">Map</span><span class="o">&lt;</span><span class="n">Character</span><span class="p">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">bFreqMap</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">a</span><span class="p">.</span><span class="na">length</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">char</span> <span class="n">ch</span> <span class="o">=</span> <span class="n">a</span><span class="p">.</span><span class="na">charAt</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+        <span class="n">aFreqMap</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">ch</span><span class="p">,</span> <span class="n">aFreqMap</span><span class="p">.</span><span class="na">getOrDefault</span><span class="p">(</span><span class="n">ch</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">.</span><span class="na">length</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">char</span> <span class="n">ch</span> <span class="o">=</span> <span class="n">b</span><span class="p">.</span><span class="na">charAt</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+        <span class="n">bFreqMap</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">ch</span><span class="p">,</span> <span class="n">bFreqMap</span><span class="p">.</span><span class="na">getOrDefault</span><span class="p">(</span><span class="n">ch</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
 
-    int deletions = 0;
-    for (char ch = &#39;a&#39;; ch &lt;= &#39;z&#39;; ch++) {
-        int aFreq = aFreqMap.getOrDefault(ch, 0);
-        int bFreq = bFreqMap.getOrDefault(ch, 0);
-        deletions += Math.abs(aFreq - bFreq);
-    }
+    <span class="kt">int</span> <span class="n">deletions</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">char</span> <span class="n">ch</span> <span class="o">=</span> <span class="sc">&#39;a&#39;</span><span class="p">;</span> <span class="n">ch</span> <span class="o">&lt;=</span> <span class="sc">&#39;z&#39;</span><span class="p">;</span> <span class="n">ch</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">aFreq</span> <span class="o">=</span> <span class="n">aFreqMap</span><span class="p">.</span><span class="na">getOrDefault</span><span class="p">(</span><span class="n">ch</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="kt">int</span> <span class="n">bFreq</span> <span class="o">=</span> <span class="n">bFreqMap</span><span class="p">.</span><span class="na">getOrDefault</span><span class="p">(</span><span class="n">ch</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="n">deletions</span> <span class="o">+=</span> <span class="n">Math</span><span class="p">.</span><span class="na">abs</span><span class="p">(</span><span class="n">aFreq</span> <span class="o">-</span> <span class="n">bFreq</span><span class="p">);</span>
+    <span class="p">}</span>
 
-    return deletions;
-}
+    <span class="k">return</span> <span class="n">deletions</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div></p>
 <p>C++:
-<div class="highlight"><pre><span></span><code>int makeAnagram(string a, string b) {
-    map&lt;char, int&gt; aFreqMap, bFreqMap;
-    for (auto ch = a.begin(); ch != a.end(); ch++) {
-        aFreqMap[*ch]++;
-    }
-    for (auto ch = b.begin(); ch != b.end(); ch++) {
-        bFreqMap[*ch]++;
-    }
+<div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="nf">makeAnagram</span><span class="p">(</span><span class="n">string</span> <span class="n">a</span><span class="p">,</span> <span class="n">string</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">map</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">aFreqMap</span><span class="p">,</span> <span class="n">bFreqMap</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">ch</span> <span class="o">=</span> <span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">ch</span> <span class="o">!=</span> <span class="n">a</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="n">ch</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">aFreqMap</span><span class="p">[</span><span class="o">*</span><span class="n">ch</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">ch</span> <span class="o">=</span> <span class="n">b</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">ch</span> <span class="o">!=</span> <span class="n">b</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="n">ch</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">bFreqMap</span><span class="p">[</span><span class="o">*</span><span class="n">ch</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    int deletions = 0;
-    for (char ch = &#39;a&#39;; ch &lt;= &#39;z&#39;; ch++) {
-        deletions += abs(aFreqMap[ch] - bFreqMap[ch]);
-    }
+    <span class="kt">int</span> <span class="n">deletions</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">char</span> <span class="n">ch</span> <span class="o">=</span> <span class="sc">&#39;a&#39;</span><span class="p">;</span> <span class="n">ch</span> <span class="o">&lt;=</span> <span class="sc">&#39;z&#39;</span><span class="p">;</span> <span class="n">ch</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">deletions</span> <span class="o">+=</span> <span class="n">abs</span><span class="p">(</span><span class="n">aFreqMap</span><span class="p">[</span><span class="n">ch</span><span class="p">]</span> <span class="o">-</span> <span class="n">bFreqMap</span><span class="p">[</span><span class="n">ch</span><span class="p">]);</span>
+    <span class="p">}</span>
 
-    return deletions;
-}
+    <span class="k">return</span> <span class="n">deletions</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div></p>
 <p>Python 3:
-<div class="highlight"><pre><span></span><code>def makeAnagram(a, b):
-    letters = set(a) | set(b)
-    a_freq = {ch: 0 for ch in letters}
-    b_freq = {ch: 0 for ch in letters}
-    for ch in a:
-        a_freq[ch] += 1
-    for ch in b:
-        b_freq[ch] += 1
-    deletions = 0
-    for ch in letters:
-        deletions += abs(a_freq[ch] - b_freq[ch])
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">makeAnagram</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="n">letters</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">|</span> <span class="nb">set</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+    <span class="n">a_freq</span> <span class="o">=</span> <span class="p">{</span><span class="n">ch</span><span class="p">:</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">letters</span><span class="p">}</span>
+    <span class="n">b_freq</span> <span class="o">=</span> <span class="p">{</span><span class="n">ch</span><span class="p">:</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">letters</span><span class="p">}</span>
+    <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>
+        <span class="n">a_freq</span><span class="p">[</span><span class="n">ch</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">b</span><span class="p">:</span>
+        <span class="n">b_freq</span><span class="p">[</span><span class="n">ch</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">deletions</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">letters</span><span class="p">:</span>
+        <span class="n">deletions</span> <span class="o">+=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">a_freq</span><span class="p">[</span><span class="n">ch</span><span class="p">]</span> <span class="o">-</span> <span class="n">b_freq</span><span class="p">[</span><span class="n">ch</span><span class="p">])</span>
 
-    return deletions
+    <span class="k">return</span> <span class="n">deletions</span>
 </code></pre></div></p>
 <p><a href="../../../hackerrank/">Back</a></p>
                 

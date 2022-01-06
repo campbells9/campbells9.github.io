@@ -251,53 +251,53 @@ made.</li>
 a color appears on <span class="arithmatex">\(k\)</span> socks, then <span class="arithmatex">\(\lfloor \frac{k}{2} \rfloor\)</span> is the number
 of pairs that can be made with that color.</p>
 <p>Java 8:
-<div class="highlight"><pre><span></span><code>public static int sockMerchant(int n, List&lt;Integer&gt; ar) {
-    int count = 0;
-    Set&lt;Integer&gt; colors = new HashSet&lt;&gt;();
-    for (int sock : ar) {
-        if (colors.remove(sock)) {
-            count++;
-        } else {
-            colors.add(sock);
-        }
-    }
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">sockMerchant</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">ar</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">Set</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">colors</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">sock</span> <span class="p">:</span> <span class="n">ar</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">colors</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="n">sock</span><span class="p">))</span> <span class="p">{</span>
+            <span class="n">count</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">colors</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">sock</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 
-    return count;
-}
+    <span class="k">return</span> <span class="n">count</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div></p>
 <p>C++:
-<div class="highlight"><pre><span></span><code>int sockMerchant(int n, vector&lt;int&gt; ar) {
-    int count = 0;
-    set&lt;int&gt; colors;
-    for (int i = 0; i &lt; n; i++) {
-        if(colors.erase(ar[i])) {
-            count++;
-        } else {
-            colors.insert(ar[i]);
-        }
-    }
+<div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="nf">sockMerchant</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">ar</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">colors</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">colors</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">ar</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span> <span class="p">{</span>
+            <span class="n">count</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">colors</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">ar</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 
-    return count;
-}
+    <span class="k">return</span> <span class="n">count</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div></p>
 <p>Python 3:
-<div class="highlight"><pre><span></span><code>def sockMerchant(n, ar):
-    colors = set()
-    count = 0
-    for i in ar:
-        if i in colors:
-            count += 1
-            colors.remove(i)
-        else:
-            colors.add(i)
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">sockMerchant</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">ar</span><span class="p">):</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ar</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">colors</span><span class="p">:</span>
+            <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">colors</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">colors</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 
-    return count
+    <span class="k">return</span> <span class="n">count</span>
 </code></pre></div></p>
 <p>Python 3 Alternate Solution:
-<div class="highlight"><pre><span></span><code>def sockMerchant(n, ar):
-    sock_freq = {sock: ar.count(sock) for sock in ar}
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">sockMerchant</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">ar</span><span class="p">):</span>
+    <span class="n">sock_freq</span> <span class="o">=</span> <span class="p">{</span><span class="n">sock</span><span class="p">:</span> <span class="n">ar</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">sock</span><span class="p">)</span> <span class="k">for</span> <span class="n">sock</span> <span class="ow">in</span> <span class="n">ar</span><span class="p">}</span>
 
-    return sum(v // 2 for _, v in sock_freq.items())
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">v</span> <span class="o">//</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">sock_freq</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
 </code></pre></div></p>
 <p><a href="../../../hackerrank/">Back</a></p>
                 

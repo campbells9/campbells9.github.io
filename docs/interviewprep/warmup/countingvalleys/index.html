@@ -244,52 +244,52 @@ path is guaranteed to return to sea level (elevation 0) by the end, so every
 valley ends, and the number of times we step up from -1 to 0 is the number of
 valleys.</p>
 <p>Java 8:
-<div class="highlight"><pre><span></span><code>public static int countingValleys(int steps, String path) {
-    int count = 0;
-    int level = 0;
-    for (int i = 0; i &lt; steps; i++) {
-        if (path.charAt(i) == &#39;U&#39;) {
-            level++;
-            if (level == 0) {
-                count++;
-            }
-        } else {
-            level--;
-        }
-    }
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">countingValleys</span><span class="p">(</span><span class="kt">int</span> <span class="n">steps</span><span class="p">,</span> <span class="n">String</span> <span class="n">path</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">level</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">steps</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">path</span><span class="p">.</span><span class="na">charAt</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">==</span> <span class="sc">&#39;U&#39;</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">level</span><span class="o">++</span><span class="p">;</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">level</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">count</span><span class="o">++</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">level</span><span class="o">--</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 
-    return count;
-}
+    <span class="k">return</span> <span class="n">count</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div></p>
 <p>C++:
-<div class="highlight"><pre><span></span><code>int countingValleys(int steps, string path) {
-    int count = 0;
-    int level = 0;
-    for (int i = 0; i &lt; steps; i++) {
-        if (path[i] == &#39;U&#39;) {
-            level++;
-            count += level == 0;
-        } else {
-            level--;
-        }
-    }
+<div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="nf">countingValleys</span><span class="p">(</span><span class="kt">int</span> <span class="n">steps</span><span class="p">,</span> <span class="n">string</span> <span class="n">path</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">level</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">steps</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">path</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="sc">&#39;U&#39;</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">level</span><span class="o">++</span><span class="p">;</span>
+            <span class="n">count</span> <span class="o">+=</span> <span class="n">level</span> <span class="o">==</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">level</span><span class="o">--</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 
-    return count;
-}
+    <span class="k">return</span> <span class="n">count</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div></p>
 <p>Python 3:
-<div class="highlight"><pre><span></span><code>def countingValleys(steps, path):
-    level = 0
-    count = 0
-    for step in path:
-        if step == &quot;U&quot;:
-            level += 1
-            if level == 0:
-                count += 1
-        else:
-            level -= 1
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">countingValleys</span><span class="p">(</span><span class="n">steps</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+    <span class="n">level</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="n">path</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">step</span> <span class="o">==</span> <span class="s2">&quot;U&quot;</span><span class="p">:</span>
+            <span class="n">level</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">level</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">level</span> <span class="o">-=</span> <span class="mi">1</span>
 
-    return count
+    <span class="k">return</span> <span class="n">count</span>
 </code></pre></div></p>
 <p><a href="../../../hackerrank/">Back</a></p>
                 

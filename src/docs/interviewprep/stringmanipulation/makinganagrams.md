@@ -40,7 +40,7 @@ integers because the characters are limited to lowercase letters. With maps, it
 would be easier to extend your solution to allow more characters.
 
 Java 8:
-```
+```java
 public static int makeAnagram(String a, String b) {
     Map<Character, Integer> aFreqMap = new HashMap<>();
     Map<Character, Integer> bFreqMap = new HashMap<>();
@@ -65,7 +65,7 @@ public static int makeAnagram(String a, String b) {
 ```
 
 C++:
-```
+```cpp
 int makeAnagram(string a, string b) {
     map<char, int> aFreqMap, bFreqMap;
     for (auto ch = a.begin(); ch != a.end(); ch++) {
@@ -85,7 +85,7 @@ int makeAnagram(string a, string b) {
 ```
 
 Python 3:
-```
+```python
 def makeAnagram(a, b):
     letters = set(a) | set(b)
     a_freq = {ch: 0 for ch in letters}

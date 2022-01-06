@@ -246,46 +246,46 @@ currency as you can with <span class="arithmatex">\(j\)</span> units of currency
 the greatest amount of currency remaining, which means you can buy the greatest
 number of toys possible out of the remaining options. </p>
 <p>Java 8:
-<div class="highlight"><pre><span></span><code>public static int maximumToys(List&lt;Integer&gt; prices, int k) {
-    final int N = prices.size();
-    Integer[] p = prices.toArray(new Integer[N]);
-    Arrays.sort(p);
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">maximumToys</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">prices</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">final</span> <span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="n">prices</span><span class="p">.</span><span class="na">size</span><span class="p">();</span>
+    <span class="n">Integer</span><span class="o">[]</span> <span class="n">p</span> <span class="o">=</span> <span class="n">prices</span><span class="p">.</span><span class="na">toArray</span><span class="p">(</span><span class="k">new</span> <span class="n">Integer</span><span class="o">[</span><span class="n">N</span><span class="o">]</span><span class="p">);</span>
+    <span class="n">Arrays</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
 
-    int toys = 0;
-    while (toys &lt; N &amp;&amp; p[toys] &lt;= k) {
-        k -= p[toys];
-        toys++;
-    }
+    <span class="kt">int</span> <span class="n">toys</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">toys</span> <span class="o">&lt;</span> <span class="n">N</span> <span class="o">&amp;&amp;</span> <span class="n">p</span><span class="o">[</span><span class="n">toys</span><span class="o">]</span> <span class="o">&lt;=</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">k</span> <span class="o">-=</span> <span class="n">p</span><span class="o">[</span><span class="n">toys</span><span class="o">]</span><span class="p">;</span>
+        <span class="n">toys</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    return toys;
-}
+    <span class="k">return</span> <span class="n">toys</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div></p>
 <p>C++:
-<div class="highlight"><pre><span></span><code>int maximumToys(vector&lt;int&gt; prices, int k) {
-    vector&lt;int&gt; p = prices;
-    sort(p.begin(), p.end());
+<div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="nf">maximumToys</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">prices</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">p</span> <span class="o">=</span> <span class="n">prices</span><span class="p">;</span>
+    <span class="n">sort</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">p</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
 
-    const int n = p.size();
-    int toys = 0;
-    while (toys &lt; n &amp;&amp; p[toys] &lt;= k) {
-        k -= p[toys];
-        toys++;
-    }
+    <span class="k">const</span> <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+    <span class="kt">int</span> <span class="n">toys</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">toys</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">&amp;&amp;</span> <span class="n">p</span><span class="p">[</span><span class="n">toys</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">k</span> <span class="o">-=</span> <span class="n">p</span><span class="p">[</span><span class="n">toys</span><span class="p">];</span>
+        <span class="n">toys</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    return toys;
-}
+    <span class="k">return</span> <span class="n">toys</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div></p>
 <p>Python 3:
-<div class="highlight"><pre><span></span><code>def maximumToys(prices, k):
-    toys = 0
-    for toy in sorted(prices):
-        if k &gt;= toy:
-            k -= toy
-            toys += 1
-        else:
-            return toys
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">maximumToys</span><span class="p">(</span><span class="n">prices</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="n">toys</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">toy</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">prices</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">k</span> <span class="o">&gt;=</span> <span class="n">toy</span><span class="p">:</span>
+            <span class="n">k</span> <span class="o">-=</span> <span class="n">toy</span>
+            <span class="n">toys</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">toys</span>
 
-    return toys
+    <span class="k">return</span> <span class="n">toys</span>
 </code></pre></div></p>
 <p><a href="../../../hackerrank/">Back</a></p>
                 

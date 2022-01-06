@@ -41,7 +41,7 @@ once sequentially to solve the problem, so it is possible to use an iterator
 over the list instead of converting it into an array and indexing into it.
 
 Java 8:
-```
+```java
 public static int jumpingOnClouds(List<Integer> c) {
     final int N = c.size();
     Integer[] clouds = c.toArray(new Integer[N]);
@@ -61,7 +61,7 @@ public static int jumpingOnClouds(List<Integer> c) {
 ```
 
 C++:
-```
+```cpp
 int jumpingOnClouds(vector<int> c) {
     const int n = c.size();
     int jumps = 0;
@@ -76,7 +76,7 @@ int jumpingOnClouds(vector<int> c) {
 ```
 
 Python 3:
-```
+```python
 def jumpingOnClouds(c):
     n = len(c)
     position = 0

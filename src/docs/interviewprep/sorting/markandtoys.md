@@ -37,7 +37,7 @@ the greatest amount of currency remaining, which means you can buy the greatest
 number of toys possible out of the remaining options. 
 
 Java 8:
-```
+```java
 public static int maximumToys(List<Integer> prices, int k) {
     final int N = prices.size();
     Integer[] p = prices.toArray(new Integer[N]);
@@ -54,7 +54,7 @@ public static int maximumToys(List<Integer> prices, int k) {
 ```
 
 C++:
-```
+```cpp
 int maximumToys(vector<int> prices, int k) {
     vector<int> p = prices;
     sort(p.begin(), p.end());
@@ -71,7 +71,7 @@ int maximumToys(vector<int> prices, int k) {
 ```
 
 Python 3:
-```
+```python
 def maximumToys(prices, k):
     toys = 0
     for toy in sorted(prices):

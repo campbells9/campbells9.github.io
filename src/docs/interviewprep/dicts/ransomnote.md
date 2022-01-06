@@ -31,7 +31,7 @@ $note$. The answer is ```No``` if there is a word in your $note$ map that either
 doesn't occur in $magazine$ or occurs fewer times in $magazine$ than in $note$.
 
 Java 8:
-```
+```java
 public static void checkMagazine(List<String> magazine, List<String> note) {
     Map<String, Integer> magazineFreq = new HashMap<>();
     Map<String, Integer> noteFreq = new HashMap<>();
@@ -54,7 +54,7 @@ public static void checkMagazine(List<String> magazine, List<String> note) {
 ```
 
 C++:
-```
+```cpp
 void checkMagazine(vector<string> magazine, vector<string> note) {
     map<string, int> magazineFreq;
     map<string, int> noteFreq;
@@ -77,7 +77,7 @@ void checkMagazine(vector<string> magazine, vector<string> note) {
 ```
 
 Python 3:
-```
+```python
 def checkMagazine(magazine, note):
     magazine_freq = {word: 0 for word in magazine}
     note_freq = {word: 0 for word in note}

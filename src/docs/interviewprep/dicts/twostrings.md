@@ -37,7 +37,7 @@ $|\{c : c \in s_1\} \cup \{c : c \in s_2\}| = |\{c : c \in s_1\}| + |\{c : c \in
 If the sets are independent, then the answer is No.
 
 Java 8:
-```
+```java
 public static String twoStrings(String s1, String s2) {
     Set<Character> s1set = new HashSet<>();
     for (int i = 0; i < s1.length(); i++) {
@@ -54,7 +54,7 @@ public static String twoStrings(String s1, String s2) {
 ```
 
 C++:
-```
+```cpp
 string twoStrings(string s1, string s2) {
     set<char> s1set;
     for (auto ch = s1.begin(); ch != s1.end(); ch++) {
@@ -71,7 +71,7 @@ string twoStrings(string s1, string s2) {
 ```
 
 Python 3:
-```
+```python
 def twoStrings(s1, s2):
     return "YES" if set(s1) & set(s2) else "NO"
 ```

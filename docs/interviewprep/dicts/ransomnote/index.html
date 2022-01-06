@@ -244,62 +244,62 @@ can use maps to count the number of occurences in each word of <span class="arit
 <span class="arithmatex">\(note\)</span>. The answer is <code>No</code> if there is a word in your <span class="arithmatex">\(note\)</span> map that either
 doesn't occur in <span class="arithmatex">\(magazine\)</span> or occurs fewer times in <span class="arithmatex">\(magazine\)</span> than in <span class="arithmatex">\(note\)</span>.</p>
 <p>Java 8:
-<div class="highlight"><pre><span></span><code>public static void checkMagazine(List&lt;String&gt; magazine, List&lt;String&gt; note) {
-    Map&lt;String, Integer&gt; magazineFreq = new HashMap&lt;&gt;();
-    Map&lt;String, Integer&gt; noteFreq = new HashMap&lt;&gt;();
-    for (String word : magazine) {
-        magazineFreq.put(word, magazineFreq.getOrDefault(word, 0) + 1);
-    }
-    for (String word : note) {
-        noteFreq.put(word, noteFreq.getOrDefault(word, 0) + 1);
-    }
-    for (String word : noteFreq.keySet()) {
-        if (noteFreq.get(word) &gt; magazineFreq.getOrDefault(word, 0)) {
-            System.out.println(&quot;No&quot;);
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">checkMagazine</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">magazine</span><span class="p">,</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">note</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">magazineFreq</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+    <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">noteFreq</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">String</span> <span class="n">word</span> <span class="p">:</span> <span class="n">magazine</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">magazineFreq</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">magazineFreq</span><span class="p">.</span><span class="na">getOrDefault</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">String</span> <span class="n">word</span> <span class="p">:</span> <span class="n">note</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">noteFreq</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">noteFreq</span><span class="p">.</span><span class="na">getOrDefault</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">String</span> <span class="n">word</span> <span class="p">:</span> <span class="n">noteFreq</span><span class="p">.</span><span class="na">keySet</span><span class="p">())</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">noteFreq</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">magazineFreq</span><span class="p">.</span><span class="na">getOrDefault</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span> <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;No&quot;</span><span class="p">);</span>
 
-            return;
-        }
-    }
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 
-    System.out.println(&quot;Yes&quot;);
-}
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Yes&quot;</span><span class="p">);</span>
+<span class="p">}</span>
 </code></pre></div></p>
 <p>C++:
-<div class="highlight"><pre><span></span><code>void checkMagazine(vector&lt;string&gt; magazine, vector&lt;string&gt; note) {
-    map&lt;string, int&gt; magazineFreq;
-    map&lt;string, int&gt; noteFreq;
-    for (auto word = magazine.begin(); word != magazine.end(); word++) {
-        magazineFreq[*word]++;
-    }
-    for (auto word = note.begin(); word != note.end(); word++) {
-        noteFreq[*word]++;
-    }
-    for (auto entry = noteFreq.begin(); entry != noteFreq.end(); entry++) {
-        if (entry-&gt;second &gt; magazineFreq[entry-&gt;first]) {
-            cout &lt;&lt; &quot;No&quot; &lt;&lt; endl;
+<div class="highlight"><pre><span></span><code><span class="kt">void</span> <span class="nf">checkMagazine</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">magazine</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">note</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">map</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">magazineFreq</span><span class="p">;</span>
+    <span class="n">map</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">noteFreq</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">word</span> <span class="o">=</span> <span class="n">magazine</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">word</span> <span class="o">!=</span> <span class="n">magazine</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="n">word</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">magazineFreq</span><span class="p">[</span><span class="o">*</span><span class="n">word</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">word</span> <span class="o">=</span> <span class="n">note</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">word</span> <span class="o">!=</span> <span class="n">note</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="n">word</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">noteFreq</span><span class="p">[</span><span class="o">*</span><span class="n">word</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">entry</span> <span class="o">=</span> <span class="n">noteFreq</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">entry</span> <span class="o">!=</span> <span class="n">noteFreq</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="n">entry</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">entry</span><span class="o">-&gt;</span><span class="n">second</span> <span class="o">&gt;</span> <span class="n">magazineFreq</span><span class="p">[</span><span class="n">entry</span><span class="o">-&gt;</span><span class="n">first</span><span class="p">])</span> <span class="p">{</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;No&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 
-            return;
-        }
-    }
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 
-    cout &lt;&lt; &quot;Yes&quot; &lt;&lt; endl;
-}
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Yes&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div></p>
 <p>Python 3:
-<div class="highlight"><pre><span></span><code>def checkMagazine(magazine, note):
-    magazine_freq = {word: 0 for word in magazine}
-    note_freq = {word: 0 for word in note}
-    for word in magazine:
-        magazine_freq[word] += 1
-    for word in note:
-        note_freq[word] += 1
-    for word, freq in note_freq.items():
-        if word not in magazine_freq or magazine_freq[word] &lt; freq:
-            print(&quot;No&quot;)
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">checkMagazine</span><span class="p">(</span><span class="n">magazine</span><span class="p">,</span> <span class="n">note</span><span class="p">):</span>
+    <span class="n">magazine_freq</span> <span class="o">=</span> <span class="p">{</span><span class="n">word</span><span class="p">:</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">magazine</span><span class="p">}</span>
+    <span class="n">note_freq</span> <span class="o">=</span> <span class="p">{</span><span class="n">word</span><span class="p">:</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">note</span><span class="p">}</span>
+    <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">magazine</span><span class="p">:</span>
+        <span class="n">magazine_freq</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">note</span><span class="p">:</span>
+        <span class="n">note_freq</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">freq</span> <span class="ow">in</span> <span class="n">note_freq</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">magazine_freq</span> <span class="ow">or</span> <span class="n">magazine_freq</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">freq</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No&quot;</span><span class="p">)</span>
 
-            return
+            <span class="k">return</span>
 
-    print(&quot;Yes&quot;)
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Yes&quot;</span><span class="p">)</span>
 </code></pre></div></p>
 <p><a href="../../../hackerrank/">Back</a></p>
                 

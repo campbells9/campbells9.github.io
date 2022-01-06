@@ -246,38 +246,38 @@ combined set for <span class="arithmatex">\(s_1\)</span> and <span class="arithm
 <p><span class="arithmatex">\(|\{c : c \in s_1\} \cup \{c : c \in s_2\}| = |\{c : c \in s_1\}| + |\{c : c \in s_2\}|\)</span></p>
 <p>If the sets are independent, then the answer is No.</p>
 <p>Java 8:
-<div class="highlight"><pre><span></span><code>public static String twoStrings(String s1, String s2) {
-    Set&lt;Character&gt; s1set = new HashSet&lt;&gt;();
-    for (int i = 0; i &lt; s1.length(); i++) {
-        s1set.add(s1.charAt(i));
-    }
-    for (int i = 0; i &lt; s2.length(); i++) {
-        if (s1set.contains(s2.charAt(i))) {
-            return &quot;YES&quot;;
-        }
-    }
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">twoStrings</span><span class="p">(</span><span class="n">String</span> <span class="n">s1</span><span class="p">,</span> <span class="n">String</span> <span class="n">s2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Set</span><span class="o">&lt;</span><span class="n">Character</span><span class="o">&gt;</span> <span class="n">s1set</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">s1</span><span class="p">.</span><span class="na">length</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">s1set</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">s1</span><span class="p">.</span><span class="na">charAt</span><span class="p">(</span><span class="n">i</span><span class="p">));</span>
+    <span class="p">}</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">s2</span><span class="p">.</span><span class="na">length</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">s1set</span><span class="p">.</span><span class="na">contains</span><span class="p">(</span><span class="n">s2</span><span class="p">.</span><span class="na">charAt</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="s">&quot;YES&quot;</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 
-    return &quot;NO&quot;;
-}
+    <span class="k">return</span> <span class="s">&quot;NO&quot;</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div></p>
 <p>C++:
-<div class="highlight"><pre><span></span><code>string twoStrings(string s1, string s2) {
-    set&lt;char&gt; s1set;
-    for (auto ch = s1.begin(); ch != s1.end(); ch++) {
-        s1set.insert(*ch);
-    }
-    for (auto ch = s2.begin(); ch != s2.end(); ch++) {
-        if (s1set.find(*ch) != s1set.end()) {
-            return &quot;YES&quot;;
-        }
-    }
+<div class="highlight"><pre><span></span><code><span class="n">string</span> <span class="nf">twoStrings</span><span class="p">(</span><span class="n">string</span> <span class="n">s1</span><span class="p">,</span> <span class="n">string</span> <span class="n">s2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">set</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span> <span class="n">s1set</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">ch</span> <span class="o">=</span> <span class="n">s1</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">ch</span> <span class="o">!=</span> <span class="n">s1</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="n">ch</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">s1set</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="o">*</span><span class="n">ch</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">ch</span> <span class="o">=</span> <span class="n">s2</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">ch</span> <span class="o">!=</span> <span class="n">s2</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="n">ch</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">s1set</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="o">*</span><span class="n">ch</span><span class="p">)</span> <span class="o">!=</span> <span class="n">s1set</span><span class="p">.</span><span class="n">end</span><span class="p">())</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="s">&quot;YES&quot;</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 
-    return &quot;NO&quot;;
-}
+    <span class="k">return</span> <span class="s">&quot;NO&quot;</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div></p>
 <p>Python 3:
-<div class="highlight"><pre><span></span><code>def twoStrings(s1, s2):
-    return &quot;YES&quot; if set(s1) &amp; set(s2) else &quot;NO&quot;
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">twoStrings</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s2">&quot;YES&quot;</span> <span class="k">if</span> <span class="nb">set</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="nb">set</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span> <span class="k">else</span> <span class="s2">&quot;NO&quot;</span>
 </code></pre></div></p>
 <p><a href="../../../hackerrank/">Back</a></p>
                 
