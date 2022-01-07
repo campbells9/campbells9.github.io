@@ -4,7 +4,7 @@
 ### Interview Preparation Kit
 
 | Name                                                                                      | Category                  | Difficulty |
-| :--------------------------------------------------------------------------------------   | :------------------------ | :--------- |
+| :---------------------------------------------------------------------------------------- | :------------------------ | :--------- |
 | [Sales by Match](interviewprep/warmup/salesbymatch.md)                                    | Warm-up Challenges        | Easy       |
 | [Counting Valleys](interviewprep/warmup/countingvalleys.md)                               | Warm-up Challenges        | Easy       |
 | [Jumping on the Clouds](interviewprep/warmup/jumpingontheclouds.md)                       | Warm-up Challenges        | Easy       |
@@ -21,3 +21,5 @@
 | [Luck Balance](interviewprep/greedyalgorithms/luckbalance.md)                             | Greedy Algorithms         | Easy       |
 | [Tree: Height of a Binary Tree](interviewprep/trees/heightofbinarytree.md)                | Trees                     | Easy       |
 | [Binary Search Tree: Lowest Common Ancestor](interviewprep/trees/lowestcommonancestor.md) | Trees                     | Easy       |
+| [Insert a Node at a Specific Position in a Linked List](interviewprep/linkedlists/isp.md) | Linked Lists              | Easy       |
+| [Inserting a Node into a Sorted Doubly Linked List](interviewprep/linkedlists/insndll.md) | Linked Lists              | Easy       |
