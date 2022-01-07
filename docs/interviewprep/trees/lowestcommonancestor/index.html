@@ -1,0 +1,354 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../../img/tenticon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.5">
+    
+    
+      
+        <title>Binary Search Tree: Lowest Common Ancestor - Campbell's Homepage</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.bde7dde4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ef6f36e2.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#binary-search-tree-lowest-common-ancestor" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Campbell&#39;s Homepage" class="md-header__button md-logo" aria-label="Campbell's Homepage" data-md-component="logo">
+      
+  <img src="../../../img/tenticon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Campbell's Homepage
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Binary Search Tree: Lowest Common Ancestor
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Campbell&#39;s Homepage" class="md-nav__button md-logo" aria-label="Campbell's Homepage" data-md-component="logo">
+      
+  <img src="../../../img/tenticon.png" alt="logo">
+
+    </a>
+    Campbell's Homepage
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../hackerrank/" class="md-nav__link">
+        HackerRank
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="binary-search-tree-lowest-common-ancestor">Binary Search Tree: Lowest Common Ancestor</h1>
+<p><a href="https://www.hackerrank.com/challenges/binary-search-tree-lowest-common-ancestor/problem">Problem</a></p>
+<p>Category: Trees</p>
+<p>Difficulty: Easy</p>
+<hr />
+<p>Given two values in a binary search tree, find their lowest common ancestor.</p>
+<p>Input: the root of a binary search tree with <span class="arithmatex">\(n\)</span> nodes, and two values
+<span class="arithmatex">\(v_1, v_2\)</span> from the tree.</p>
+<p><span class="arithmatex">\(1 \leq n \leq 25\)</span></p>
+<p><span class="arithmatex">\(1 \leq v_1, v_2 \leq 25, \; v_1 \neq v_2\)</span></p>
+<div class="highlight"><pre><span></span><code>class Node {
+    int data;
+    Node* left;
+    Node* right;
+}
+</code></pre></div>
+<p>Output: the lowest common ancestor node of <span class="arithmatex">\(v_1\)</span> and <span class="arithmatex">\(v_2\)</span> in the tree. If node
+<span class="arithmatex">\(k\)</span> is an ancestor of node <span class="arithmatex">\(v\)</span>, then the subtree with root <span class="arithmatex">\(k\)</span> contains <span class="arithmatex">\(v\)</span>, and
+the path from the root to <span class="arithmatex">\(v\)</span> passes through <span class="arithmatex">\(k\)</span>. The lowest common ancestor is
+the highest-depth node (lowest in the tree) that is both an ancestor to <span class="arithmatex">\(v_1\)</span>
+and <span class="arithmatex">\(v_2\)</span>.</p>
+<p>The key observation for this problem is that the answer depends on how the root
+node's value compares to <span class="arithmatex">\(v_1\)</span> and <span class="arithmatex">\(v_2\)</span>. If one of the values is in the left
+subtree and the other value is in the right subtree, then the root is the lowest
+common ancestor. If the root's value is equal to <span class="arithmatex">\(v_1\)</span> or <span class="arithmatex">\(v_2\)</span>, then the root
+is also the lowest common ancestor. In these cases, there is no lower common
+ancestor than the root beacuse no subtrees contain both <span class="arithmatex">\(v_1\)</span> and <span class="arithmatex">\(v_2\)</span>. If
+neither of these conditions are true, then either both values are in the left
+subtree or both values are in the right subtree, so their common ancestor is
+also in that subtree.</p>
+<p>You can determine whether <span class="arithmatex">\(v_1\)</span> and <span class="arithmatex">\(v_2\)</span> are to the left or the right of the
+root because the tree is a binary search tree: all values less than the root's
+value are in the left subtree, and all values greater than the root's value are
+in the right subtree.</p>
+<p>Java 8:
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">static</span> <span class="n">Node</span> <span class="nf">lca</span><span class="p">(</span><span class="n">Node</span> <span class="n">root</span><span class="p">,</span> <span class="kt">int</span> <span class="n">v1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">v2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">root</span><span class="p">.</span><span class="na">data</span> <span class="o">==</span> <span class="n">v1</span> <span class="o">||</span> <span class="n">root</span><span class="p">.</span><span class="na">data</span> <span class="o">==</span> <span class="n">v2</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">root</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">root</span><span class="p">.</span><span class="na">data</span> <span class="o">&gt;</span> <span class="n">v1</span> <span class="o">&amp;&amp;</span> <span class="n">root</span><span class="p">.</span><span class="na">data</span> <span class="o">&gt;</span> <span class="n">v2</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">lca</span><span class="p">(</span><span class="n">root</span><span class="p">.</span><span class="na">left</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">root</span><span class="p">.</span><span class="na">data</span> <span class="o">&lt;</span> <span class="n">v1</span> <span class="o">&amp;&amp;</span> <span class="n">root</span><span class="p">.</span><span class="na">data</span> <span class="o">&lt;</span> <span class="n">v2</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">lca</span><span class="p">(</span><span class="n">root</span><span class="p">.</span><span class="na">right</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">root</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p>C++:
+<div class="highlight"><pre><span></span><code><span class="n">Node</span> <span class="o">*</span><span class="nf">lca</span><span class="p">(</span><span class="n">Node</span> <span class="o">*</span><span class="n">root</span><span class="p">,</span> <span class="kt">int</span> <span class="n">v1</span><span class="p">,</span><span class="kt">int</span> <span class="n">v2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">==</span> <span class="n">v1</span> <span class="o">||</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">==</span> <span class="n">v2</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">root</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">&gt;</span> <span class="n">v1</span> <span class="o">&amp;&amp;</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">&gt;</span> <span class="n">v2</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">lca</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">&lt;</span> <span class="n">v1</span> <span class="o">&amp;&amp;</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">&lt;</span> <span class="n">v2</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">lca</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">root</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p>Python 3:
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">lca</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">root</span><span class="o">.</span><span class="n">info</span> <span class="o">==</span> <span class="n">v1</span> <span class="ow">or</span> <span class="n">root</span><span class="o">.</span><span class="n">info</span> <span class="o">==</span> <span class="n">v2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">root</span>
+
+    <span class="k">if</span> <span class="n">root</span><span class="o">.</span><span class="n">info</span> <span class="o">&gt;</span> <span class="n">v1</span> <span class="ow">and</span> <span class="n">root</span><span class="o">.</span><span class="n">info</span> <span class="o">&gt;</span> <span class="n">v2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">lca</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">left</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">root</span><span class="o">.</span><span class="n">info</span> <span class="o">&lt;</span> <span class="n">v1</span> <span class="ow">and</span> <span class="n">root</span><span class="o">.</span><span class="n">info</span> <span class="o">&lt;</span> <span class="n">v2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">lca</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">right</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">root</span>
+</code></pre></div></p>
+<p><a href="../../../hackerrank/">Back</a></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
