@@ -23,3 +23,5 @@
 | [Binary Search Tree: Lowest Common Ancestor](interviewprep/trees/lowestcommonancestor.md) | Trees                     | Easy       |
 | [Insert a Node at a Specific Position in a Linked List](interviewprep/linkedlists/isp.md) | Linked Lists              | Easy       |
 | [Inserting a Node into a Sorted Doubly Linked List](interviewprep/linkedlists/insndll.md) | Linked Lists              | Easy       |
+| [Reverse a Doubly Linked List](interviewprep/linkedlists/reversedoublylinkedlist.md)      | Linked Lists              | Easy       |
+| [Find Merge Point of Two Lists](interviewprep/linkedlists/findmergepointtwolists.md)      | Linked Lists              | Easy       |

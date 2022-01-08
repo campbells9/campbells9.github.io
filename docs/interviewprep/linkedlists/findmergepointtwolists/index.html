@@ -1,0 +1,376 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../../img/tenticon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.5">
+    
+    
+      
+        <title>Find Merge Point of Two Lists - Campbell's Homepage</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.bde7dde4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ef6f36e2.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#find-merge-point-of-two-lists" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Campbell&#39;s Homepage" class="md-header__button md-logo" aria-label="Campbell's Homepage" data-md-component="logo">
+      
+  <img src="../../../img/tenticon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Campbell's Homepage
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Find Merge Point of Two Lists
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Campbell&#39;s Homepage" class="md-nav__button md-logo" aria-label="Campbell's Homepage" data-md-component="logo">
+      
+  <img src="../../../img/tenticon.png" alt="logo">
+
+    </a>
+    Campbell's Homepage
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../hackerrank/" class="md-nav__link">
+        HackerRank
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="find-merge-point-of-two-lists">Find Merge Point of Two Lists</h1>
+<p><a href="https://www.hackerrank.com/challenges/find-the-merge-point-of-two-joined-linked-lists/problem">Problem</a></p>
+<p>Category: Linked Lists</p>
+<p>Difficuly: Easy</p>
+<hr />
+<p>Given two linked lists that merge, determine which node they merge at.</p>
+<p>Input: <span class="arithmatex">\(h_1\)</span> and <span class="arithmatex">\(h_2\)</span>, the heads of two linked lists that share at least one
+node. <span class="arithmatex">\(h_1 \neq h_2\)</span>.</p>
+<div class="highlight"><pre><span></span><code>class SinglyLinkedListNode {
+    int data;
+    SinglyLinkedListNode* next;
+}
+</code></pre></div>
+<p>Output: the data value of the first node that is contained in both lists.</p>
+<p>Note that it is not just guaranteed that the lists have nodes that share the
+same value: it is guaranteed that the lists share a node in memory, and
+therefore share any nodes that come after it in the lists. Instead of checking
+whether nodes have the same data value, you should be checking whether your
+references to the nodes are equal.</p>
+<p>If you can create a set of references to nodes, a simple way to solve the
+problem is to add all of the nodes of <span class="arithmatex">\(h_1\)</span>'s list to a set, and then read
+through <span class="arithmatex">\(h_2\)</span>'s list until you find the first node that is present in the set.
+It is guaranteed that the first node in <span class="arithmatex">\(h_2\)</span>'s list that is also in <span class="arithmatex">\(h_1\)</span>'s
+list is their merge point.</p>
+<p>A clever way that doesn't require extra space involves cycling through both
+lists at the same time until your references coincide. Let <span class="arithmatex">\(c_1 \gets h_1\)</span> and
+<span class="arithmatex">\(c_2 \gets h_2\)</span>, and continue iterating <span class="arithmatex">\(c_1 \gets c_1\)</span>.next and
+<span class="arithmatex">\(c_2 \gets c_2\)</span>.next until <span class="arithmatex">\(c_1 = c_2\)</span>.  When either reference reaches the end
+of its list, reset it to the head of its list.</p>
+<p>It makes sense that <span class="arithmatex">\(c_1\)</span> and <span class="arithmatex">\(c_2\)</span> will be equal eventually if the lists have
+the same length, but it is not as obvious that they will eventually be equal if
+the lists have different lengths.</p>
+<p>Let <span class="arithmatex">\(n_1\)</span> be the length of <span class="arithmatex">\(h_1\)</span>'s list and <span class="arithmatex">\(n_2\)</span> be the length of <span class="arithmatex">\(h_2\)</span>'s list.
+Let <span class="arithmatex">\(m_1\)</span> be the position of the merge point in <span class="arithmatex">\(h_1\)</span>'s list and <span class="arithmatex">\(m_2\)</span> be the
+position of the merge point in <span class="arithmatex">\(h_2\)</span>'s list.</p>
+<p><span class="arithmatex">\(0 \leq m_1 &lt; n_1\)</span></p>
+<p><span class="arithmatex">\(0 \leq m_2 &lt; n_2\)</span></p>
+<p>After the merge point, the lists are the same, so they both have the same number
+of nodes after the merge point:</p>
+<p><span class="arithmatex">\(n_1 - m_1 = n_2 - m_2\)</span></p>
+<p>Let <span class="arithmatex">\(a = n_1 - m_1 = n_2 - m_2\)</span>.</p>
+<p>On the <span class="arithmatex">\(i^{\text{th}}\)</span> iteration, <span class="arithmatex">\(c_1\)</span> will be at position <span class="arithmatex">\(i\)</span> mod <span class="arithmatex">\(n_1\)</span>, and
+<span class="arithmatex">\(c_2\)</span> will be at position <span class="arithmatex">\(i\)</span> mod <span class="arithmatex">\(n_2\)</span>. We are looking for an <span class="arithmatex">\(i\)</span> for which
+<span class="arithmatex">\(m_1 = i\)</span> mod <span class="arithmatex">\(n_1\)</span> and <span class="arithmatex">\(m_2 = i\)</span> mod <span class="arithmatex">\(n_2\)</span>.</p>
+<p>Take <span class="arithmatex">\(i = \text{lcm}(n_1, n_2) - a\)</span>:</p>
+<p><span class="arithmatex">\(i\)</span> mod <span class="arithmatex">\(n_1 = (\text{lcm}(n_1, n_2) - a)\)</span> mod <span class="arithmatex">\(n_1 = (n_1 - a)\)</span> mod <span class="arithmatex">\(n_1 = m_1\)</span> mod <span class="arithmatex">\(n_1 = m_1\)</span></p>
+<p><span class="arithmatex">\(i\)</span> mod <span class="arithmatex">\(n_2 = (\text{lcm}(n_1, n_2) - a)\)</span> mod <span class="arithmatex">\(n_2 = (n_2 - a)\)</span> mod <span class="arithmatex">\(n_2 = m_2\)</span> mod <span class="arithmatex">\(n_2 = m_2\)</span></p>
+<p>The last thing to check is that <span class="arithmatex">\(i \geq 0\)</span>: this is true because <span class="arithmatex">\(a \leq n_1\)</span>
+and <span class="arithmatex">\(a \leq n_2\)</span>, so <span class="arithmatex">\(a \leq \text{lcm}(n_1, n_2)\)</span>.</p>
+<p>Therefore, there will be an iteration for which <span class="arithmatex">\(c_1\)</span> and <span class="arithmatex">\(c_2\)</span> reference the
+same node. The first time this occurs has to be the merge point.</p>
+<p>This solution is easier and shorter to implement, and it suffices to solve this
+problem.</p>
+<p>Java 8:
+<div class="highlight"><pre><span></span><code><span class="kd">static</span> <span class="kt">int</span> <span class="nf">findMergeNode</span><span class="p">(</span><span class="n">SinglyLinkedListNode</span> <span class="n">head1</span><span class="p">,</span> <span class="n">SinglyLinkedListNode</span> <span class="n">head2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">SinglyLinkedListNode</span> <span class="n">current1</span> <span class="o">=</span> <span class="n">head1</span><span class="p">;</span>
+    <span class="n">SinglyLinkedListNode</span> <span class="n">current2</span> <span class="o">=</span> <span class="n">head2</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">current1</span> <span class="o">!=</span> <span class="n">current2</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">current1</span> <span class="o">=</span> <span class="n">current1</span><span class="p">.</span><span class="na">next</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">?</span> <span class="n">current1</span><span class="p">.</span><span class="na">next</span> <span class="p">:</span> <span class="n">head1</span><span class="p">;</span>
+        <span class="n">current2</span> <span class="o">=</span> <span class="n">current2</span><span class="p">.</span><span class="na">next</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">?</span> <span class="n">current2</span><span class="p">.</span><span class="na">next</span> <span class="p">:</span> <span class="n">head2</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">current1</span><span class="p">.</span><span class="na">data</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p>C++:
+<div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="nf">findMergeNode</span><span class="p">(</span><span class="n">SinglyLinkedListNode</span><span class="o">*</span> <span class="n">head1</span><span class="p">,</span> <span class="n">SinglyLinkedListNode</span><span class="o">*</span> <span class="n">head2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">set</span><span class="o">&lt;</span><span class="n">SinglyLinkedListNode</span><span class="o">*&gt;</span> <span class="n">references</span><span class="p">;</span>
+    <span class="n">SinglyLinkedListNode</span><span class="o">*</span> <span class="n">current</span> <span class="o">=</span> <span class="n">head1</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">current</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">references</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">current</span><span class="p">);</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">current</span> <span class="o">=</span> <span class="n">head2</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">references</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">current</span><span class="p">)</span> <span class="o">==</span> <span class="n">references</span><span class="p">.</span><span class="n">end</span><span class="p">())</span> <span class="p">{</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p>Python 3:
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">findMergeNode</span><span class="p">(</span><span class="n">head1</span><span class="p">,</span> <span class="n">head2</span><span class="p">):</span>
+    <span class="n">current1</span><span class="p">,</span> <span class="n">current2</span> <span class="o">=</span> <span class="n">head1</span><span class="p">,</span> <span class="n">head2</span>
+    <span class="k">while</span> <span class="n">current1</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">current2</span><span class="p">:</span>
+        <span class="n">current1</span> <span class="o">=</span> <span class="n">current1</span><span class="o">.</span><span class="n">next</span> <span class="k">if</span> <span class="n">current1</span><span class="o">.</span><span class="n">next</span> <span class="k">else</span> <span class="n">head1</span>
+        <span class="n">current2</span> <span class="o">=</span> <span class="n">current2</span><span class="o">.</span><span class="n">next</span> <span class="k">if</span> <span class="n">current2</span><span class="o">.</span><span class="n">next</span> <span class="k">else</span> <span class="n">head2</span>
+
+    <span class="k">return</span> <span class="n">current1</span><span class="o">.</span><span class="n">data</span>
+</code></pre></div></p>
+<p>Alternate Python 3 solution:
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">findMergeNode</span><span class="p">(</span><span class="n">head1</span><span class="p">,</span> <span class="n">head2</span><span class="p">):</span>
+    <span class="n">nodes</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="n">current</span> <span class="o">=</span> <span class="n">head1</span>
+    <span class="k">while</span> <span class="n">current</span><span class="p">:</span>
+        <span class="n">nodes</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">current</span><span class="p">)</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="n">next</span>
+    <span class="n">current</span> <span class="o">=</span> <span class="n">head2</span>
+    <span class="k">while</span> <span class="n">current</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">nodes</span><span class="p">:</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="n">next</span>
+
+    <span class="k">return</span> <span class="n">current</span><span class="o">.</span><span class="n">data</span>
+</code></pre></div></p>
+<p><a href="../../../hackerrank/">Back</a></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
