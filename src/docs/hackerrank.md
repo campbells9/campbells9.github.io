@@ -25,3 +25,4 @@
 | [Inserting a Node into a Sorted Doubly Linked List](interviewprep/linkedlists/insndll.md) | Linked Lists              | Easy       |
 | [Reverse a Doubly Linked List](interviewprep/linkedlists/reversedoublylinkedlist.md)      | Linked Lists              | Easy       |
 | [Find Merge Point of Two Lists](interviewprep/linkedlists/findmergepointtwolists.md)      | Linked Lists              | Easy       |
+| [Linked Lists: Detect a Cycle](interviewprep/linkedlists/detectcycle.md)                  | Linked Lists              | Easy       |
