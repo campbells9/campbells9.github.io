@@ -256,18 +256,30 @@ the lists have different lengths.</p>
 <p>Let <span class="arithmatex">\(n_1\)</span> be the length of <span class="arithmatex">\(h_1\)</span>'s list and <span class="arithmatex">\(n_2\)</span> be the length of <span class="arithmatex">\(h_2\)</span>'s list.
 Let <span class="arithmatex">\(m_1\)</span> be the position of the merge point in <span class="arithmatex">\(h_1\)</span>'s list and <span class="arithmatex">\(m_2\)</span> be the
 position of the merge point in <span class="arithmatex">\(h_2\)</span>'s list.</p>
-<p><span class="arithmatex">\(0 \leq m_1 &lt; n_1\)</span></p>
-<p><span class="arithmatex">\(0 \leq m_2 &lt; n_2\)</span></p>
+<div class="arithmatex">\[ 0 \leq m_1 &lt; n_1 \]</div>
+<div class="arithmatex">\[ 0 \leq m_2 &lt; n_2 \]</div>
 <p>After the merge point, the lists are the same, so they both have the same number
 of nodes after the merge point:</p>
-<p><span class="arithmatex">\(n_1 - m_1 = n_2 - m_2\)</span></p>
+<div class="arithmatex">\[ n_1 - m_1 = n_2 - m_2 \]</div>
 <p>Let <span class="arithmatex">\(a = n_1 - m_1 = n_2 - m_2\)</span>.</p>
-<p>On the <span class="arithmatex">\(i^{\text{th}}\)</span> iteration, <span class="arithmatex">\(c_1\)</span> will be at position <span class="arithmatex">\(i\)</span> mod <span class="arithmatex">\(n_1\)</span>, and
-<span class="arithmatex">\(c_2\)</span> will be at position <span class="arithmatex">\(i\)</span> mod <span class="arithmatex">\(n_2\)</span>. We are looking for an <span class="arithmatex">\(i\)</span> for which
-<span class="arithmatex">\(m_1 = i\)</span> mod <span class="arithmatex">\(n_1\)</span> and <span class="arithmatex">\(m_2 = i\)</span> mod <span class="arithmatex">\(n_2\)</span>.</p>
+<p>On the <span class="arithmatex">\(i^{\text{th}}\)</span> iteration, <span class="arithmatex">\(c_1\)</span> will be at position <span class="arithmatex">\(i \mod n_1\)</span>, and
+<span class="arithmatex">\(c_2\)</span> will be at position <span class="arithmatex">\(i \mod n_2\)</span>. We are looking for an <span class="arithmatex">\(i\)</span> for which
+<span class="arithmatex">\(m_1 = i \mod n_1\)</span> and <span class="arithmatex">\(m_2 = i \mod n_2\)</span>.</p>
 <p>Take <span class="arithmatex">\(i = \text{lcm}(n_1, n_2) - a\)</span>:</p>
-<p><span class="arithmatex">\(i\)</span> mod <span class="arithmatex">\(n_1 = (\text{lcm}(n_1, n_2) - a)\)</span> mod <span class="arithmatex">\(n_1 = (n_1 - a)\)</span> mod <span class="arithmatex">\(n_1 = m_1\)</span> mod <span class="arithmatex">\(n_1 = m_1\)</span></p>
-<p><span class="arithmatex">\(i\)</span> mod <span class="arithmatex">\(n_2 = (\text{lcm}(n_1, n_2) - a)\)</span> mod <span class="arithmatex">\(n_2 = (n_2 - a)\)</span> mod <span class="arithmatex">\(n_2 = m_2\)</span> mod <span class="arithmatex">\(n_2 = m_2\)</span></p>
+<div class="arithmatex">\[
+\begin{align*}
+i \mod n_1 &amp; = (\text{lcm}(n_1, n_2) - a) \mod n_1 \\
+&amp; = (n_1 - a) \mod n_1 \\
+&amp; = m_1 \mod n_1 = m_1
+\end{align*}
+\]</div>
+<div class="arithmatex">\[
+\begin{align*}
+i \mod n_2 &amp; = (\text{lcm}(n_1, n_2) - a) \mod n_2 \\
+&amp; = (n_2 - a) \mod n_2 \\
+&amp; = m_2 \mod n_2 = m_2
+\end{align*}
+\]</div>
 <p>The last thing to check is that <span class="arithmatex">\(i \geq 0\)</span>: this is true because <span class="arithmatex">\(a \leq n_1\)</span>
 and <span class="arithmatex">\(a \leq n_2\)</span>, so <span class="arithmatex">\(a \leq \text{lcm}(n_1, n_2)\)</span>.</p>
 <p>Therefore, there will be an iteration for which <span class="arithmatex">\(c_1\)</span> and <span class="arithmatex">\(c_2\)</span> reference the

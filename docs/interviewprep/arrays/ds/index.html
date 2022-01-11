@@ -237,60 +237,60 @@ hourglass sum is the sum of the top 3, bottom 3, and center entries:</p>
 sums to check. You can loop through the center entries of each block
 (<span class="arithmatex">\(arr[1][1] \ldots arr[4][4]\)</span>) and calculate an hourglass sum for each.</p>
 <p>Java 8:
-<div class="highlight"><pre><span></span><code>public static int hourglassSum(List&lt;List&lt;Integer&gt;&gt; arr) {
-    final int SIZE = 6;
-    Integer[][] mat = new Integer[SIZE][SIZE];
-    int i = 0;
-    for (List&lt;Integer&gt; row : arr) {
-        mat[i] = row.toArray(mat[i]);
-        i++;
-    }
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">hourglassSum</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="n">arr</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">final</span> <span class="kt">int</span> <span class="n">SIZE</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
+    <span class="n">Integer</span><span class="o">[][]</span> <span class="n">mat</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">[</span><span class="n">SIZE</span><span class="o">][</span><span class="n">SIZE</span><span class="o">]</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">row</span> <span class="p">:</span> <span class="n">arr</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">mat</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">row</span><span class="p">.</span><span class="na">toArray</span><span class="p">(</span><span class="n">mat</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">);</span>
+        <span class="n">i</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    final int END = SIZE - 1;
-    final int MIN_VAL = -9;
-    int max = MIN_VAL * 7;
-    for (i = 1; i &lt; END; i++) {
-        for (int j = 1; j &lt; END; j++) {
-            int sum = mat[i - 1][j - 1] + mat[i - 1][j] + mat[i - 1][j + 1];
-            sum += mat[i][j];
-            sum += mat[i + 1][j - 1] + mat[i + 1][j] + mat[i + 1][j + 1];
-            max = Math.max(max, sum);
-        }
-    }
+    <span class="kd">final</span> <span class="kt">int</span> <span class="n">END</span> <span class="o">=</span> <span class="n">SIZE</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="kd">final</span> <span class="kt">int</span> <span class="n">MIN_VAL</span> <span class="o">=</span> <span class="o">-</span><span class="mi">9</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">max</span> <span class="o">=</span> <span class="n">MIN_VAL</span> <span class="o">*</span> <span class="mi">7</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">END</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">END</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">mat</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="o">]</span> <span class="o">+</span> <span class="n">mat</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">+</span> <span class="n">mat</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">][</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="o">]</span><span class="p">;</span>
+            <span class="n">sum</span> <span class="o">+=</span> <span class="n">mat</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span><span class="p">;</span>
+            <span class="n">sum</span> <span class="o">+=</span> <span class="n">mat</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="o">]</span> <span class="o">+</span> <span class="n">mat</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">+</span> <span class="n">mat</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">][</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="o">]</span><span class="p">;</span>
+            <span class="n">max</span> <span class="o">=</span> <span class="n">Math</span><span class="p">.</span><span class="na">max</span><span class="p">(</span><span class="n">max</span><span class="p">,</span> <span class="n">sum</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 
-    return max;
-}
+    <span class="k">return</span> <span class="n">max</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div></p>
 <p>C++:
-<div class="highlight"><pre><span></span><code>int hourglassSum(vector&lt;vector&lt;int&gt;&gt; arr) {
-    const int minVal = -9;
-    int maxSum = minVal * 7;
-    const int end = arr.size() - 1;
-    for (int i = 1; i &lt; end; i++) {
-        for (int j = 1; j &lt; end; j++) {
-            int sum = arr[i - 1][j - 1] + arr[i - 1][j] + arr[i - 1][j + 1];
-            sum += arr[i][j];
-            sum += arr[i + 1][j - 1] + arr[i + 1][j] + arr[i + 1][j + 1];
-            maxSum = max(maxSum, sum);
-        }
-    }
+<div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="nf">hourglassSum</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">arr</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">const</span> <span class="kt">int</span> <span class="n">minVal</span> <span class="o">=</span> <span class="mi">-9</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">maxSum</span> <span class="o">=</span> <span class="n">minVal</span> <span class="o">*</span> <span class="mi">7</span><span class="p">;</span>
+    <span class="k">const</span> <span class="kt">int</span> <span class="n">end</span> <span class="o">=</span> <span class="n">arr</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">end</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">end</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span>
+            <span class="n">sum</span> <span class="o">+=</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+            <span class="n">sum</span> <span class="o">+=</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span>
+            <span class="n">maxSum</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">maxSum</span><span class="p">,</span> <span class="n">sum</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 
-    return maxSum;
-}
+    <span class="k">return</span> <span class="n">maxSum</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div></p>
 <p>Python 3:
-<div class="highlight"><pre><span></span><code>def hourglassSum(arr):
-    min_val = -9
-    max_sum = min_val * 7
-    end = len(arr) - 1
-    for i in range(1, end):
-        for j in range(1, end):
-            hourglass_sum = sum(arr[i - 1][(j - 1):(j + 2)])
-            hourglass_sum += arr[i][j]
-            hourglass_sum += sum(arr[i + 1][(j - 1):(j + 2)])
-            max_sum = max(max_sum, hourglass_sum)
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">hourglassSum</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+    <span class="n">min_val</span> <span class="o">=</span> <span class="o">-</span><span class="mi">9</span>
+    <span class="n">max_sum</span> <span class="o">=</span> <span class="n">min_val</span> <span class="o">*</span> <span class="mi">7</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
+            <span class="n">hourglass_sum</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][(</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):(</span><span class="n">j</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)])</span>
+            <span class="n">hourglass_sum</span> <span class="o">+=</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+            <span class="n">hourglass_sum</span> <span class="o">+=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">][(</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):(</span><span class="n">j</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)])</span>
+            <span class="n">max_sum</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">max_sum</span><span class="p">,</span> <span class="n">hourglass_sum</span><span class="p">)</span>
 
-    return max_sum
+    <span class="k">return</span> <span class="n">max_sum</span>
 </code></pre></div></p>
 <p><a href="../../../hackerrank/">Back</a></p>
                 

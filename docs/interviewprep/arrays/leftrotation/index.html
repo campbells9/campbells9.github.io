@@ -240,53 +240,53 @@ following array, shifting to the left by 1 element gives:</p>
 extra array to store the values in their new positions without overriding the
 values in the original array. For the value at position <span class="arithmatex">\(i\)</span>, you can calculate
 its new position <span class="arithmatex">\(i'\)</span> with <span class="arithmatex">\(d\)</span>:</p>
-<p><span class="arithmatex">\(i' \gets (i - d)\)</span> mod <span class="arithmatex">\(n\)</span></p>
+<p><span class="arithmatex">\(i' \gets (i - d) \mod n\)</span></p>
 <p>Note that using the modulus operator with negative numbers may not always work
 the way you expect. You might need to add <span class="arithmatex">\(n\)</span>:</p>
-<p><span class="arithmatex">\(i' \gets (i - d + n)\)</span> mod <span class="arithmatex">\(n\)</span></p>
+<p><span class="arithmatex">\(i' \gets (i - d + n) \mod n\)</span></p>
 <p>The new array should have the elements from <span class="arithmatex">\(d\)</span> to the end, followed by the
 elements from 0 to <span class="arithmatex">\(d - 1\)</span>.</p>
 <p>The description suggests that you should modify the array passed to the
 function, but it also works to create and return a new array with the correct
 values.</p>
 <p>Java 8:
-<div class="highlight"><pre><span></span><code>public static List&lt;Integer&gt; rotLeft(List&lt;Integer&gt; a, int d) {
-    Iterator&lt;Integer&gt; iter = a.iterator();
-    List&lt;Integer&gt; start = new LinkedList&lt;&gt;();
-    for (int i = 0; i &lt; d; i++) {
-        start.add(iter.next());
-    }
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="nf">rotLeft</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">d</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Iterator</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">iter</span> <span class="o">=</span> <span class="n">a</span><span class="p">.</span><span class="na">iterator</span><span class="p">();</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">start</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">d</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">start</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">iter</span><span class="p">.</span><span class="na">next</span><span class="p">());</span>
+    <span class="p">}</span>
 
-    List&lt;Integer&gt; newList = new LinkedList&lt;&gt;();
-    while (iter.hasNext()) {
-        newList.add(iter.next());
-    }
-    a.clear();
-    a.addAll(newList);
-    a.addAll(start);
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">newList</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">iter</span><span class="p">.</span><span class="na">hasNext</span><span class="p">())</span> <span class="p">{</span>
+        <span class="n">newList</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">iter</span><span class="p">.</span><span class="na">next</span><span class="p">());</span>
+    <span class="p">}</span>
+    <span class="n">a</span><span class="p">.</span><span class="na">clear</span><span class="p">();</span>
+    <span class="n">a</span><span class="p">.</span><span class="na">addAll</span><span class="p">(</span><span class="n">newList</span><span class="p">);</span>
+    <span class="n">a</span><span class="p">.</span><span class="na">addAll</span><span class="p">(</span><span class="n">start</span><span class="p">);</span>
 
-    return a;
-}
+    <span class="k">return</span> <span class="n">a</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div></p>
 <p>C++:
-<div class="highlight"><pre><span></span><code>vector&lt;int&gt; rotLeft(vector&lt;int&gt; a, int d) {
-    const int n = a.size();
-    vector&lt;int&gt; newVector(n, 0);
-    for (int i = 0; i &lt; n; i++) {
-        newVector[(i - d + n) % n] = a[i];
-    }
-    a = newVector;
+<div class="highlight"><pre><span></span><code><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">rotLeft</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">d</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">const</span> <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">a</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">newVector</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">newVector</span><span class="p">[(</span><span class="n">i</span> <span class="o">-</span> <span class="n">d</span> <span class="o">+</span> <span class="n">n</span><span class="p">)</span> <span class="o">%</span> <span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="p">}</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">newVector</span><span class="p">;</span>
 
-    return a;
-}
+    <span class="k">return</span> <span class="n">a</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div></p>
 <p>Python 3:
-<div class="highlight"><pre><span></span><code>def rotLeft(a, d):
-    new_list = a[d:] + a[:d]
-    a.clear()
-    a.extend(new_list)
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">rotLeft</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
+    <span class="n">new_list</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">d</span><span class="p">:]</span> <span class="o">+</span> <span class="n">a</span><span class="p">[:</span><span class="n">d</span><span class="p">]</span>
+    <span class="n">a</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+    <span class="n">a</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">new_list</span><span class="p">)</span>
 
-    return a
+    <span class="k">return</span> <span class="n">a</span>
 </code></pre></div></p>
 <p><a href="../../../hackerrank/">Back</a></p>
                 

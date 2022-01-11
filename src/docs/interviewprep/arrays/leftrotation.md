@@ -32,12 +32,12 @@ extra array to store the values in their new positions without overriding the
 values in the original array. For the value at position $i$, you can calculate
 its new position $i'$ with $d$:
 
-$i' \gets (i - d)$ mod $n$
+$i' \gets (i - d) \mod n$
 
 Note that using the modulus operator with negative numbers may not always work
 the way you expect. You might need to add $n$:
 
-$i' \gets (i - d + n)$ mod $n$
+$i' \gets (i - d + n) \mod n$
 
 The new array should have the elements from $d$ to the end, followed by the
 elements from 0 to $d - 1$.
@@ -47,7 +47,7 @@ function, but it also works to create and return a new array with the correct
 values.
 
 Java 8:
-```
+```java
 public static List<Integer> rotLeft(List<Integer> a, int d) {
     Iterator<Integer> iter = a.iterator();
     List<Integer> start = new LinkedList<>();
@@ -68,7 +68,7 @@ public static List<Integer> rotLeft(List<Integer> a, int d) {
 ```
 
 C++:
-```
+```cpp
 vector<int> rotLeft(vector<int> a, int d) {
     const int n = a.size();
     vector<int> newVector(n, 0);
@@ -82,7 +82,7 @@ vector<int> rotLeft(vector<int> a, int d) {
 ```
 
 Python 3:
-```
+```python
 def rotLeft(a, d):
     new_list = a[d:] + a[:d]
     a.clear()

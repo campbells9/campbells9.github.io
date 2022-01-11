@@ -33,7 +33,7 @@ until both strings have the same number.
 Let $c_a$ and $c_b$ be the number of instances of character $c \in [\text{a-z}]$
 in $a$ and $b$ respectively. The minimum number of deletions needed $d$ is:
 
-$d = \sum_{c \in [\text{a-z}]} |c_a - c_b|$
+\[ d = \sum_{c \in [\text{a-z}]} |c_a - c_b| \]
 
 You can use maps for your frequency tables, or you can simply use arrays of 26
 integers because the characters are limited to lowercase letters. With maps, it

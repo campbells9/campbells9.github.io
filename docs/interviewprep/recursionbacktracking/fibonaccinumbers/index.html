@@ -277,7 +277,8 @@ three calls to <span class="arithmatex">\(f(1)\)</span>, and two calls to <span 
 calls to <span class="arithmatex">\(f\)</span> becomes untenable. A better way to compute <span class="arithmatex">\(f\)</span> is to start with 0
 and 1 and build the sequence up to <span class="arithmatex">\(n\)</span>.</p>
 <p>As a bonus, <span class="arithmatex">\(f\)</span> is a <a href="https://en.wikipedia.org/wiki/Constant-recursive_sequence">constant-recursive sequence</a>,
-and it turns out that there is a <a href="https://en.wikipedia.org/wiki/Fibonacci_number#Relation_to_the_golden_ratio">closed-form formula for the Fibonacci sequence</a>. If you believe in magic:</p>
+and it turns out that there is a <a href="https://en.wikipedia.org/wiki/Fibonacci_number#Relation_to_the_golden_ratio">closed-form formula for the Fibonacci sequence</a>. If you can convince yourself
+that it's correct:</p>
 <p><span class="arithmatex">\(f(n) = \lfloor(\frac{1 + \sqrt{5}}{2})^n * \frac{1}{\sqrt{5}} + \frac{1}{2}\rfloor\)</span></p>
 <p>Java 8:
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>

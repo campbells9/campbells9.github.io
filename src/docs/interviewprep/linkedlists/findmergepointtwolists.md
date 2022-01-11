@@ -48,26 +48,38 @@ Let $n_1$ be the length of $h_1$'s list and $n_2$ be the length of $h_2$'s list.
 Let $m_1$ be the position of the merge point in $h_1$'s list and $m_2$ be the
 position of the merge point in $h_2$'s list.
 
-$0 \leq m_1 < n_1$
+\[ 0 \leq m_1 < n_1 \]
 
-$0 \leq m_2 < n_2$
+\[ 0 \leq m_2 < n_2 \]
 
 After the merge point, the lists are the same, so they both have the same number
 of nodes after the merge point:
 
-$n_1 - m_1 = n_2 - m_2$
+\[ n_1 - m_1 = n_2 - m_2 \]
 
 Let $a = n_1 - m_1 = n_2 - m_2$.
 
-On the $i^{\text{th}}$ iteration, $c_1$ will be at position $i$ mod $n_1$, and
-$c_2$ will be at position $i$ mod $n_2$. We are looking for an $i$ for which
-$m_1 = i$ mod $n_1$ and $m_2 = i$ mod $n_2$.
+On the $i^{\text{th}}$ iteration, $c_1$ will be at position $i \mod n_1$, and
+$c_2$ will be at position $i \mod n_2$. We are looking for an $i$ for which
+$m_1 = i \mod n_1$ and $m_2 = i \mod n_2$.
 
 Take $i = \text{lcm}(n_1, n_2) - a$:
 
-$i$ mod $n_1 = (\text{lcm}(n_1, n_2) - a)$ mod $n_1 = (n_1 - a)$ mod $n_1 = m_1$ mod $n_1 = m_1$
+\[
+\begin{align*}
+i \mod n_1 & = (\text{lcm}(n_1, n_2) - a) \mod n_1 \\
+& = (n_1 - a) \mod n_1 \\
+& = m_1 \mod n_1 = m_1
+\end{align*}
+\]
 
-$i$ mod $n_2 = (\text{lcm}(n_1, n_2) - a)$ mod $n_2 = (n_2 - a)$ mod $n_2 = m_2$ mod $n_2 = m_2$
+\[
+\begin{align*}
+i \mod n_2 & = (\text{lcm}(n_1, n_2) - a) \mod n_2 \\
+& = (n_2 - a) \mod n_2 \\
+& = m_2 \mod n_2 = m_2
+\end{align*}
+\]
 
 The last thing to check is that $i \geq 0$: this is true because $a \leq n_1$
 and $a \leq n_2$, so $a \leq \text{lcm}(n_1, n_2)$.

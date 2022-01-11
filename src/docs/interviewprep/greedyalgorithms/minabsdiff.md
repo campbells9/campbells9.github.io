@@ -18,7 +18,7 @@ $-10^9 \leq a[i] \leq 10^9 \; \forall \; i$
 
 Output: the minimum absolute difference between any two values in the array:
 
-$\text{min}_{i \neq j} |a[i] - a[j]|$
+\[ \min_{i \neq j} |a[i] - a[j]| \]
 
 There are ${n \choose 2}$ different absolute differences in $a$, but many of
 them cannot be the minimum absolute difference. For example, if

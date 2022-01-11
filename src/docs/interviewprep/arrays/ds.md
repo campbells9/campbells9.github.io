@@ -26,7 +26,7 @@ sums to check. You can loop through the center entries of each block
 ($arr[1][1] \ldots arr[4][4]$) and calculate an hourglass sum for each.
 
 Java 8:
-```
+```java
 public static int hourglassSum(List<List<Integer>> arr) {
     final int SIZE = 6;
     Integer[][] mat = new Integer[SIZE][SIZE];
@@ -53,7 +53,7 @@ public static int hourglassSum(List<List<Integer>> arr) {
 ```
 
 C++:
-```
+```cpp
 int hourglassSum(vector<vector<int>> arr) {
     const int minVal = -9;
     int maxSum = minVal * 7;
@@ -72,7 +72,7 @@ int hourglassSum(vector<vector<int>> arr) {
 ```
 
 Python 3:
-```
+```python
 def hourglassSum(arr):
     min_val = -9
     max_sum = min_val * 7

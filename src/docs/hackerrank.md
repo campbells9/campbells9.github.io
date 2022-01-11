@@ -27,3 +27,4 @@
 | [Find Merge Point of Two Lists](interviewprep/linkedlists/findmergepointtwolists.md)     | Linked Lists               | Easy       |
 | [Linked Lists: Detect a Cycle](interviewprep/linkedlists/detectcycle.md)                 | Linked Lists               | Easy       |
 | [Recursion: Fibonacci Numbers](interviewprep/recursionbacktracking/fibonaccinumbers.md)  | Recursion and Backtracking | Easy       |
+| [Flipping Bits](interviewprep/misc/flippingbits.md)                                      | Miscellaneous              | Easy       |

@@ -70,7 +70,8 @@ calls to $f$ becomes untenable. A better way to compute $f$ is to start with 0
 and 1 and build the sequence up to $n$.
 
 As a bonus, $f$ is a [constant-recursive sequence](https://en.wikipedia.org/wiki/Constant-recursive_sequence),
-and it turns out that there is a [closed-form formula for the Fibonacci sequence](https://en.wikipedia.org/wiki/Fibonacci_number#Relation_to_the_golden_ratio). If you believe in magic:
+and it turns out that there is a [closed-form formula for the Fibonacci sequence](https://en.wikipedia.org/wiki/Fibonacci_number#Relation_to_the_golden_ratio). If you can convince yourself
+that it's correct:
 
 $f(n) = \lfloor(\frac{1 + \sqrt{5}}{2})^n * \frac{1}{\sqrt{5}} + \frac{1}{2}\rfloor$
 

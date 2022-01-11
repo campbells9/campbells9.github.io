@@ -25,14 +25,14 @@ need to find one letter that is in both $s_1$ and $s_2$ to determine the answer
 is Yes, and if the strings have no letters in common, the answer is No. This
 is the condition we are trying to check:
 
-$\{c : c \in s_1\} \cap \{c : c \in s_2\} \neq \emptyset$
+\[\{c : c \in s_1\} \cap \{c : c \in s_2\} \neq \emptyset\]
 
 There are a few ways to do this. You can make separate sets with the characters
 of $s_1$ and $s_2$ and calculate the intersection. You can make a set for $s_1$
 and then check whether it contains any character of $s_2$. You can also make a
 combined set for $s_1$ and $s_2$ and check for independence:
 
-$|\{c : c \in s_1\} \cup \{c : c \in s_2\}| = |\{c : c \in s_1\}| + |\{c : c \in s_2\}|$
+\[|\{c : c \in s_1\} \cup \{c : c \in s_2\}| = |\{c : c \in s_1\}| + |\{c : c \in s_2\}|\]
 
 If the sets are independent, then the answer is No.
 
