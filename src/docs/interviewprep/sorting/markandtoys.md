@@ -23,7 +23,7 @@ Output: the greatest number of toys that can be bought with $k$ units of
 currency. For prices $p_1, \ldots, p_n$, we are trying to pick toys 
 $I \subseteq \{1, \ldots, n\}$ with maximum $|I|$ such that:
 
-$\sum_{i \in I} p_i \leq k$
+\[ \sum_{i \in I} p_i \leq k \]
 
 To maximize the number of toys purchased, you can use a greedy algorithm to
 always buy the cheapest toys possible. Sort $p$ from lowest to highest and read

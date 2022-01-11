@@ -14,7 +14,7 @@
     
     
       
-        <title>Mark and Toys - Campbell's Homepage</title>
+        <title>Recursion: Fibonacci Numbers - Campbell's Homepage</title>
       
     
     
@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#mark-and-toys" class="md-skip">
+        <a href="#recursion-fibonacci-numbers" class="md-skip">
           Skip to content
         </a>
       
@@ -90,7 +90,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Mark and Toys
+              Recursion: Fibonacci Numbers
             
           </span>
         </div>
@@ -221,71 +221,104 @@
               
                 
                 
-                <h1 id="mark-and-toys">Mark and Toys</h1>
-<p><a href="https://www.hackerrank.com/challenges/mark-and-toys/problem">Problem</a></p>
-<p>Category: Sorting</p>
+                <h1 id="recursion-fibonacci-numbers">Recursion: Fibonacci Numbers</h1>
+<p><a href="https://www.hackerrank.com/challenges/ctci-fibonacci-numbers/problem">Problem</a></p>
+<p>Category: Recursion and Backtracking</p>
 <p>Difficulty: Easy</p>
 <hr />
-<p>Given prices of toys and a budget, determine the greatest number of toys that
-can be bought.</p>
-<p>Input: an array <span class="arithmatex">\(p[n]\)</span> of prices of toys, and a budget <span class="arithmatex">\(k\)</span>.</p>
-<p><span class="arithmatex">\(1 \leq n \leq 10^5\)</span></p>
-<p><span class="arithmatex">\(1 \leq k \leq 10^9\)</span></p>
-<p><span class="arithmatex">\(1 \leq p[i] \leq 10^9 \; \forall \; i\)</span></p>
-<p>Output: the greatest number of toys that can be bought with <span class="arithmatex">\(k\)</span> units of
-currency. For prices <span class="arithmatex">\(p_1, \ldots, p_n\)</span>, we are trying to pick toys 
-<span class="arithmatex">\(I \subseteq \{1, \ldots, n\}\)</span> with maximum <span class="arithmatex">\(|I|\)</span> such that:</p>
-<div class="arithmatex">\[ \sum_{i \in I} p_i \leq k \]</div>
-<p>To maximize the number of toys purchased, you can use a greedy algorithm to
-always buy the cheapest toys possible. Sort <span class="arithmatex">\(p\)</span> from lowest to highest and read
-through the prices, subtracting each one from the budget. Once the budget or
-list of prices runs out, the number of toys bought is the correct answer.</p>
-<p>The greedy approach works because maximumToys<span class="arithmatex">\((p, \cdot)\)</span> is monotonic: for any
-<span class="arithmatex">\(j \leq k\)</span>, you can buy at least as many toys from <span class="arithmatex">\(p\)</span> with <span class="arithmatex">\(k\)</span> units of
-currency as you can with <span class="arithmatex">\(j\)</span> units of currency. Choosing the cheapest toy leaves
-the greatest amount of currency remaining, which means you can buy the greatest
-number of toys possible out of the remaining options. </p>
+<p>Given <span class="arithmatex">\(n\)</span>, calculate the <span class="arithmatex">\(n^{\text{th}}\)</span> Fibonacci number.</p>
+<p>Input: <span class="arithmatex">\(n\)</span>, the index into the Fibonacci sequence of the value to calculate.</p>
+<p><span class="arithmatex">\(1 \leq n \leq 30\)</span></p>
+<p>Output: the <span class="arithmatex">\(n^{\text{th}}\)</span> Fibonacci number, <span class="arithmatex">\(f(n)\)</span>:</p>
+<div class="arithmatex">\[ f(n) = \left\{
+\begin{array}{ll}
+      n &amp; 0 \leq n \leq 1 \\
+      f(n - 1) + f(n - 2) &amp; n &gt; 1 \\
+\end{array} 
+\right. \]</div>
+<p>The Fibonacci sequence is defined recursively, so it is easy to write a
+recursive function that computes it:</p>
+<div class="highlight"><pre><span></span><code>f(n):
+    if n &lt;= 1:
+        return n
+    else:
+        return f(n - 1) + f(n - 2)
+</code></pre></div>
+<p>For this problem, that approach suffices. But this wouldn't cut it for large <span class="arithmatex">\(n\)</span>
+because it does a lot of redundant work. Consider a call to <span class="arithmatex">\(f(4)\)</span>:</p>
+<div class="arithmatex">\[
+    f(4) \to \left\{
+    \begin{array}{ll}
+        f(3) &amp; \to \left\{
+        \begin{array}{ll}
+            f(2) &amp; \to \left\{
+                \begin{array}{ll}
+                    f(1) &amp; \to 1 \\
+                    f(0) &amp; \to 0 \\
+                \end{array}
+                \right. \\
+            f(1) &amp; \to 1\\
+        \end{array} 
+        \right. \\
+        f(2) &amp; \to \left\{
+        \begin{array}{ll}
+            f(1) &amp; \to 1 \\
+            f(0) &amp; \to 0 \\
+        \end{array}
+        \right. \\
+    \end{array}
+    \right.
+\]</div>
+<p><span class="arithmatex">\(f(4)\)</span> calls <span class="arithmatex">\(f(3)\)</span> once and <span class="arithmatex">\(f(2)\)</span> once. The result of <span class="arithmatex">\(f(3)\)</span> is calculated
+with calls to <span class="arithmatex">\(f(2)\)</span> and <span class="arithmatex">\(f(1)\)</span>. Each call to <span class="arithmatex">\(f(2)\)</span> makes calls to <span class="arithmatex">\(f(1)\)</span> and
+<span class="arithmatex">\(f(0)\)</span>. So to calculate <span class="arithmatex">\(f(4)\)</span>, we made one call to <span class="arithmatex">\(f(3)\)</span>, two calls to <span class="arithmatex">\(f(2)\)</span>,
+three calls to <span class="arithmatex">\(f(1)\)</span>, and two calls to <span class="arithmatex">\(f(0)\)</span>. Why compute <span class="arithmatex">\(f(0)\)</span>, <span class="arithmatex">\(f(1)\)</span>,
+<span class="arithmatex">\(f(2)\)</span>, or <span class="arithmatex">\(f(3)\)</span> more than once? As <span class="arithmatex">\(n\)</span> grows larger, the number of redundant
+calls to <span class="arithmatex">\(f\)</span> becomes untenable. A better way to compute <span class="arithmatex">\(f\)</span> is to start with 0
+and 1 and build the sequence up to <span class="arithmatex">\(n\)</span>.</p>
+<p>As a bonus, <span class="arithmatex">\(f\)</span> is a <a href="https://en.wikipedia.org/wiki/Constant-recursive_sequence">constant-recursive sequence</a>,
+and it turns out that there is a <a href="https://en.wikipedia.org/wiki/Fibonacci_number#Relation_to_the_golden_ratio">closed-form formula for the Fibonacci sequence</a>. If you believe in magic:</p>
+<p><span class="arithmatex">\(f(n) = \lfloor(\frac{1 + \sqrt{5}}{2})^n * \frac{1}{\sqrt{5}} + \frac{1}{2}\rfloor\)</span></p>
 <p>Java 8:
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">maximumToys</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">prices</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kd">final</span> <span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="n">prices</span><span class="p">.</span><span class="na">size</span><span class="p">();</span>
-    <span class="n">Integer</span><span class="o">[]</span> <span class="n">p</span> <span class="o">=</span> <span class="n">prices</span><span class="p">.</span><span class="na">toArray</span><span class="p">(</span><span class="k">new</span> <span class="n">Integer</span><span class="o">[</span><span class="n">N</span><span class="o">]</span><span class="p">);</span>
-    <span class="n">Arrays</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
-
-    <span class="kt">int</span> <span class="n">toys</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="k">while</span> <span class="p">(</span><span class="n">toys</span> <span class="o">&lt;</span> <span class="n">N</span> <span class="o">&amp;&amp;</span> <span class="n">p</span><span class="o">[</span><span class="n">toys</span><span class="o">]</span> <span class="o">&lt;=</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">k</span> <span class="o">-=</span> <span class="n">p</span><span class="o">[</span><span class="n">toys</span><span class="o">]</span><span class="p">;</span>
-        <span class="n">toys</span><span class="o">++</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">prev</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">next</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">prev</span><span class="p">;</span>
+        <span class="n">prev</span> <span class="o">=</span> <span class="n">next</span><span class="p">;</span>
+        <span class="n">next</span> <span class="o">+=</span> <span class="n">temp</span><span class="p">;</span>
     <span class="p">}</span>
 
-    <span class="k">return</span> <span class="n">toys</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">next</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></p>
 <p>C++:
-<div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="nf">maximumToys</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">prices</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">p</span> <span class="o">=</span> <span class="n">prices</span><span class="p">;</span>
-    <span class="n">sort</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">p</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
-
-    <span class="k">const</span> <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
-    <span class="kt">int</span> <span class="n">toys</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="k">while</span> <span class="p">(</span><span class="n">toys</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">&amp;&amp;</span> <span class="n">p</span><span class="p">[</span><span class="n">toys</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">k</span> <span class="o">-=</span> <span class="n">p</span><span class="p">[</span><span class="n">toys</span><span class="p">];</span>
-        <span class="n">toys</span><span class="o">++</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">prev</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">next</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">prev</span><span class="p">;</span>
+        <span class="n">prev</span> <span class="o">=</span> <span class="n">next</span><span class="p">;</span>
+        <span class="n">next</span> <span class="o">+=</span> <span class="n">temp</span><span class="p">;</span>
     <span class="p">}</span>
 
-    <span class="k">return</span> <span class="n">toys</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">next</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></p>
 <p>Python 3:
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">maximumToys</span><span class="p">(</span><span class="n">prices</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
-    <span class="n">toys</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">toy</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">prices</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">k</span> <span class="o">&gt;=</span> <span class="n">toy</span><span class="p">:</span>
-            <span class="n">k</span> <span class="o">-=</span> <span class="n">toy</span>
-            <span class="n">toys</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">toys</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">prev</span><span class="p">,</span> <span class="n">current</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">prev</span><span class="p">,</span> <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="p">,</span> <span class="n">current</span> <span class="o">+</span> <span class="n">prev</span>
 
-    <span class="k">return</span> <span class="n">toys</span>
+    <span class="k">return</span> <span class="n">current</span>
+</code></pre></div></p>
+<p>Alternate Python 3 Solution:
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">sqrt5</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">**</span> <span class="mf">0.5</span>
+    <span class="n">phi</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">sqrt5</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+
+    <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">phi</span> <span class="o">**</span> <span class="n">n</span> <span class="o">/</span> <span class="n">sqrt5</span><span class="p">)</span>
 </code></pre></div></p>
 <p><a href="../../../hackerrank/">Back</a></p>
                 
