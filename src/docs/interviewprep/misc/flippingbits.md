@@ -30,9 +30,9 @@ This is why simply negating $n$ does not give the desired answer. We only want
 to flip $n$'s lower 32 bits, so you should XOR $n$ with a long integer that
 has 32 zeroes followed by 32 ones. You may have to be careful with your
 language's implicit casting: for example, ```0xFFFFFFFF``` might be interpreted
-as the integer ```-1```, which could be cast as a long ```-1``` with 64 ones.
-Calculating $2^{32} - 1$ and subtracting $n$ may be a less tricky way to achieve
-the same result.
+as the integer ```-1```, which could be cast as a long ```-1``` with 64 ones if
+you try to XOR it with the long $n$. Calculating $2^{32} - 1$ and subtracting
+$n$ may be a less tricky way to achieve the same result.
 
 Java 8:
 ```java

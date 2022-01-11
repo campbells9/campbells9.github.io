@@ -10,7 +10,7 @@
       
       
       <link rel="icon" href="../../../img/tenticon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.5">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.1.5">
     
     
       
@@ -240,9 +240,9 @@ This is why simply negating <span class="arithmatex">\(n\)</span> does not give 
 to flip <span class="arithmatex">\(n\)</span>'s lower 32 bits, so you should XOR <span class="arithmatex">\(n\)</span> with a long integer that
 has 32 zeroes followed by 32 ones. You may have to be careful with your
 language's implicit casting: for example, <code>0xFFFFFFFF</code> might be interpreted
-as the integer <code>-1</code>, which could be cast as a long <code>-1</code> with 64 ones.
-Calculating <span class="arithmatex">\(2^{32} - 1\)</span> and subtracting <span class="arithmatex">\(n\)</span> may be a less tricky way to achieve
-the same result.</p>
+as the integer <code>-1</code>, which could be cast as a long <code>-1</code> with 64 ones if
+you try to XOR it with the long <span class="arithmatex">\(n\)</span>. Calculating <span class="arithmatex">\(2^{32} - 1\)</span> and subtracting
+<span class="arithmatex">\(n\)</span> may be a less tricky way to achieve the same result.</p>
 <p>Java 8:
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">long</span> <span class="nf">flippingBits</span><span class="p">(</span><span class="kt">long</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="n">n</span> <span class="o">^</span> <span class="mh">0xFFFFFFFFL</span><span class="p">;</span>
