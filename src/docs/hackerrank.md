@@ -11,6 +11,8 @@
 | [Repeated String](interviewprep/warmup/repeatedstring.md)                                | Warm-up Challenges         | Easy       |
 | [2D Array - DS](interviewprep/arrays/ds.md)                                              | Arrays                     | Easy       |
 | [Arrays: Left Rotation](interviewprep/arrays/leftrotation.md)                            | Arrays                     | Easy       |
+| [New Year Chaos](interviewprep/arrays/newyearchaos.md)                                   | Arrays                     | Medium     |
+| [Minimum Swaps 2](interviewprep/arrays/minimumswaps2.md)                                 | Arrays                     | Medium     |
 | [Hash Tables: Ransom Note](interviewprep/dicts/ransomnote.md)                            | Dictionaries and Hashmaps  | Easy       |
 | [Two Strings](interviewprep/dicts/twostrings.md)                                         | Dictionaries and Hashmaps  | Easy       |
 | [Sorting: Bubble Sort](interviewprep/sorting/bubblesort.md)                              | Sorting                    | Easy       |
