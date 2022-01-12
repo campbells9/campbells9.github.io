@@ -15,6 +15,7 @@
 | [Minimum Swaps 2](interviewprep/arrays/minimumswaps2.md)                                 | Arrays                     | Medium     |
 | [Hash Tables: Ransom Note](interviewprep/dicts/ransomnote.md)                            | Dictionaries and Hashmaps  | Easy       |
 | [Two Strings](interviewprep/dicts/twostrings.md)                                         | Dictionaries and Hashmaps  | Easy       |
+| [Sherlock and Anagrams](interviewprep/dicts/sherlockanagrams.md)                         | Dictionaries and Hashmaps  | Medium     |
 | [Sorting: Bubble Sort](interviewprep/sorting/bubblesort.md)                              | Sorting                    | Easy       |
 | [Mark and Toys](interviewprep/sorting/markandtoys.md)                                    | Sorting                    | Easy       |
 | [Strings: Making Anagrams](interviewprep/stringmanipulation/makinganagrams.md)           | String Manipulation        | Easy       |
