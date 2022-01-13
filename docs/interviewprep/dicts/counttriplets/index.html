@@ -1,0 +1,371 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../../img/tenticon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.1.5">
+    
+    
+      
+        <title>Count Triplets - Campbell's Homepage</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.bde7dde4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ef6f36e2.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#count-triplets" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Campbell&#39;s Homepage" class="md-header__button md-logo" aria-label="Campbell's Homepage" data-md-component="logo">
+      
+  <img src="../../../img/tenticon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Campbell's Homepage
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Count Triplets
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Campbell&#39;s Homepage" class="md-nav__button md-logo" aria-label="Campbell's Homepage" data-md-component="logo">
+      
+  <img src="../../../img/tenticon.png" alt="logo">
+
+    </a>
+    Campbell's Homepage
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../hackerrank/" class="md-nav__link">
+        HackerRank
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="count-triplets">Count Triplets</h1>
+<p><a href="https://www.hackerrank.com/challenges/count-triplets-1/problem">Problem</a></p>
+<p>Category: Dictionaries and Hashmaps</p>
+<p>Difficulty: Medium</p>
+<hr />
+<p>Given an array of integers and a base <span class="arithmatex">\(r\)</span>, count the number triplets with values
+that are geometric progressions with common ratio <span class="arithmatex">\(r\)</span>.</p>
+<p>Input: an array <span class="arithmatex">\(a[n]\)</span> and a value <span class="arithmatex">\(r\)</span>.</p>
+<p><span class="arithmatex">\(1 \leq n \leq 10^5\)</span></p>
+<p><span class="arithmatex">\(1 \leq r \leq 10^9\)</span></p>
+<p><span class="arithmatex">\(1 \leq a[i] \leq 10^9 \; \forall \; i\)</span></p>
+<p>Output: the number of triplet subarrays <span class="arithmatex">\((i, j, k)\)</span> for <span class="arithmatex">\(0 \leq i &lt; j &lt; k &lt; n\)</span>
+where <span class="arithmatex">\(a[k] = a[j] * r = a[i] * r^2\)</span>. For example, for <span class="arithmatex">\(r = 2\)</span>, the array
+<code>[5, 10, 20, 30, 40]</code> has 2 geometric triplets: (0, 1, 2) and (1, 2, 4),
+which correspond to values <code>[5, 10, 20]</code> and <code>[10, 20, 40]</code>
+respectively.</p>
+<p>For each value <span class="arithmatex">\(a[i]\)</span> in the array, it seems that we need to know two pieces of
+information:</p>
+<ul>
+<li>How many values before a[i] have we seen that are equal to <span class="arithmatex">\(\frac{a[i]}{r}\)</span>?</li>
+</ul>
+<div class="arithmatex">\[ A_i = \{j : j &lt; i, a[j] = \frac{a[i]}{r}\} \]</div>
+<ul>
+<li>For each of those values, how many values came before them that are equal to
+<span class="arithmatex">\(\frac{a[i]}{r^2}\)</span>?</li>
+</ul>
+<div class="arithmatex">\[ \sum_{j \in A_i} |A_j| \]</div>
+<p>With this information, we can count the number of triplets for which <span class="arithmatex">\(a[i]\)</span> is
+the last value. Use one map to count how many times each value <span class="arithmatex">\(v\)</span> has occurred
+in the array:</p>
+<div class="arithmatex">\[ 
+    \begin{align*}
+    V_i(v) &amp; \gets \{j : j &lt; i, a[j] = v\} \\
+    f_i(v) &amp; \gets |V_i(v)|
+    \end{align*}
+\]</div>
+<p>Use another map to count how many <em>pairs</em> of the form
+<span class="arithmatex">\((\frac{a[i]}{r}, a[i])\)</span> you can make so far for each value.</p>
+<div class="arithmatex">\[ g_i(v) \gets \sum_{j \in V_i(v)} |A_j| \]</div>
+<div class="arithmatex">\[ V_i(\frac{a[i]}{r}) = A_i \implies g_i(v) = \sum_{j \in V_i(v)} f_i(\frac{a[j]}{r}) \]</div>
+<p>In my code, I refer to <span class="arithmatex">\(f\)</span> and <span class="arithmatex">\(g\)</span> as <code>iTable</code> and <code>jTable</code>,
+respectively.</p>
+<p>For each value <span class="arithmatex">\(v\)</span> in <span class="arithmatex">\(a\)</span>, check if <span class="arithmatex">\(v\)</span> is divisible by <span class="arithmatex">\(r\)</span>. If it is not, then
+it does not end any triplets, but it could be the start of a later one, so
+increment <span class="arithmatex">\(f(v)\)</span>. Otherwise, <span class="arithmatex">\(g(\frac{v}{r})\)</span> is the number of triplets ending
+in <span class="arithmatex">\(v\)</span>. Increment <span class="arithmatex">\(g(v)\)</span> by the number of times you have seen <span class="arithmatex">\(\frac{v}{r}\)</span>,
+which is <span class="arithmatex">\(f(\frac{v}{r})\)</span>, and also increment <span class="arithmatex">\(f(v)\)</span> by one.</p>
+<p>Java 8:
+<div class="highlight"><pre><span></span><code><span class="kd">static</span> <span class="kt">long</span> <span class="nf">countTriplets</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Long</span><span class="o">&gt;</span> <span class="n">arr</span><span class="p">,</span> <span class="kt">long</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Map</span><span class="o">&lt;</span><span class="n">Long</span><span class="p">,</span> <span class="n">Long</span><span class="o">&gt;</span> <span class="n">iTable</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+    <span class="n">Map</span><span class="o">&lt;</span><span class="n">Long</span><span class="p">,</span> <span class="n">Long</span><span class="o">&gt;</span> <span class="n">jTable</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+    <span class="kt">long</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="n">L</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">long</span> <span class="n">val</span> <span class="p">:</span> <span class="n">arr</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">val</span> <span class="o">%</span> <span class="n">r</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kt">long</span> <span class="n">prev</span> <span class="o">=</span> <span class="n">val</span> <span class="o">/</span> <span class="n">r</span><span class="p">;</span>
+            <span class="n">result</span> <span class="o">+=</span> <span class="n">jTable</span><span class="p">.</span><span class="na">getOrDefault</span><span class="p">(</span><span class="n">prev</span><span class="p">,</span> <span class="mi">0</span><span class="n">L</span><span class="p">);</span>
+
+            <span class="kt">long</span> <span class="n">tripletsAsJ</span> <span class="o">=</span> <span class="n">jTable</span><span class="p">.</span><span class="na">getOrDefault</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="mi">0</span><span class="n">L</span><span class="p">);</span>
+            <span class="n">tripletsAsJ</span> <span class="o">+=</span> <span class="n">iTable</span><span class="p">.</span><span class="na">getOrDefault</span><span class="p">(</span><span class="n">prev</span><span class="p">,</span> <span class="mi">0</span><span class="n">L</span><span class="p">);</span>
+            <span class="n">jTable</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">tripletsAsJ</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">iTable</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">iTable</span><span class="p">.</span><span class="na">getOrDefault</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="mi">0</span><span class="n">L</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1L</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p>C++:
+<div class="highlight"><pre><span></span><code><span class="kt">long</span> <span class="nf">countTriplets</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">long</span><span class="o">&gt;</span> <span class="n">arr</span><span class="p">,</span> <span class="kt">long</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">map</span><span class="o">&lt;</span><span class="kt">long</span><span class="p">,</span> <span class="kt">long</span><span class="o">&gt;</span> <span class="n">iTable</span><span class="p">;</span>
+    <span class="n">map</span><span class="o">&lt;</span><span class="kt">long</span><span class="p">,</span> <span class="kt">long</span><span class="o">&gt;</span> <span class="n">jTable</span><span class="p">;</span>
+    <span class="kt">long</span> <span class="n">result</span> <span class="o">=</span> <span class="mf">0L</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">val</span> <span class="o">=</span> <span class="n">arr</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">val</span> <span class="o">!=</span> <span class="n">arr</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="n">val</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="o">*</span><span class="n">val</span> <span class="o">%</span> <span class="n">r</span><span class="p">))</span> <span class="p">{</span>
+            <span class="kt">long</span> <span class="n">prev</span> <span class="o">=</span> <span class="o">*</span><span class="n">val</span> <span class="o">/</span> <span class="n">r</span><span class="p">;</span>
+            <span class="n">result</span> <span class="o">+=</span> <span class="n">jTable</span><span class="p">[</span><span class="n">prev</span><span class="p">];</span>
+            <span class="n">jTable</span><span class="p">[</span><span class="o">*</span><span class="n">val</span><span class="p">]</span> <span class="o">+=</span> <span class="n">iTable</span><span class="p">[</span><span class="n">prev</span><span class="p">];</span>
+        <span class="p">}</span>
+        <span class="n">iTable</span><span class="p">[</span><span class="o">*</span><span class="n">val</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p>Python 3:
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">countTriplets</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
+    <span class="n">i_table</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">j_table</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">val</span> <span class="o">%</span> <span class="n">r</span><span class="p">:</span>
+            <span class="n">prev</span> <span class="o">=</span> <span class="n">val</span> <span class="o">//</span> <span class="n">r</span>
+            <span class="n">result</span> <span class="o">+=</span> <span class="n">j_table</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">prev</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">j_table</span><span class="p">[</span><span class="n">val</span><span class="p">]</span> <span class="o">=</span> <span class="n">j_table</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">i_table</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">prev</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">i_table</span><span class="p">[</span><span class="n">val</span><span class="p">]</span> <span class="o">=</span> <span class="n">i_table</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">result</span>
+</code></pre></div></p>
+<p><a href="../../../hackerrank/">Back</a></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
