@@ -17,6 +17,7 @@
 | [Two Strings](interviewprep/dicts/twostrings.md)                                         | Dictionaries and Hashmaps  | Easy       |
 | [Sherlock and Anagrams](interviewprep/dicts/sherlockanagrams.md)                         | Dictionaries and Hashmaps  | Medium     |
 | [Count Triplets](interviewprep/dicts/counttriplets.md)                                   | Dictionaries and Hashmaps  | Medium     |
+| [Frequency Queries](interviewprep/dicts/frequencyqueries.md)                             | Dictionaries and Hashmaps  | Medium     |
 | [Sorting: Bubble Sort](interviewprep/sorting/bubblesort.md)                              | Sorting                    | Easy       |
 | [Mark and Toys](interviewprep/sorting/markandtoys.md)                                    | Sorting                    | Easy       |
 | [Strings: Making Anagrams](interviewprep/stringmanipulation/makinganagrams.md)           | String Manipulation        | Easy       |
