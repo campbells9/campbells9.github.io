@@ -20,6 +20,8 @@
 | [Frequency Queries](interviewprep/dicts/frequencyqueries.md)                             | Dictionaries and Hashmaps  | Medium     |
 | [Sorting: Bubble Sort](interviewprep/sorting/bubblesort.md)                              | Sorting                    | Easy       |
 | [Mark and Toys](interviewprep/sorting/markandtoys.md)                                    | Sorting                    | Easy       |
+| [Sorting: Comparator](interviewprep/sorting/comparator.md)                               | Sorting                    | Medium     |
+| [Fraudulent Activity Notifications](interviewprep/sorting/fraudactivitynotifications.md) | Sorting                    | Medium     |
 | [Strings: Making Anagrams](interviewprep/stringmanipulation/makinganagrams.md)           | String Manipulation        | Easy       |
 | [Alternating Characters](interviewprep/stringmanipulation/alternatingcharacters.md)      | String Manipulation        | Easy       |
 | [Minimum Absolute Difference in an Array](interviewprep/greedyalgorithms/minabsdiff.md)  | Greedy Algorithms          | Easy       |

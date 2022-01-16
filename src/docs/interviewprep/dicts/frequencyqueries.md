@@ -19,6 +19,10 @@ type of the $i^{\text{th}}$ operation:
 - $t_i = 3$: query whether there is a number in the data structure that occurs
 exactly $v_i$ times.
 
+$1 \leq |q| \leq 10^5$
+
+$1 \leq v_i \leq 10^9 \; \forall \; i$
+
 Output: a list of integers that contains a response to each $t_i = 3$ query in
 order: 1 if there is a number with frequency $v_i$ in the data structure, 0
 otherwise. The list will be $|\{i : t_i = 3\}|$ elements long.
