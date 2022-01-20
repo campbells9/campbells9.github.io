@@ -14,8 +14,8 @@ Input: two strings $s_1$ and $s_2$ of lowercase English letters.
 
 $1 \leq |s_1|, |s_2| \leq 10^5$
 
-Output: the string "Yes" if there exists a non-empty string that is a substring
-of both $s_1$ and $s_2$, otherwise the string "No".
+Output: the string "YES" if there exists a non-empty string that is a substring
+of both $s_1$ and $s_2$, otherwise the string "NO".
 
 If $s_1$ and $s_2$ have a common non-empty substring, then they share at least
 one letter in common. If $s_1$ and $s_2$ share a letter $c$ in common, then they

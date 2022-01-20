@@ -24,6 +24,7 @@
 | [Fraudulent Activity Notifications](interviewprep/sorting/fraudactivitynotifications.md) | Sorting                    | Medium     |
 | [Strings: Making Anagrams](interviewprep/stringmanipulation/makinganagrams.md)           | String Manipulation        | Easy       |
 | [Alternating Characters](interviewprep/stringmanipulation/alternatingcharacters.md)      | String Manipulation        | Easy       |
+| [Sherlock and the Valid String](interviewprep/stringmanipulation/sherlockvalidstring.md) | String Manipulation        | Medium     |
 | [Minimum Absolute Difference in an Array](interviewprep/greedyalgorithms/minabsdiff.md)  | Greedy Algorithms          | Easy       |
 | [Luck Balance](interviewprep/greedyalgorithms/luckbalance.md)                            | Greedy Algorithms          | Easy       |
 | [Tree: Height of a Binary Tree](interviewprep/trees/heightofbinarytree.md)               | Trees                      | Easy       |
