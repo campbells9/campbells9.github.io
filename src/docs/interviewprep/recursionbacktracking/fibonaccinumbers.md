@@ -70,10 +70,56 @@ calls to $f$ becomes untenable. A better way to compute $f$ is to start with 0
 and 1 and build the sequence up to $n$.
 
 As a bonus, $f$ is a [constant-recursive sequence](https://en.wikipedia.org/wiki/Constant-recursive_sequence),
-and it turns out that there is a [closed-form formula for the Fibonacci sequence](https://en.wikipedia.org/wiki/Fibonacci_number#Relation_to_the_golden_ratio). If you can convince yourself
-that it's correct:
+and it turns out that there is a [closed-form formula for the Fibonacci sequence](https://en.wikipedia.org/wiki/Fibonacci_number#Relation_to_the_golden_ratio). The formula looks like this:
 
-$f(n) = \lfloor(\frac{1 + \sqrt{5}}{2})^n * \frac{1}{\sqrt{5}} + \frac{1}{2}\rfloor$
+\[ \alpha = \frac{1 + \sqrt{5}}{2}, \; \beta = \frac{1 - \sqrt{5}}{2} \]
+
+\[ f(n) = \frac{1}{\sqrt{5}}(\alpha^n - \beta^n) \]
+
+It's definitely not obvious that this works. How do we know that $f(n)$ is even
+an integer after we divide by $\sqrt{5}$? It can be proven by induction. First,
+we can see that the formula works for $n = 0$ and $n = 1$:
+
+\[ f(0) = \frac{1}{\sqrt{5}}(\alpha^0 - \beta^0) = \frac{1}{\sqrt{5}}(1 - 1) = 
+\frac{1}{\sqrt{5}} 0 = 0 \]
+
+\[ f(1) = \frac{1}{\sqrt{5}}(\alpha^1 - \beta^1)
+ = \frac{1}{\sqrt{5}}\left(\frac{1 + \sqrt{5}}{2} - \frac{1 - \sqrt{5}}{2}\right)
+ = \frac{1}{\sqrt{5}}\left(\frac{2\sqrt{5}}{2}\right) = 1 \]
+
+Now, for some $k \geq 0$, assume the formula holds for $k$ and $k + 1$:
+
+\[ f(k) = \frac{1}{\sqrt{5}}(\alpha^k - \beta^k) \]
+
+\[ f(k + 1) = \frac{1}{\sqrt{5}}(\alpha^{k + 1} - \beta^{k + 1}) \]
+
+We need to show that it holds for $k + 2$. The trick is that $\alpha$ and 
+$\beta$ are very special numbers: $x = \alpha$ and $x = \beta$ are the two
+solutions of the equation $x^2 = x + 1$. This means we can substitute $\alpha^2$
+for $\alpha + 1$ and $\beta^2$ for $\beta + 1$, and this is why the formula
+works:
+
+\[ 
+    \begin{align*}
+    f(k + 2) & = \frac{1}{\sqrt{5}}(\alpha^{k + 2} - \beta^{k + 2}) \\
+    & = \frac{1}{\sqrt{5}}(\alpha^2 \alpha^k - \beta^2 \beta^k) \\
+    & = \frac{1}{\sqrt{5}}((\alpha + 1)\alpha^k - (\beta + 1)\beta^k) \\
+    & = \frac{1}{\sqrt{5}}(\alpha^{k + 1} + \alpha^k - \beta^{k + 1} - \beta^k) \\
+    & = \frac{1}{\sqrt{5}}(\alpha^{k + 1} - \beta^{k + 1}) - \frac{1}{\sqrt{5}}(\alpha^k - \beta^k) \\
+    & = f(k + 1) + f(k) 
+    \end{align*}
+\]
+
+$f(k + 2) = f(k + 1) + f(k)$, so $f(k + 2)$ is the $(k + 2)^\text{th}$ Fibonacci
+number and the formula is correct.
+
+The only issue could be imprecision of using $\sqrt{5}$ in the computations.
+Your $\sqrt{5}$ term might not cancel out correctly and you might be off by one
+if you truncate to the wrong integer. Here is a version of the formula that
+always floors to the correct integer:
+
+\[ f(n) = \left\lfloor\frac{1}{\sqrt{5}}\left(\frac{1 + \sqrt{5}}{2}\right)^n 
+ + \frac{1}{2}\right\rfloor \]
 
 Java 8:
 ```java
