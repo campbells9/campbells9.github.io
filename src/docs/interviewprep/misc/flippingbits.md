@@ -12,7 +12,7 @@ Flip all of the bits of a 32-bit unsigned integer.
 
 Input: an unsigned integer $n$.
 
-$0 \leq n < 2^{32}$
+\[ 0 \leq n < 2^{32} \]
 
 Output: the unsigned integer result of flipping all 32 bits of $n$.
 

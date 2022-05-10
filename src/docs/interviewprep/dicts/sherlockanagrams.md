@@ -13,7 +13,7 @@ anagrams of each other.
 
 Input: a string $s$ of lowercase English letters.
 
-$2 \leq |s| \leq 100$
+\[ 2 \leq |s| \leq 100 \]
 
 Output: the number of anagrammatic pairs of substrings in the string. The
 substrings can overlap, and separate pairs can have substrings with the same

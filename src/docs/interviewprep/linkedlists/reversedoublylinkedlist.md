@@ -12,7 +12,7 @@ Reverse the order of a given doubly linked list.
 
 Input: the head of a doubly linked list with $n$ nodes.
 
-$1 \leq n \leq 1000$
+\[ 1 \leq n \leq 1000 \]
 
 ```
 class DoublyLinkedListNode {
@@ -31,17 +31,17 @@ A simple way to reverse a doubly linked list involves keeping track of three
 references: the current node $c$, its previous node $p$, and its next node $m$.
 Start with $c$ as the head node and update its links:
 
-$c.\text{prev} \gets m$
+\[ c.\text{prev} \gets m \]
 
-$c.\text{next} \gets p$
+\[ c.\text{next} \gets p \]
 
 and then update the references:
 
-$p \gets c$
+\[ p \gets c \]
 
-$c \gets m$
+\[ c \gets m \]
 
-$m \gets m.\text{next}$
+\[ m \gets m.\text{next} \]
 
 Be careful to avoid dereferencing $m$ when it becomes null at the end of the
 list.

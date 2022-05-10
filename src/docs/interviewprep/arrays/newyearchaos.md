@@ -15,7 +15,7 @@ person in front of them.
 Input: an array $q[n]$, which stores a permutation of the values
 $\{1, 2, \ldots, n\}$.
 
-$1 \leq n \leq 10^5$
+\[ 1 \leq n \leq 10^5 \]
 
 Output: the minimum number of "bribes" that must have taken place in $q$. When a
 person commits a bribe, they swap places with the person immediately in front of

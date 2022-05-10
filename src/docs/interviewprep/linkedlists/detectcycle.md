@@ -12,7 +12,7 @@ Determine whether a given linked list has a cycle.
 
 Input: the head of a linked list with $n$ nodes.
 
-$0 \leq n \leq 100$
+\[ 0 \leq n \leq 100 \]
 
 ```
 struct Node {

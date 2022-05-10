@@ -15,7 +15,7 @@ Input: a number of clouds $n$ and a pattern $c_1, \ldots c_n$ where $c_1 = 0$,
 $c_n = 0$, and $c_i \in \{0, 1\}$ for $1 < i < n$. $c_i = 0$ means cloud $i$ is
 safe, and $c_i = 1$ means cloud $i$ must be avoided.
 
-$2 \leq n \leq 100$
+\[ 2 \leq n \leq 100 \]
 
 Output: the minimum number of jumps needed to win the game. The player starts on
 cloud 1 and must reach cloud $n$. They can jump forward 1 or 2 clouds at a time.

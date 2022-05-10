@@ -13,11 +13,11 @@ that are geometric progressions with common ratio $r$.
 
 Input: an array $a[n]$ and a value $r$.
 
-$1 \leq n \leq 10^5$
+\[ 1 \leq n \leq 10^5 \]
 
-$1 \leq r \leq 10^9$
+\[ 1 \leq r \leq 10^9 \]
 
-$1 \leq a[i] \leq 10^9 \; \forall \; i$
+\[ 1 \leq a[i] \leq 10^9 \; \forall \; i \]
 
 Output: the number of triplet subarrays $(i, j, k)$ for $0 \leq i < j < k < n$
 where $a[k] = a[j] * r = a[i] * r^2$. For example, for $r = 2$, the array
@@ -30,7 +30,7 @@ information:
 
 - How many values before a[i] have we seen that are equal to $\frac{a[i]}{r}$?
 
-\[ A_i = \{j : j < i, a[j] = \frac{a[i]}{r}\} \]
+\[ A_i = \left\{j : j < i, a[j] = \frac{a[i]}{r}\right\} \]
 
 - For each of those values, how many values came before them that are equal to
 $\frac{a[i]}{r^2}$?
@@ -53,7 +53,7 @@ $(\frac{a[i]}{r}, a[i])$ you can make so far for each value.
 
 \[ g_i(v) \gets \sum_{j \in V_i(v)} |A_j| \]
 
-\[ V_i(\frac{a[i]}{r}) = A_i \implies g_i(v) = \sum_{j \in V_i(v)} f_i(\frac{a[j]}{r}) \]
+\[ V_i\left(\frac{a[i]}{r}\right) = A_i \implies g_i(v) = \sum_{j \in V_i(v)} f_i\left(\frac{a[j]}{r}\right) \]
 
 In my code, I refer to $f$ and $g$ as ```iTable``` and ```jTable```,
 respectively.

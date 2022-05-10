@@ -12,7 +12,7 @@ Given a string, determine the number of "special" substrings it contains.
 
 Input: a string $s$ of $n$ lowercase English letters.
 
-$1 \leq n \leq 10^6$
+\[ 1 \leq n \leq 10^6 \]
 
 Output: the number of "special" substrings of $s$. A string is special if, for
 some letter $c \in [\text{a-z}]$, one of the following is true:
@@ -25,7 +25,8 @@ The middle character does not have to be $c$
 You might define that a string $s$ of length $n$ is special if and only if there
 exists a $c \in [\text{a-z}]$ such that:
 
-\[ i < \lfloor\frac{n}{2}\rfloor \; \vee \; i \geq \lceil\frac{n}{2}\rceil \implies s[i] = c \]
+\[ i < \left\lfloor\frac{n}{2}\right\rfloor \; 
+\lor \; i \geq \left\lceil\frac{n}{2}\right\rceil \implies s[i] = c \]
 
 where if $n$ is even, every character has to be $c$, but if $n$ is odd, there is
 a middle character we can ignore. Note that each character by itself counts as

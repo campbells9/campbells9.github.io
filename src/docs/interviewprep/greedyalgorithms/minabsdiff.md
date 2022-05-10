@@ -12,9 +12,9 @@ Given an array, find the minimum difference between any two numbers.
 
 Input: an array $a[n]$ of integers.
 
-$2 \leq n \leq 10^5$
+\[ 2 \leq n \leq 10^5 \]
 
-$-10^9 \leq a[i] \leq 10^9 \; \forall \; i$
+\[ -10^9 \leq a[i] \leq 10^9 \; \forall \; i \]
 
 Output: the minimum absolute difference between any two values in the array:
 

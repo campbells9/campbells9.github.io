@@ -14,9 +14,9 @@ potential fraud alerts should be issued to them.
 Input: an array $x[n]$ of the expenditures of each day for $n$ days, and a
 number of trailing days to consider, $d$.
 
-$1 \leq d \leq n \leq 2 \times 10^5$
+\[ 1 \leq d \leq n \leq 2 \times 10^5 \]
 
-$0 \leq x[i] \leq 200 \; \forall \; i$
+\[ 0 \leq x[i] \leq 200 \; \forall \; i \]
 
 Output: the number of times a potential fraud notification should have been
 issued. A potential fraud notification is issued if a day's expenditures are at

@@ -59,26 +59,25 @@ of nodes after the merge point:
 
 Let $a = n_1 - m_1 = n_2 - m_2$.
 
-On the $i^{\text{th}}$ iteration, $c_1$ will be at position $i \mod n_1$, and
-$c_2$ will be at position $i \mod n_2$. We are looking for an $i$ for which
-$m_1 = i \mod n_1$ and $m_2 = i \mod n_2$.
-
-Take $i = \text{lcm}(n_1, n_2) - a$:
+On the $i^{\text{th}}$ iteration, $c_1$ will be at position $i \bmod n_1$, and
+$c_2$ will be at position $i \bmod n_2$. We are looking for an $i$ that solves
+the following system of congruences:
 
 \[
-\begin{align*}
-i \mod n_1 & = (\text{lcm}(n_1, n_2) - a) \mod n_1 \\
-& = (n_1 - a) \mod n_1 \\
-& = m_1 \mod n_1 = m_1
-\end{align*}
+    \begin{align*}
+    i & \equiv m_1 \pmod {n_1} \\
+    i & \equiv m_2 \pmod {n_2}
+    \end{align*}
 \]
 
+A solution is $i = \text{lcm}(n_1, n_2) - a$, which has
+$i \equiv -a \pmod {n_1}$ and $i \equiv -a \pmod {n_2}$.
+
 \[
-\begin{align*}
-i \mod n_2 & = (\text{lcm}(n_1, n_2) - a) \mod n_2 \\
-& = (n_2 - a) \mod n_2 \\
-& = m_2 \mod n_2 = m_2
-\end{align*}
+    \begin{align*}
+    i & \equiv -a \equiv n_1 - a \equiv m_1 \pmod {n_1} \\
+    i & \equiv -a \equiv n_2 - a \equiv m_2 \pmod {n_2}
+    \end{align*}
 \]
 
 The last thing to check is that $i \geq 0$: this is true because $a \leq n_1$

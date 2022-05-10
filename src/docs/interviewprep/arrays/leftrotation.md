@@ -12,9 +12,9 @@ Given an array, rotate it to the left by $d$ elements.
 
 Input: an array $a[n]$ and a number of rotations to make, $d$.
 
-$1 \leq d \leq n \leq 10^5$
+\[ 1 \leq d \leq n \leq 10^5 \]
 
-$1 \leq a[i] \leq 10^6 \; \forall \; i$
+\[ 1 \leq a[i] \leq 10^6 \; \forall \; i \]
 
 Output: the array shifted $d$ elements to the left. For example, for the
 following array, shifting to the left by 1 element gives:
@@ -32,12 +32,12 @@ extra array to store the values in their new positions without overriding the
 values in the original array. For the value at position $i$, you can calculate
 its new position $i'$ with $d$:
 
-$i' \gets (i - d) \mod n$
+\[ i' \gets (i - d) \bmod n \]
 
 Note that using the modulus operator with negative numbers may not always work
 the way you expect. You might need to add $n$:
 
-$i' \gets (i - d + n) \mod n$
+\[ i' \gets (i - d + n) \bmod n \]
 
 The new array should have the elements from $d$ to the end, followed by the
 elements from 0 to $d - 1$.

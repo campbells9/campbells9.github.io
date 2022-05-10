@@ -8,21 +8,21 @@ Difficulty: Easy
 
 ---
 
-Given a 6x6 array, find the maximum "hourglass sum."
+Given a $6 \times 6$ array, find the maximum "hourglass sum."
 
 Input: a 2D array, $arr[i][j]$ for $1 \leq i, j \leq 6$.
 
-$-9 \leq arr[i][j] \leq 9 \; \forall \; i, j$
+\[ -9 \leq arr[i][j] \leq 9 \; \forall \; i, j \]
 
-Output: the maximum hourglass sum of the array. For any 3x3 block of $arr$, the
-hourglass sum is the sum of the top 3, bottom 3, and center entries:
+Output: the maximum hourglass sum of the array. For any $3 \times 3$ block of 
+$arr$, the hourglass sum is the sum of the top 3, bottom 3, and center entries:
 
 ```[[a, b, c], [d, e, f], [g, h, i]]``` $\; \to \; a + b + c + e + g + h + i$
 
 Every hourglass sum is at least -63 and at most 63.
 
-There are only 16 possible 3x3 blocks in $arr$, so there are only 16 hourglass
-sums to check. You can loop through the center entries of each block
+There are only 16 possible $3 \times 3$ blocks in $arr$, so there are only 16
+hourglass sums to check. You can loop through the center entries of each block
 ($arr[1][1] \ldots arr[4][4]$) and calculate an hourglass sum for each.
 
 Java 8:

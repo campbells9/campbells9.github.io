@@ -13,7 +13,7 @@ deletions required to make the string have alternating characters.
 
 Input: a string $s$ of which every character is ```'A'``` or ```'B'```.
 
-$1 \leq |s| \leq 10^5$
+\[ 1 \leq |s| \leq 10^5 \]
 
 Output: the minimum number of character deletions required to make $s$ have no
 two consecutive A's or B's in a row (such that it follows the pattern

@@ -13,9 +13,9 @@ Sort.
 
 Input: an array $a[n]$ of integers.
 
-$2 \leq n \leq 600$
+\[ 2 \leq n \leq 600 \]
 
-$1 \leq a[i] \leq 2 \times 10^6 \; \forall \; i$
+\[ 1 \leq a[i] \leq 2 \times 10^6 \; \forall \; i \]
 
 Output: a message containing the number of swaps needed to sort $a$, as well as
 elements $a[0]$ and $a[n - 1]$ after $a$ is sorted.

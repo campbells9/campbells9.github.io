@@ -14,7 +14,7 @@ needed to sort the array in ascending order.
 Input: an array $a[n]$, which stores a permutation of the values
 $\{1, 2, \ldots, n\}$.
 
-$1 \leq n \leq 10^5$
+\[ 1 \leq n \leq 10^5 \]
 
 Output: the minimum number of swaps needed to sort $a$ in ascending order.
 

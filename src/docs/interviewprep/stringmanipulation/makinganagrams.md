@@ -13,7 +13,7 @@ to make the strings anagrams of each other.
 
 Input: two strings $a$ and $b$ of lowercase English letters.
 
-$1 \leq |a|, |b| \leq 10^4$
+\[ 1 \leq |a|, |b| \leq 10^4 \]
 
 Output: the minimum number of character deletions required (total character
 deletions from $a$ and $b$) to make $a$ and $b$ anagrams (the letters of $a$ can

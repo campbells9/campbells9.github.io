@@ -16,9 +16,9 @@ Input: two arrays $L[n]$ and $T[n]$, and $k$, the maximum number of important
 contests that can be lost.  $L[i]$ is the luck value of contest $i$, and
 $T[i] = 1$ if contest $i$ is important, else $T[i] = 0$.
 
-$1 \leq k \leq n \leq 100$
+\[ 1 \leq k \leq n \leq 100 \]
 
-$1 \leq L[i] \leq 10^4 \; \forall \; i$
+\[ 1 \leq L[i] \leq 10^4 \; \forall \; i \]
 
 Output: the maximum amount of stored luck attainable after all contests. Luck
 starts at 0, and winning contest $i$ decreases luck by $L[i]$, while losing

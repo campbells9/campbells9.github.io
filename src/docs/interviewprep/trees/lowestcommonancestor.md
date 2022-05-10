@@ -13,9 +13,9 @@ Given two values in a binary search tree, find their lowest common ancestor.
 Input: the root of a binary search tree with $n$ nodes, and two values
 $v_1, v_2$ from the tree.
 
-$1 \leq n \leq 25$
+\[ 1 \leq n \leq 25 \]
 
-$1 \leq v_1, v_2 \leq 25, \; v_1 \neq v_2$
+\[ 1 \leq v_1, v_2 \leq 25, \; v_1 \neq v_2 \]
 
 ```
 class Node {

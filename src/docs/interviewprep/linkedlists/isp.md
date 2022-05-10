@@ -13,9 +13,9 @@ Insert a new node with the given data at the given position in a linked list.
 Input: the head of a linked list with $n$ nodes, a data value $d$, and a
 position $p$.
 
-$1 \leq n \leq 1000$
+\[ 1 \leq n \leq 1000 \]
 
-$0 \leq p \leq n$
+\[ 0 \leq p \leq n \]
 
 ```
 class SinglyLinkedListNode {

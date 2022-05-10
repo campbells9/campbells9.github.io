@@ -12,7 +12,7 @@ Determine the height of a given binary tree.
 
 Input: the root of a binary tree with $n$ nodes.
 
-$1 \leq n \leq 20$
+\[ 1 \leq n \leq 20 \]
 
 ```
 class Node {

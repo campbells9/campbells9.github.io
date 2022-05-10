@@ -14,7 +14,7 @@ enough words to write a given ransom note.
 Input: arrays $magazine[m]$ and $note[n]$ of strings, each of which is a word
 made of uppercase and lowercase English letters.
 
-$1 \leq m, n \leq 3 \times 10^5$
+\[ 1 \leq m, n \leq 3 \times 10^5 \]
 
 Output: print ```Yes``` if it is possible to arrange the words of $magazine$ to
 write the $note$, otherwise print ```No```. For example, if the $note$ is

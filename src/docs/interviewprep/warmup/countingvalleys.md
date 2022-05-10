@@ -16,9 +16,9 @@ Input: a number of steps $s$ and a path $p \in \{U, D\}^s$, where $U$ represents
 a step up and $D$ represents a step down. The path begins and ends at sea level,
 so $p$ has an equal number of $U$'s and $D$'s.
 
-$2 \leq s \leq 10^6$
+\[ 2 \leq s \leq 10^6 \]
 
-$|\{i : p_i = U\}| = |\{i : p_i = D\}| = \frac{s}{2}$
+\[ |\{i : p_i = U\}| = |\{i : p_i = D\}| = \frac{s}{2} \]
 
 Output: the number of valleys (sequences that start at sea level, descend below
 sea level, and then return up to sea level).
@@ -26,7 +26,7 @@ sea level, and then return up to sea level).
 Read through the path and keep track of what elevation each step reaches. For
 example:
 
-```"UDDDUDUU"``` $\to$ 0, 1, 0, -1, -2, -1, -2, -1, 0
+```"UDDDUDUU"``` $\to 0, 1, 0, -1, -2, -1, -2, -1, 0$
 
 We can see that a valley ends whenever we step up from elevation -1 to 0. The
 path is guaranteed to return to sea level (elevation 0) by the end, so every

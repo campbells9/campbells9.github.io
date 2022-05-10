@@ -14,7 +14,7 @@ condition.
 
 Input: a string $s$ of lowercase English letters.
 
-$1 \leq |s| \leq 10^5$
+\[ 1 \leq |s| \leq 10^5 \]
 
 Output: the string "YES" if every letter in $s$ occurs with the same frequency,
 or if they would all occur with the same frequency if a single character was

@@ -13,11 +13,11 @@ can be bought.
 
 Input: an array $p[n]$ of prices of toys, and a budget $k$.
 
-$1 \leq n \leq 10^5$
+\[ 1 \leq n \leq 10^5 \]
 
-$1 \leq k \leq 10^9$
+\[ 1 \leq k \leq 10^9 \]
 
-$1 \leq p[i] \leq 10^9 \; \forall \; i$
+\[ 1 \leq p[i] \leq 10^9 \; \forall \; i \]
 
 Output: the greatest number of toys that can be bought with $k$ units of
 currency. For prices $p_1, \ldots, p_n$, we are trying to pick toys 

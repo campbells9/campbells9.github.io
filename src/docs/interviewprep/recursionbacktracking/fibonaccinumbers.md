@@ -12,16 +12,18 @@ Given $n$, calculate the $n^{\text{th}}$ Fibonacci number.
 
 Input: $n$, the index into the Fibonacci sequence of the value to calculate.
 
-$1 \leq n \leq 30$
+\[ 1 \leq n \leq 30 \]
 
 Output: the $n^{\text{th}}$ Fibonacci number, $f(n)$:
 
-\[ f(n) = \left\{
-\begin{array}{ll}
+\[ 
+    f(n) = \left\{
+    \begin{array}{ll}
       n & 0 \leq n \leq 1 \\
       f(n - 1) + f(n - 2) & n > 1 \\
-\end{array} 
-\right. \]
+    \end{array} 
+    \right. 
+\]
 
 The Fibonacci sequence is defined recursively, so it is easy to write a
 recursive function that computes it:

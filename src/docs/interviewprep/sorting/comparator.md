@@ -21,7 +21,7 @@ class Player {
 }
 ```
 
-$0 \leq a.\text{score}, b.\text{score} \leq 1000$
+\[ 0 \leq a.\text{score}, b.\text{score} \leq 1000 \]
 
 Output: an integer that is:
 
