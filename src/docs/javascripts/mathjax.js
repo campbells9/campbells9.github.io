@@ -12,5 +12,10 @@ window.MathJax = {
 };
 document$.subscribe(() => { 
     MathJax.typesetPromise()
+    
+    // mathjax scrollbar patch
+    for (const elem of document.getElementsByTagName("mjx-container")) {
+        elem.style.position = ""
+    }
 });
   
