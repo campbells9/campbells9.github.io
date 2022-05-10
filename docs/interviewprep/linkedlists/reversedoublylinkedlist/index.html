@@ -228,7 +228,7 @@
 <hr />
 <p>Reverse the order of a given doubly linked list.</p>
 <p>Input: the head of a doubly linked list with <span class="arithmatex">\(n\)</span> nodes.</p>
-<p><span class="arithmatex">\(1 \leq n \leq 1000\)</span></p>
+<div class="arithmatex">\[ 1 \leq n \leq 1000 \]</div>
 <div class="highlight"><pre><span></span><code>class DoublyLinkedListNode {
     int data;
     DoublyLinkedListNode* next;
@@ -242,12 +242,12 @@ new head will be the last node in the original list.</p>
 <p>A simple way to reverse a doubly linked list involves keeping track of three
 references: the current node <span class="arithmatex">\(c\)</span>, its previous node <span class="arithmatex">\(p\)</span>, and its next node <span class="arithmatex">\(m\)</span>.
 Start with <span class="arithmatex">\(c\)</span> as the head node and update its links:</p>
-<p><span class="arithmatex">\(c.\text{prev} \gets m\)</span></p>
-<p><span class="arithmatex">\(c.\text{next} \gets p\)</span></p>
+<div class="arithmatex">\[ c.\text{prev} \gets m \]</div>
+<div class="arithmatex">\[ c.\text{next} \gets p \]</div>
 <p>and then update the references:</p>
-<p><span class="arithmatex">\(p \gets c\)</span></p>
-<p><span class="arithmatex">\(c \gets m\)</span></p>
-<p><span class="arithmatex">\(m \gets m.\text{next}\)</span></p>
+<div class="arithmatex">\[ p \gets c \]</div>
+<div class="arithmatex">\[ c \gets m \]</div>
+<div class="arithmatex">\[ m \gets m.\text{next} \]</div>
 <p>Be careful to avoid dereferencing <span class="arithmatex">\(m\)</span> when it becomes null at the end of the
 list.</p>
 <p>Note that this algorithm correctly handles the first node of the list, where <span class="arithmatex">\(p\)</span>

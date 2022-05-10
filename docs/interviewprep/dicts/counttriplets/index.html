@@ -229,9 +229,9 @@
 <p>Given an array of integers and a base <span class="arithmatex">\(r\)</span>, count the number triplets with values
 that are geometric progressions with common ratio <span class="arithmatex">\(r\)</span>.</p>
 <p>Input: an array <span class="arithmatex">\(a[n]\)</span> and a value <span class="arithmatex">\(r\)</span>.</p>
-<p><span class="arithmatex">\(1 \leq n \leq 10^5\)</span></p>
-<p><span class="arithmatex">\(1 \leq r \leq 10^9\)</span></p>
-<p><span class="arithmatex">\(1 \leq a[i] \leq 10^9 \; \forall \; i\)</span></p>
+<div class="arithmatex">\[ 1 \leq n \leq 10^5 \]</div>
+<div class="arithmatex">\[ 1 \leq r \leq 10^9 \]</div>
+<div class="arithmatex">\[ 1 \leq a[i] \leq 10^9 \; \forall \; i \]</div>
 <p>Output: the number of triplet subarrays <span class="arithmatex">\((i, j, k)\)</span> for <span class="arithmatex">\(0 \leq i &lt; j &lt; k &lt; n\)</span>
 where <span class="arithmatex">\(a[k] = a[j] * r = a[i] * r^2\)</span>. For example, for <span class="arithmatex">\(r = 2\)</span>, the array
 <code>[5, 10, 20, 30, 40]</code> has 2 geometric triplets: (0, 1, 2) and (1, 2, 4),
@@ -242,7 +242,7 @@ information:</p>
 <ul>
 <li>How many values before a[i] have we seen that are equal to <span class="arithmatex">\(\frac{a[i]}{r}\)</span>?</li>
 </ul>
-<div class="arithmatex">\[ A_i = \{j : j &lt; i, a[j] = \frac{a[i]}{r}\} \]</div>
+<div class="arithmatex">\[ A_i = \left\{j : j &lt; i, a[j] = \frac{a[i]}{r}\right\} \]</div>
 <ul>
 <li>For each of those values, how many values came before them that are equal to
 <span class="arithmatex">\(\frac{a[i]}{r^2}\)</span>?</li>
@@ -260,7 +260,7 @@ in the array:</p>
 <p>Use another map to count how many <em>pairs</em> of the form
 <span class="arithmatex">\((\frac{a[i]}{r}, a[i])\)</span> you can make so far for each value.</p>
 <div class="arithmatex">\[ g_i(v) \gets \sum_{j \in V_i(v)} |A_j| \]</div>
-<div class="arithmatex">\[ V_i(\frac{a[i]}{r}) = A_i \implies g_i(v) = \sum_{j \in V_i(v)} f_i(\frac{a[j]}{r}) \]</div>
+<div class="arithmatex">\[ V_i\left(\frac{a[i]}{r}\right) = A_i \implies g_i(v) = \sum_{j \in V_i(v)} f_i\left(\frac{a[j]}{r}\right) \]</div>
 <p>In my code, I refer to <span class="arithmatex">\(f\)</span> and <span class="arithmatex">\(g\)</span> as <code>iTable</code> and <code>jTable</code>,
 respectively.</p>
 <p>For each value <span class="arithmatex">\(v\)</span> in <span class="arithmatex">\(a\)</span>, check if <span class="arithmatex">\(v\)</span> is divisible by <span class="arithmatex">\(r\)</span>. If it is not, then

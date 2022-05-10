@@ -228,8 +228,8 @@
 <hr />
 <p>Given an array, rotate it to the left by <span class="arithmatex">\(d\)</span> elements.</p>
 <p>Input: an array <span class="arithmatex">\(a[n]\)</span> and a number of rotations to make, <span class="arithmatex">\(d\)</span>.</p>
-<p><span class="arithmatex">\(1 \leq d \leq n \leq 10^5\)</span></p>
-<p><span class="arithmatex">\(1 \leq a[i] \leq 10^6 \; \forall \; i\)</span></p>
+<div class="arithmatex">\[ 1 \leq d \leq n \leq 10^5 \]</div>
+<div class="arithmatex">\[ 1 \leq a[i] \leq 10^6 \; \forall \; i \]</div>
 <p>Output: the array shifted <span class="arithmatex">\(d\)</span> elements to the left. For example, for the
 following array, shifting to the left by 1 element gives:</p>
 <p><code>[1, 2, 3, 4]</code> <span class="arithmatex">\(\to\)</span> <code>[2, 3, 4, 1]</code></p>
@@ -240,10 +240,10 @@ following array, shifting to the left by 1 element gives:</p>
 extra array to store the values in their new positions without overriding the
 values in the original array. For the value at position <span class="arithmatex">\(i\)</span>, you can calculate
 its new position <span class="arithmatex">\(i'\)</span> with <span class="arithmatex">\(d\)</span>:</p>
-<p><span class="arithmatex">\(i' \gets (i - d) \mod n\)</span></p>
+<div class="arithmatex">\[ i' \gets (i - d) \bmod n \]</div>
 <p>Note that using the modulus operator with negative numbers may not always work
 the way you expect. You might need to add <span class="arithmatex">\(n\)</span>:</p>
-<p><span class="arithmatex">\(i' \gets (i - d + n) \mod n\)</span></p>
+<div class="arithmatex">\[ i' \gets (i - d + n) \bmod n \]</div>
 <p>The new array should have the elements from <span class="arithmatex">\(d\)</span> to the end, followed by the
 elements from 0 to <span class="arithmatex">\(d - 1\)</span>.</p>
 <p>The description suggests that you should modify the array passed to the

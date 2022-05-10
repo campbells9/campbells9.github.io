@@ -262,23 +262,22 @@ position of the merge point in <span class="arithmatex">\(h_2\)</span>'s list.</
 of nodes after the merge point:</p>
 <div class="arithmatex">\[ n_1 - m_1 = n_2 - m_2 \]</div>
 <p>Let <span class="arithmatex">\(a = n_1 - m_1 = n_2 - m_2\)</span>.</p>
-<p>On the <span class="arithmatex">\(i^{\text{th}}\)</span> iteration, <span class="arithmatex">\(c_1\)</span> will be at position <span class="arithmatex">\(i \mod n_1\)</span>, and
-<span class="arithmatex">\(c_2\)</span> will be at position <span class="arithmatex">\(i \mod n_2\)</span>. We are looking for an <span class="arithmatex">\(i\)</span> for which
-<span class="arithmatex">\(m_1 = i \mod n_1\)</span> and <span class="arithmatex">\(m_2 = i \mod n_2\)</span>.</p>
-<p>Take <span class="arithmatex">\(i = \text{lcm}(n_1, n_2) - a\)</span>:</p>
+<p>On the <span class="arithmatex">\(i^{\text{th}}\)</span> iteration, <span class="arithmatex">\(c_1\)</span> will be at position <span class="arithmatex">\(i \bmod n_1\)</span>, and
+<span class="arithmatex">\(c_2\)</span> will be at position <span class="arithmatex">\(i \bmod n_2\)</span>. We are looking for an <span class="arithmatex">\(i\)</span> that solves
+the following system of congruences:</p>
 <div class="arithmatex">\[
-\begin{align*}
-i \mod n_1 &amp; = (\text{lcm}(n_1, n_2) - a) \mod n_1 \\
-&amp; = (n_1 - a) \mod n_1 \\
-&amp; = m_1 \mod n_1 = m_1
-\end{align*}
+    \begin{align*}
+    i &amp; \equiv m_1 \pmod {n_1} \\
+    i &amp; \equiv m_2 \pmod {n_2}
+    \end{align*}
 \]</div>
+<p>A solution is <span class="arithmatex">\(i = \text{lcm}(n_1, n_2) - a\)</span>, which has
+<span class="arithmatex">\(i \equiv -a \pmod {n_1}\)</span> and <span class="arithmatex">\(i \equiv -a \pmod {n_2}\)</span>.</p>
 <div class="arithmatex">\[
-\begin{align*}
-i \mod n_2 &amp; = (\text{lcm}(n_1, n_2) - a) \mod n_2 \\
-&amp; = (n_2 - a) \mod n_2 \\
-&amp; = m_2 \mod n_2 = m_2
-\end{align*}
+    \begin{align*}
+    i &amp; \equiv -a \equiv n_1 - a \equiv m_1 \pmod {n_1} \\
+    i &amp; \equiv -a \equiv n_2 - a \equiv m_2 \pmod {n_2}
+    \end{align*}
 \]</div>
 <p>The last thing to check is that <span class="arithmatex">\(i \geq 0\)</span>: this is true because <span class="arithmatex">\(a \leq n_1\)</span>
 and <span class="arithmatex">\(a \leq n_2\)</span>, so <span class="arithmatex">\(a \leq \text{lcm}(n_1, n_2)\)</span>.</p>

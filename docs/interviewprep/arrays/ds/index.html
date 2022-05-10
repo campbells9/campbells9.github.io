@@ -226,15 +226,15 @@
 <p>Category: Arrays</p>
 <p>Difficulty: Easy</p>
 <hr />
-<p>Given a 6x6 array, find the maximum "hourglass sum."</p>
+<p>Given a <span class="arithmatex">\(6 \times 6\)</span> array, find the maximum "hourglass sum."</p>
 <p>Input: a 2D array, <span class="arithmatex">\(arr[i][j]\)</span> for <span class="arithmatex">\(1 \leq i, j \leq 6\)</span>.</p>
-<p><span class="arithmatex">\(-9 \leq arr[i][j] \leq 9 \; \forall \; i, j\)</span></p>
-<p>Output: the maximum hourglass sum of the array. For any 3x3 block of <span class="arithmatex">\(arr\)</span>, the
-hourglass sum is the sum of the top 3, bottom 3, and center entries:</p>
+<div class="arithmatex">\[ -9 \leq arr[i][j] \leq 9 \; \forall \; i, j \]</div>
+<p>Output: the maximum hourglass sum of the array. For any <span class="arithmatex">\(3 \times 3\)</span> block of 
+<span class="arithmatex">\(arr\)</span>, the hourglass sum is the sum of the top 3, bottom 3, and center entries:</p>
 <p><code>[[a, b, c], [d, e, f], [g, h, i]]</code> <span class="arithmatex">\(\; \to \; a + b + c + e + g + h + i\)</span></p>
 <p>Every hourglass sum is at least -63 and at most 63.</p>
-<p>There are only 16 possible 3x3 blocks in <span class="arithmatex">\(arr\)</span>, so there are only 16 hourglass
-sums to check. You can loop through the center entries of each block
+<p>There are only 16 possible <span class="arithmatex">\(3 \times 3\)</span> blocks in <span class="arithmatex">\(arr\)</span>, so there are only 16
+hourglass sums to check. You can loop through the center entries of each block
 (<span class="arithmatex">\(arr[1][1] \ldots arr[4][4]\)</span>) and calculate an hourglass sum for each.</p>
 <p>Java 8:
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">hourglassSum</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="n">arr</span><span class="p">)</span> <span class="p">{</span>

@@ -228,14 +228,16 @@
 <hr />
 <p>Given <span class="arithmatex">\(n\)</span>, calculate the <span class="arithmatex">\(n^{\text{th}}\)</span> Fibonacci number.</p>
 <p>Input: <span class="arithmatex">\(n\)</span>, the index into the Fibonacci sequence of the value to calculate.</p>
-<p><span class="arithmatex">\(1 \leq n \leq 30\)</span></p>
+<div class="arithmatex">\[ 1 \leq n \leq 30 \]</div>
 <p>Output: the <span class="arithmatex">\(n^{\text{th}}\)</span> Fibonacci number, <span class="arithmatex">\(f(n)\)</span>:</p>
-<div class="arithmatex">\[ f(n) = \left\{
-\begin{array}{ll}
+<div class="arithmatex">\[ 
+    f(n) = \left\{
+    \begin{array}{ll}
       n &amp; 0 \leq n \leq 1 \\
       f(n - 1) + f(n - 2) &amp; n &gt; 1 \\
-\end{array} 
-\right. \]</div>
+    \end{array} 
+    \right. 
+\]</div>
 <p>The Fibonacci sequence is defined recursively, so it is easy to write a
 recursive function that computes it:</p>
 <div class="highlight"><pre><span></span><code>f(n):
@@ -277,9 +279,43 @@ three calls to <span class="arithmatex">\(f(1)\)</span>, and two calls to <span 
 calls to <span class="arithmatex">\(f\)</span> becomes untenable. A better way to compute <span class="arithmatex">\(f\)</span> is to start with 0
 and 1 and build the sequence up to <span class="arithmatex">\(n\)</span>.</p>
 <p>As a bonus, <span class="arithmatex">\(f\)</span> is a <a href="https://en.wikipedia.org/wiki/Constant-recursive_sequence">constant-recursive sequence</a>,
-and it turns out that there is a <a href="https://en.wikipedia.org/wiki/Fibonacci_number#Relation_to_the_golden_ratio">closed-form formula for the Fibonacci sequence</a>. If you can convince yourself
-that it's correct:</p>
-<p><span class="arithmatex">\(f(n) = \lfloor(\frac{1 + \sqrt{5}}{2})^n * \frac{1}{\sqrt{5}} + \frac{1}{2}\rfloor\)</span></p>
+and it turns out that there is a <a href="https://en.wikipedia.org/wiki/Fibonacci_number#Relation_to_the_golden_ratio">closed-form formula for the Fibonacci sequence</a>. The formula looks like this:</p>
+<div class="arithmatex">\[ \alpha = \frac{1 + \sqrt{5}}{2}, \; \beta = \frac{1 - \sqrt{5}}{2} \]</div>
+<div class="arithmatex">\[ f(n) = \frac{1}{\sqrt{5}}(\alpha^n - \beta^n) \]</div>
+<p>It's definitely not obvious that this works. How do we know that <span class="arithmatex">\(f(n)\)</span> is even
+an integer after we divide by <span class="arithmatex">\(\sqrt{5}\)</span>? It can be proven by induction. First,
+we can see that the formula works for <span class="arithmatex">\(n = 0\)</span> and <span class="arithmatex">\(n = 1\)</span>:</p>
+<div class="arithmatex">\[ f(0) = \frac{1}{\sqrt{5}}(\alpha^0 - \beta^0) = \frac{1}{\sqrt{5}}(1 - 1) = 
+\frac{1}{\sqrt{5}} 0 = 0 \]</div>
+<div class="arithmatex">\[ f(1) = \frac{1}{\sqrt{5}}(\alpha^1 - \beta^1)
+ = \frac{1}{\sqrt{5}}\left(\frac{1 + \sqrt{5}}{2} - \frac{1 - \sqrt{5}}{2}\right)
+ = \frac{1}{\sqrt{5}}\left(\frac{2\sqrt{5}}{2}\right) = 1 \]</div>
+<p>Now, for some <span class="arithmatex">\(k \geq 0\)</span>, assume the formula holds for <span class="arithmatex">\(k\)</span> and <span class="arithmatex">\(k + 1\)</span>:</p>
+<div class="arithmatex">\[ f(k) = \frac{1}{\sqrt{5}}(\alpha^k - \beta^k) \]</div>
+<div class="arithmatex">\[ f(k + 1) = \frac{1}{\sqrt{5}}(\alpha^{k + 1} - \beta^{k + 1}) \]</div>
+<p>We need to show that it holds for <span class="arithmatex">\(k + 2\)</span>. The trick is that <span class="arithmatex">\(\alpha\)</span> and 
+<span class="arithmatex">\(\beta\)</span> are very special numbers: <span class="arithmatex">\(x = \alpha\)</span> and <span class="arithmatex">\(x = \beta\)</span> are the two
+solutions of the equation <span class="arithmatex">\(x^2 = x + 1\)</span>. This means we can substitute <span class="arithmatex">\(\alpha^2\)</span>
+for <span class="arithmatex">\(\alpha + 1\)</span> and <span class="arithmatex">\(\beta^2\)</span> for <span class="arithmatex">\(\beta + 1\)</span>, and this is why the formula
+works:</p>
+<div class="arithmatex">\[ 
+    \begin{align*}
+    f(k + 2) &amp; = \frac{1}{\sqrt{5}}(\alpha^{k + 2} - \beta^{k + 2}) \\
+    &amp; = \frac{1}{\sqrt{5}}(\alpha^2 \alpha^k - \beta^2 \beta^k) \\
+    &amp; = \frac{1}{\sqrt{5}}((\alpha + 1)\alpha^k - (\beta + 1)\beta^k) \\
+    &amp; = \frac{1}{\sqrt{5}}(\alpha^{k + 1} + \alpha^k - \beta^{k + 1} - \beta^k) \\
+    &amp; = \frac{1}{\sqrt{5}}(\alpha^{k + 1} - \beta^{k + 1}) - \frac{1}{\sqrt{5}}(\alpha^k - \beta^k) \\
+    &amp; = f(k + 1) + f(k) 
+    \end{align*}
+\]</div>
+<p><span class="arithmatex">\(f(k + 2) = f(k + 1) + f(k)\)</span>, so <span class="arithmatex">\(f(k + 2)\)</span> is the <span class="arithmatex">\((k + 2)^\text{th}\)</span> Fibonacci
+number and the formula is correct.</p>
+<p>The only issue could be imprecision of using <span class="arithmatex">\(\sqrt{5}\)</span> in the computations.
+Your <span class="arithmatex">\(\sqrt{5}\)</span> term might not cancel out correctly and you might be off by one
+if you truncate to the wrong integer. Here is a version of the formula that
+always floors to the correct integer:</p>
+<div class="arithmatex">\[ f(n) = \left\lfloor\frac{1}{\sqrt{5}}\left(\frac{1 + \sqrt{5}}{2}\right)^n 
+ + \frac{1}{2}\right\rfloor \]</div>
 <p>Java 8:
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">prev</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>

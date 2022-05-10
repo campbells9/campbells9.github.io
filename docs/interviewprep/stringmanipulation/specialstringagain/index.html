@@ -228,7 +228,7 @@
 <hr />
 <p>Given a string, determine the number of "special" substrings it contains.</p>
 <p>Input: a string <span class="arithmatex">\(s\)</span> of <span class="arithmatex">\(n\)</span> lowercase English letters.</p>
-<p><span class="arithmatex">\(1 \leq n \leq 10^6\)</span></p>
+<div class="arithmatex">\[ 1 \leq n \leq 10^6 \]</div>
 <p>Output: the number of "special" substrings of <span class="arithmatex">\(s\)</span>. A string is special if, for
 some letter <span class="arithmatex">\(c \in [\text{a-z}]\)</span>, one of the following is true:</p>
 <ul>
@@ -239,7 +239,8 @@ The middle character does not have to be <span class="arithmatex">\(c\)</span></
 </ul>
 <p>You might define that a string <span class="arithmatex">\(s\)</span> of length <span class="arithmatex">\(n\)</span> is special if and only if there
 exists a <span class="arithmatex">\(c \in [\text{a-z}]\)</span> such that:</p>
-<div class="arithmatex">\[ i &lt; \lfloor\frac{n}{2}\rfloor \; \vee \; i \geq \lceil\frac{n}{2}\rceil \implies s[i] = c \]</div>
+<div class="arithmatex">\[ i &lt; \left\lfloor\frac{n}{2}\right\rfloor \; 
+\lor \; i \geq \left\lceil\frac{n}{2}\right\rceil \implies s[i] = c \]</div>
 <p>where if <span class="arithmatex">\(n\)</span> is even, every character has to be <span class="arithmatex">\(c\)</span>, but if <span class="arithmatex">\(n\)</span> is odd, there is
 a middle character we can ignore. Note that each character by itself counts as
 a special substring of length 1.</p>

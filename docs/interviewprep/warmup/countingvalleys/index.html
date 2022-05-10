@@ -232,13 +232,13 @@ starts at sea level, descends below sea level, and then returns to sea level.</p
 <p>Input: a number of steps <span class="arithmatex">\(s\)</span> and a path <span class="arithmatex">\(p \in \{U, D\}^s\)</span>, where <span class="arithmatex">\(U\)</span> represents
 a step up and <span class="arithmatex">\(D\)</span> represents a step down. The path begins and ends at sea level,
 so <span class="arithmatex">\(p\)</span> has an equal number of <span class="arithmatex">\(U\)</span>'s and <span class="arithmatex">\(D\)</span>'s.</p>
-<p><span class="arithmatex">\(2 \leq s \leq 10^6\)</span></p>
-<p><span class="arithmatex">\(|\{i : p_i = U\}| = |\{i : p_i = D\}| = \frac{s}{2}\)</span></p>
+<div class="arithmatex">\[ 2 \leq s \leq 10^6 \]</div>
+<div class="arithmatex">\[ |\{i : p_i = U\}| = |\{i : p_i = D\}| = \frac{s}{2} \]</div>
 <p>Output: the number of valleys (sequences that start at sea level, descend below
 sea level, and then return up to sea level).</p>
 <p>Read through the path and keep track of what elevation each step reaches. For
 example:</p>
-<p><code>"UDDDUDUU"</code> <span class="arithmatex">\(\to\)</span> 0, 1, 0, -1, -2, -1, -2, -1, 0</p>
+<p><code>"UDDDUDUU"</code> <span class="arithmatex">\(\to 0, 1, 0, -1, -2, -1, -2, -1, 0\)</span></p>
 <p>We can see that a valley ends whenever we step up from elevation -1 to 0. The
 path is guaranteed to return to sea level (elevation 0) by the end, so every
 valley ends, and the number of times we step up from -1 to 0 is the number of

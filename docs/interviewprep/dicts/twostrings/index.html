@@ -228,7 +228,7 @@
 <hr />
 <p>Given two strings, determine if they share any common substring.</p>
 <p>Input: two strings <span class="arithmatex">\(s_1\)</span> and <span class="arithmatex">\(s_2\)</span> of lowercase English letters.</p>
-<p><span class="arithmatex">\(1 \leq |s_1|, |s_2| \leq 10^5\)</span></p>
+<div class="arithmatex">\[ 1 \leq |s_1|, |s_2| \leq 10^5 \]</div>
 <p>Output: the string "YES" if there exists a non-empty string that is a substring
 of both <span class="arithmatex">\(s_1\)</span> and <span class="arithmatex">\(s_2\)</span>, otherwise the string "NO".</p>
 <p>If <span class="arithmatex">\(s_1\)</span> and <span class="arithmatex">\(s_2\)</span> have a common non-empty substring, then they share at least
@@ -238,12 +238,13 @@ is Yes if and only if <span class="arithmatex">\(s_1\)</span> and <span class="a
 need to find one letter that is in both <span class="arithmatex">\(s_1\)</span> and <span class="arithmatex">\(s_2\)</span> to determine the answer
 is Yes, and if the strings have no letters in common, the answer is No. This
 is the condition we are trying to check:</p>
-<div class="arithmatex">\[\{c : c \in s_1\} \cap \{c : c \in s_2\} \neq \emptyset\]</div>
+<div class="arithmatex">\[ \{c : c \in s_1\} \cap \{c : c \in s_2\} \neq \emptyset \]</div>
 <p>There are a few ways to do this. You can make separate sets with the characters
 of <span class="arithmatex">\(s_1\)</span> and <span class="arithmatex">\(s_2\)</span> and calculate the intersection. You can make a set for <span class="arithmatex">\(s_1\)</span>
 and then check whether it contains any character of <span class="arithmatex">\(s_2\)</span>. You can also make a
 combined set for <span class="arithmatex">\(s_1\)</span> and <span class="arithmatex">\(s_2\)</span> and check for independence:</p>
-<div class="arithmatex">\[|\{c : c \in s_1\} \cup \{c : c \in s_2\}| = |\{c : c \in s_1\}| + |\{c : c \in s_2\}|\]</div>
+<div class="arithmatex">\[ |\{c : c \in s_1\} \cup \{c : c \in s_2\}| 
+ = |\{c : c \in s_1\}| + |\{c : c \in s_2\}| \]</div>
 <p>If the sets are independent, then the answer is No.</p>
 <p>Java 8:
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">twoStrings</span><span class="p">(</span><span class="n">String</span> <span class="n">s1</span><span class="p">,</span> <span class="n">String</span> <span class="n">s2</span><span class="p">)</span> <span class="p">{</span>
