@@ -3,6 +3,13 @@
 
 ### Interview Preparation Kit
 
+These are my solution write-ups for the
+[Interview Preparation Kit](https://www.hackerrank.com/interview/interview-preparation-kit)
+problems on HackerRank. In general, I assume you are familiar and comfortable
+with the syntax of the language you want to use, so I focus more on algorithm
+design. I provide example implementations of my solutions in Java, C++, and
+Python 3 that passed all test cases at the time of writing.
+
 | Name                                                                                     | Category                   | Difficulty |
 | :--------------------------------------------------------------------------------------- | :------------------------- | :--------- |
 | [Sales by Match](interviewprep/warmup/salesbymatch.md)                                   | Warm-up Challenges         | Easy       |
@@ -26,6 +33,7 @@
 | [Alternating Characters](interviewprep/stringmanipulation/alternatingcharacters.md)      | String Manipulation        | Easy       |
 | [Sherlock and the Valid String](interviewprep/stringmanipulation/sherlockvalidstring.md) | String Manipulation        | Medium     |
 | [Special String Again](interviewprep/stringmanipulation/specialstringagain.md)           | String Manipulation        | Medium     |
+| [Common Child](interviewprep/stringmanipulation/commonchild.md)                          | String Manipulation        | Medium     |
 | [Minimum Absolute Difference in an Array](interviewprep/greedyalgorithms/minabsdiff.md)  | Greedy Algorithms          | Easy       |
 | [Luck Balance](interviewprep/greedyalgorithms/luckbalance.md)                            | Greedy Algorithms          | Easy       |
 | [Tree: Height of a Binary Tree](interviewprep/trees/heightofbinarytree.md)               | Trees                      | Easy       |
