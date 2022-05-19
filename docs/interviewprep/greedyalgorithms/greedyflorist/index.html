@@ -250,14 +250,30 @@ it would only cost <span class="arithmatex">\(2c[i]\)</span> if the other custom
 <p>Here is the greedy strategy: the <span class="arithmatex">\(k\)</span> customers each buy the most expensive
 flower available, getting the <span class="arithmatex">\(k\)</span> most expensive flowers with multiplier 1.
 Then, they repeat, buying the next <span class="arithmatex">\(k\)</span> most expensive flowers with multiplier 2.
-They repeat until there are no more flowers left to buy. Think of the multiplier
-as adding penalties to the costs of flowers. The more a flower costs, the more
-of a penalty is added by each successive multiplier from 1 to 
-<span class="arithmatex">\(\left\lceil\frac{n}{k}\right\rceil\)</span>. A multiplier of 1 adds no penalty to any
-flowers, so we should "use" the multiplier of 1 on the <span class="arithmatex">\(k\)</span> most expensive
-flowers we can to avoid the large penalty of buying them later. We want to save
-the cheapest flowers for when we have to use the largest multipliers because
-that minimizes the extra cost these multipliers add to our total.</p>
+They repeat until there are no more flowers left to buy. Think of the multipler
+as the number of times the customer has to buy that flower. We want to buy the
+most expensive flowers as few times as possible, and we should save the cheapest
+flowers for when we have to buy many of them.</p>
+<p>Here's a quick exchange argument for why this is always optimal: suppose an
+optimal solution differs from ours, such that for some flower <span class="arithmatex">\(i\)</span> that we bought
+with multiplier <span class="arithmatex">\(k\)</span>, the optimal solution buys <span class="arithmatex">\(i\)</span> later with a higher
+multiplier <span class="arithmatex">\(\ell &gt; k\)</span>, and instead buys some other flower <span class="arithmatex">\(j\)</span> with multiplier
+<span class="arithmatex">\(k\)</span>. If our algorithm picked <span class="arithmatex">\(i\)</span> instead of <span class="arithmatex">\(j\)</span> to buy with multiplier <span class="arithmatex">\(k\)</span>, it
+must be the case that</p>
+<div class="arithmatex">\[
+    \begin{align*}
+    c[j] &amp; \leq c[i] \\
+    (\ell - k)c[j] &amp; \leq (\ell - k)c[i] \\
+    \ell c[j] - k c[j] &amp; \leq \ell c[i] - k c[i] \\
+    k c[i] + \ell c[j] &amp; \leq \ell c[i] + k c[j]
+    \end{align*}    
+\]</div>
+<p>using <span class="arithmatex">\(\ell - k &gt; 0\)</span>. Therefore, if you were to swap <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(j\)</span> in the optimal
+solution to purchase <span class="arithmatex">\(i\)</span> with multiplier <span class="arithmatex">\(k\)</span> (like our algorithm does) and <span class="arithmatex">\(j\)</span>
+with multiplier <span class="arithmatex">\(\ell\)</span>, it would not increase the total cost. You could
+continuously swap flowers like this for every point at which the optimal
+solution chooses differently from ours, and the cost would never increase.
+Therefore, our algorithm's solution must be an optimal solution.</p>
 <p>Java 8:
 <div class="highlight"><pre><span></span><code><span class="kd">static</span> <span class="kt">int</span> <span class="nf">getMinimumCost</span><span class="p">(</span><span class="kt">int</span> <span class="n">k</span><span class="p">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">c</span> <span class="o">=</span> <span class="n">Arrays</span><span class="p">.</span><span class="na">copyOf</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">c</span><span class="p">.</span><span class="na">length</span><span class="p">);</span>

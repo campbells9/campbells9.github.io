@@ -38,14 +38,33 @@ it would only cost $2c[i]$ if the other customer bought it instead.
 Here is the greedy strategy: the $k$ customers each buy the most expensive
 flower available, getting the $k$ most expensive flowers with multiplier 1.
 Then, they repeat, buying the next $k$ most expensive flowers with multiplier 2.
-They repeat until there are no more flowers left to buy. Think of the multiplier
-as adding penalties to the costs of flowers. The more a flower costs, the more
-of a penalty is added by each successive multiplier from 1 to 
-$\left\lceil\frac{n}{k}\right\rceil$. A multiplier of 1 adds no penalty to any
-flowers, so we should "use" the multiplier of 1 on the $k$ most expensive
-flowers we can to avoid the large penalty of buying them later. We want to save
-the cheapest flowers for when we have to use the largest multipliers because
-that minimizes the extra cost these multipliers add to our total.
+They repeat until there are no more flowers left to buy. Think of the multipler
+as the number of times the customer has to buy that flower. We want to buy the
+most expensive flowers as few times as possible, and we should save the cheapest
+flowers for when we have to buy many of them.
+
+Here's a quick exchange argument for why this is always optimal: suppose an
+optimal solution differs from ours, such that for some flower $i$ that we bought
+with multiplier $k$, the optimal solution buys $i$ later with a higher
+multiplier $\ell > k$, and instead buys some other flower $j$ with multiplier
+$k$. If our algorithm picked $i$ instead of $j$ to buy with multiplier $k$, it
+must be the case that
+
+\[
+    \begin{align*}
+    c[j] & \leq c[i] \\
+    (\ell - k)c[j] & \leq (\ell - k)c[i] \\
+    \ell c[j] - k c[j] & \leq \ell c[i] - k c[i] \\
+    k c[i] + \ell c[j] & \leq \ell c[i] + k c[j]
+    \end{align*}    
+\]
+
+using $\ell - k > 0$. Therefore, if you were to swap $i$ and $j$ in the optimal
+solution to purchase $i$ with multiplier $k$ (like our algorithm does) and $j$
+with multiplier $\ell$, it would not increase the total cost. You could
+continuously swap flowers like this for every point at which the optimal
+solution chooses differently from ours, and the cost would never increase.
+Therefore, our algorithm's solution must be an optimal solution.
 
 Java 8:
 ```java
