@@ -39,6 +39,7 @@ Python 3 that passed all test cases at the time of writing.
 | [Greedy Florist](interviewprep/greedyalgorithms/greedyflorist.md)                        | Greedy Algorithms          | Medium     |
 | [Max Min](interviewprep/greedyalgorithms/maxmin.md)                                      | Greedy Algorithms          | Medium     |
 | [Hash Tables: Ice Cream Parlor](interviewprep/search/icecreamparlor.md)                  | Search                     | Medium     |
+| [Swap Nodes [Algo]](interviewprep/search/swapnodes.md)                                   | Search                     | Medium     |
 | [Tree: Height of a Binary Tree](interviewprep/trees/heightofbinarytree.md)               | Trees                      | Easy       |
 | [Binary Search Tree: Lowest Common Ancestor](interviewprep/trees/lowestcommonancestor.md)| Trees                      | Easy       |
 | [Insert a Node at a Specific Position in a Linked List](interviewprep/linkedlists/isp.md)| Linked Lists               | Easy       |
