@@ -42,6 +42,7 @@ Python 3 that passed all test cases at the time of writing.
 | [Swap Nodes [Algo]](interviewprep/search/swapnodes.md)                                   | Search                     | Medium     |
 | [Pairs](interviewprep/search/pairs.md)                                                   | Search                     | Medium     |
 | [Triple Sum](interviewprep/search/triplesum.md)                                          | Search                     | Medium     |
+| [Minimum Time Required](interviewprep/search/minimumtimerequired.md)                     | Search                     | Medium     |
 | [Tree: Height of a Binary Tree](interviewprep/trees/heightofbinarytree.md)               | Trees                      | Easy       |
 | [Binary Search Tree: Lowest Common Ancestor](interviewprep/trees/lowestcommonancestor.md)| Trees                      | Easy       |
 | [Insert a Node at a Specific Position in a Linked List](interviewprep/linkedlists/isp.md)| Linked Lists               | Easy       |
