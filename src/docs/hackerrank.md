@@ -45,6 +45,7 @@ Python 3 that passed all test cases at the time of writing.
 | [Minimum Time Required](interviewprep/search/minimumtimerequired.md)                     | Search                     | Medium     |
 | [Max Array Sum](interviewprep/dynamicprogramming/maxarraysum.md)                         | Dynamic Programming        | Medium     |
 | [Abbreviation](interviewprep/dynamicprogramming/abbreviation.md)                         | Dynamic Programming        | Medium     |
+| [Candies](interviewprep/dynamicprogramming/candies.md)                                   | Dynamic Programming        | Medium     |
 | [Tree: Height of a Binary Tree](interviewprep/trees/heightofbinarytree.md)               | Trees                      | Easy       |
 | [Binary Search Tree: Lowest Common Ancestor](interviewprep/trees/lowestcommonancestor.md)| Trees                      | Easy       |
 | [Insert a Node at a Specific Position in a Linked List](interviewprep/linkedlists/isp.md)| Linked Lists               | Easy       |
