@@ -1,0 +1,391 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../../img/tenticon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.1.5">
+    
+    
+      
+        <title>Queues: A Tale of Two Stacks - Campbell's Homepage</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.bde7dde4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ef6f36e2.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#queues-a-tale-of-two-stacks" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Campbell&#39;s Homepage" class="md-header__button md-logo" aria-label="Campbell's Homepage" data-md-component="logo">
+      
+  <img src="../../../img/tenticon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Campbell's Homepage
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Queues: A Tale of Two Stacks
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Campbell&#39;s Homepage" class="md-nav__button md-logo" aria-label="Campbell's Homepage" data-md-component="logo">
+      
+  <img src="../../../img/tenticon.png" alt="logo">
+
+    </a>
+    Campbell's Homepage
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../hackerrank/" class="md-nav__link">
+        HackerRank
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="queues-a-tale-of-two-stacks">Queues: A Tale of Two Stacks</h1>
+<p><a href="https://www.hackerrank.com/challenges/ctci-queue-using-two-stacks/problem">Problem</a></p>
+<p>Category: Stacks and Queues</p>
+<p>Difficulty: Medium</p>
+<hr />
+<p>Implement a queue with two stacks.</p>
+<p>The elements of the queue are integers, and the queue has three operations:
+<code>enqueue</code>, <code>dequeue</code>, and <code>peek</code>. <code>enqueue(x)</code> adds an element
+<code>x</code> to the back of the queue. <code>dequeue</code> returns and removes the element
+at the front of the queue, and <code>peek</code> just returns it without removing it.
+The queue is a FIFO data structure, so the elements should be popped in the same
+order they were pushed in.</p>
+<p>The problem challenges you to implement a queue using two stacks, which are LIFO
+data structures. Popping from a stack gives the most recently pushed element,
+not the element that was pushed the earliest.</p>
+<p>It's important to observe that you can flip a stack, or change it so the bottom
+elements are now on top and vice versa, by emptying it into another stack
+(popping each element from one stack and pushing it onto the new one in order).
+This is useful because, for our queue, we might enqueue some elements and push
+them onto a stack, but then if we want to dequeue some elements, those will be
+on the bottom. We can reverse the stack by flipping it into a second stack, and
+now the <em>oldest</em> elements will be on top instead of the newest, and we can
+implement dequeue by popping from this stack. Then, if we wanted to enqueue more
+elements, we could flip the stack rightside-up again and push them on top of the
+newest elements.</p>
+<p>There's a key improvement we can make to this strategy, though. Think of the
+rightside-up stack as the enqueue stack and the upside-down stack as the dequeue
+stack. If we enqueue five elements (call them 1, 2, 3, 4, and 5), then we know
+that the next five calls to dequeue should remove 1, 2, 3, 4, and 5 in that
+order. Suppose we have our enqueue stack <code>[1, 2, 3, 4, 5]</code> with the
+rightmost element on top, and we receive a dequeue call. We fill the dequeue
+stack, <code>[5, 4, 3, 2, 1]</code>, and pop the 1 because it is the oldest element.
+Now, suppose we want to enqueue more elements. We don't need to move everything
+back into the enqueue stack to put the new elements on top of 5. We don't need
+to change anything about the dequeue stack because it is already in the state
+<code>[5, 4, 3, 2]</code>, and we know that no matter what, 2, 3, 4, and 5 are the next
+four elements to be dequeued. We can continue filling the enqueue stack and
+removing from the dequeue stack, until the dequeue stack eventually becomes
+empty and a dequeue is performed. Then, we can flip the enqueue stack into the
+dequeue stack and continue dequeueing. In all, every element starts in the
+enqueue stack, then moves to the dequeue stack at some point, and then finally
+gets dequeued and exits the data structure.</p>
+<p>Java 8:
+<div class="highlight"><pre><span></span><code><span class="kd">static</span> <span class="kd">class</span> <span class="nc">MyQueue</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="kd">private</span> <span class="n">Stack</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">enqStack</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="n">Stack</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">deqStack</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">MyQueue</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">enqStack</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stack</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="n">deqStack</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stack</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">enqueue</span><span class="p">(</span><span class="n">T</span> <span class="n">item</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">enqStack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="n">item</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="n">T</span> <span class="nf">dequeue</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">peek</span><span class="p">();</span>
+
+        <span class="k">return</span> <span class="n">deqStack</span><span class="p">.</span><span class="na">pop</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="n">T</span> <span class="nf">peek</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">deqStack</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span> <span class="p">{</span>
+            <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">enqStack</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span> <span class="p">{</span>
+                <span class="n">deqStack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="n">enqStack</span><span class="p">.</span><span class="na">pop</span><span class="p">());</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="n">deqStack</span><span class="p">.</span><span class="na">peek</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p>C++:
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">MyQueue</span> <span class="p">{</span>
+    <span class="k">public</span><span class="o">:</span>
+        <span class="n">stack</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">stack_newest_on_top</span><span class="p">,</span> <span class="n">stack_oldest_on_top</span><span class="p">;</span>
+
+        <span class="kt">void</span> <span class="nf">push</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">stack_newest_on_top</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="kt">void</span> <span class="nf">pop</span><span class="p">()</span> <span class="p">{</span>
+            <span class="n">front</span><span class="p">();</span>
+            <span class="n">stack_oldest_on_top</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+        <span class="p">}</span>
+
+        <span class="kt">int</span> <span class="nf">front</span><span class="p">()</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">stack_oldest_on_top</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+                <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">stack_newest_on_top</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+                    <span class="n">stack_oldest_on_top</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">stack_newest_on_top</span><span class="p">.</span><span class="n">top</span><span class="p">());</span>
+                    <span class="n">stack_newest_on_top</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+
+            <span class="k">return</span> <span class="n">stack_oldest_on_top</span><span class="p">.</span><span class="n">top</span><span class="p">();</span>
+        <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></p>
+<p>Python 3:
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">MyQueue</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">enq</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">deq</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">peek</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">deq</span><span class="p">:</span>
+            <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">enq</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">deq</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">enq</span><span class="o">.</span><span class="n">pop</span><span class="p">())</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">deq</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">peek</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">deq</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">put</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">enq</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</code></pre></div></p>
+<p><a href="../../../hackerrank/">Back</a></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
