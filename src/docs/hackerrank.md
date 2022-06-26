@@ -51,6 +51,7 @@ Python 3 that passed all test cases at the time of writing.
 | [Largest Rectangle](interviewprep/stacksandqueues/largestrectangle.md)                   | Stacks and Queues          | Medium     |
 | [Min Max Riddle](interviewprep/stacksandqueues/minmaxriddle.md)                          | Stacks and Queues          | Medium     |
 | [Castle on the Grid](interviewprep/stacksandqueues/castleonthegrid.md)                   | Stacks and Queues          | Medium     |
+| [Roads and Libraries](interviewprep/graphs/roadsandlibraries.md)                         | Graphs                     | Medium     |
 | [Tree: Height of a Binary Tree](interviewprep/trees/heightofbinarytree.md)               | Trees                      | Easy       |
 | [Binary Search Tree: Lowest Common Ancestor](interviewprep/trees/lowestcommonancestor.md)| Trees                      | Easy       |
 | [Insert a Node at a Specific Position in a Linked List](interviewprep/linkedlists/isp.md)| Linked Lists               | Easy       |
