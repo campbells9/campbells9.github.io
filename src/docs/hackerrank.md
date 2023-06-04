@@ -56,6 +56,7 @@ Python 3 that passed all test cases at the time of writing.
 | [Tree: Height of a Binary Tree](interviewprep/trees/heightofbinarytree.md)               | Trees                      | Easy       |
 | [Binary Search Tree: Lowest Common Ancestor](interviewprep/trees/lowestcommonancestor.md)| Trees                      | Easy       |
 | [Trees: Is This a Binary Search Tree?](interviewprep/trees/binarysearchtree.md)          | Trees                      | Medium     |
+| [Tree: Huffman Decoding](interviewprep/trees/huffmandecoding.md)                         | Trees                      | Medium     |
 | [Insert a Node at a Specific Position in a Linked List](interviewprep/linkedlists/isp.md)| Linked Lists               | Easy       |
 | [Inserting a Node into a Sorted Doubly Linked List](interviewprep/linkedlists/insndll.md)| Linked Lists               | Easy       |
 | [Reverse a Doubly Linked List](interviewprep/linkedlists/reversedoublylinkedlist.md)     | Linked Lists               | Easy       |
